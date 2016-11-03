@@ -40,10 +40,6 @@ const muiTheme = getMuiTheme({
     primary1Color: green500, 
     primary2Color: green500, 
     primary3Color: green500, 
-  },
-  appBar: {
-    
-    height: 80,
   }
 });
 
@@ -65,7 +61,7 @@ class App extends React.Component {
                 <div>
                     <AppBar title="Youth Financial Advice" iconElementRight={<SideButton/>} onLeftIconButtonTouchTap={()=> this.openDrawer()} />
 
-                    <div className='container-fixed'>
+                    <div className='container-fluid'>
                         <div className="jumbotron jumbotron-pad">
                             <h1>Welcome !</h1> 
                             <p>
@@ -114,7 +110,7 @@ class App extends React.Component {
 
                    
                    
-                    <Drawer docked={false} open={this.state.open} width={300} onRequestChange={(open) => this.setState({open})}>
+                    <Drawer docked={false} open={this.state.open} width={250} onRequestChange={(open) => this.setState({open})}>
                         <AppBar title="Menu" iconElementLeft={<div></div>} style={{"textAlign":"center"}} />
                         <img className='logo img-rounded' src='images/barnardos.jpg' />
                         <MenuItem primaryText='Home Page' leftIcon={<PersonAdd />}></MenuItem>
@@ -122,12 +118,6 @@ class App extends React.Component {
                         <MenuItem primaryText='Finance Calculator' leftIcon={<PersonAdd />}></MenuItem>
                         <MenuItem primaryText='Contact' leftIcon={<PersonAdd />}></MenuItem>
                         <MenuItem primaryText='F&Q' leftIcon={<PersonAdd />}></MenuItem>
-
-                         <div className="navbar navbar-default navbar-fixed-bottom footer">
-                            <div className="container">
-                                <p className="navbar-text pull-left">© 2016 - Site Built By William Taylor</p>
-                            </div>
-                        </div>
                     </Drawer>
                 </div>
             </MuiThemeProvider>
