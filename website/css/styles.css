@@ -1,0 +1,40 @@
+
+
+ html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.heading {
+    width:100%;
+    padding: 50px;
+    background: url('../images/town-hall.png');
+    height:500px;
+    background-size: cover;
+    box-shadow: 0px 2px 20px #888888;
+}
+
+.logo {
+    width: 100%;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    color: white;
+    text-shadow: 5px 5px 5px black;
+    background-color: rgba(238, 238, 238, 0);
+}
+
+.footer {
+    margin-top:50px;
+}
