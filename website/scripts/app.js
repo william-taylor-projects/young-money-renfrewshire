@@ -1,152 +1,103 @@
 
-import React from 'react';
+import ThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import HeaderBar from 'material-ui/AppBar';
+import ReactTap from 'react-tap-event-plugin';
 import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
-import Drawer from 'material-ui/Drawer';
-import AppBar from 'material-ui/AppBar';
-import MenuItem from 'material-ui/MenuItem';
-import PersonAdd from 'material-ui/svg-icons/social/person-add';
-import Divider from 'material-ui/Divider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {purple500, purple400, purple300} from 'material-ui/styles/colors';
-import TextField from 'material-ui/TextField';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import React from 'react';
 
+ReactTap();
+
+import SimpleDialog from './dialogs/message-dialog.js';
+import { bootstrapTheme } from './theme.js';
+import SideButton from './components/sidebutton.js';
 import Sidebar from './components/sidebar.js';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+import Calculator from './sections/calculator.js';
+import BankMap from './sections/map.js';
+import Page404 from './sections/404.js';
+import Home from './sections/home.js';
 
-const muiTheme = getMuiTheme({
-  palette: {
-    primary1Color: purple500, 
-    primary2Color: purple400, 
-    primary3Color: purple300, 
-  }
-});
-
-class SideButton extends React.Component {
-    render() {
-        return (
-            <IconMenu 
-                iconButtonElement={<IconButton><MoreVertIcon /></IconButton> }
-                targetOrigin={{horizontal: 'right', vertical: 'top'}}
-                anchorOrigin={{horizontal: 'right', vertical: 'top'}}>
-                <MenuItem primaryText="Renfewshire Council" />
-                <MenuItem primaryText="Barnardos" />
-                <MenuItem primaryText="Help" />
-                <MenuItem primaryText="Admin" />
-            </IconMenu>
-        );
-    }
-}
+const applicationTitle = "YMR - Young Money Renfrewshire";
+const customTheme = bootstrapTheme();
 
 class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            open: false,
+            title: '',
+            message: '',
+            component: <Home />
+        };
+    }
+    
     openSidebar() {
         this.refs.sidebar.open();
     }
 
+    change(name) {
+        this.refs.sidebar.close();
+
+        if(name == 'contact') {
+            this.setState({
+                open: true,
+                title: 'Contact Us?',
+                message: 'Contact information will be release shortly'
+            });
+        } else if(name == 'f&q') {
+             this.setState({
+                open: true,
+                title: 'F&Q',
+                message: 'Please email us to have any questions answered'
+            });
+        } else {
+            this.switchPage(name);
+        }
+    }
+
+    switchPage(name) {
+        switch(name) {
+            case 'home': 
+                this.setState({ component: <Home /> });
+                break;
+            case 'calculator':
+                this.setState({ component: <Calculator /> });
+                break;
+            case 'map':
+                this.setState({ component: <BankMap /> });
+                break;
+            default: 
+                this.setState({ component: <Page404 /> });
+                break;
+        }
+    }
+
     render() {
+        const dialogProps = {
+            onClose: () => this.setState({open: false}),
+            message: this.state.message,
+            title : this.state.title,
+            open: this.state.open,
+            ref: 'dialog'
+        };
+
+        const headerProps = {
+            title: applicationTitle,
+            iconElementRight: <SideButton/>,
+            onLeftIconButtonTouchTap: () => this.openSidebar()
+        };
+
         return (
-            <MuiThemeProvider muiTheme={muiTheme}>
+            <ThemeProvider muiTheme={customTheme}>
                 <div>
-                    <AppBar title="YMR - Young Money Renfrewshire" iconElementRight={<SideButton/>} onLeftIconButtonTouchTap={()=> this.openSidebar()} />
-
-                    <div className='heading text-center'>
-                        <div className="container">
-                            <div className="jumbotron">
-                                <h1>Young Money Renfrewshire</h1>
-                                <p>Jumbo dummy text</p>
-                            </div>    
-                        </div>
-                    </div>
-
-                    <div className='container-fluid'>
-                        <div className='row'>
-                            <div className='col-md-12'>
-                                <h1>What is YMR?</h1>
-                                <p>
-                                    YMR or Young Money Renfewshire is an application for under 25s who
-                                    can help with your financial problems. We can help with budgeting, 
-                                    where to find deals and where to find the best advice.
-                                    The application was built in collaboration with the Poverty Alliance,
-                                    Barnardos staff and Renfewshire Council.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className='row'>
-                            <div className='col-xs-4 text-center'>
-                                <img className='img-responsive img-center' src='http://www.scdc.org.uk/media/resources/images/news/PovertyAllianceLogo.gif' />
-                            </div>
-                            <div className='col-xs-4 text-center'>
-                                <img className='img-responsive img-center' src="https://upload.wikimedia.org/wikipedia/en/6/69/Barnardo's_logo.png" />
-                            </div>
-                            <div className='col-xs-4'>
-                                <img className='img-responsive img-center' src='https://www.myjobscotland.gov.uk/sites/default/files/styles/medium/public/organisations/Refrewshire_0.png?itok=iMO5CvRG' />
-                            </div>
-                        </div>
-                    </div>
-
-                    <Sidebar ref='sidebar' />
+                    <HeaderBar {...headerProps}/>
+                    <SimpleDialog {...dialogProps} />
+                    {this.state.component}
+                    <Sidebar ref='sidebar' onChange={name => this.change(name)} />
                 </div>
-            </MuiThemeProvider>
+            </ThemeProvider>
         );
     }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
-/*
- <div className='container-fluid'>
-                        <div className="jumbotron jumbotron-pad">
-                            <h1>Welcome !</h1> 
-                            <p>
-                                Here you can find all the help you need to manage your finances like an adult.
-                            </p> 
-                        </div>
-                    </div>
-
-                    <div className='container-fluid'>
-                        <div className="row">
-                            <div className="col-md-4">
-                            <div className="thumbnail text-center">
-                                <img src="images/store.jpg" className='img-rounded' />
-                                <h3><b>From Your Local Charity!</b></h3><hr/>
-                                <p>
-                                    Get expert advice from a charity you know and trust. 
-                                    We will help you manage your finances and allow you to
-                                    make the most of your money.
-                                </p>
-                            </div>
-                            </div>
-                            <div className="col-md-4">
-                                <div className="thumbnail text-center">
-                                    <img src="images/bank.jpg" className='img-rounded' />
-                                    <h3><b>Find Local Banks!</b></h3><hr/>
-                                    <p>
-                                        We have travelled Renfewshire and found every useful
-                                        building, bank or organisation that we know can help you.
-                                        Use the Finder to find local services near you!
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="col-md-4">
-                                <div className="thumbnail text-center">
-                                    <img src="images/map.png" className='img-rounded' />
-                                    <h3><b>Be The Accountant!</b></h3><hr/>
-                                    <p>
-                                        Want to budget for the future? Use our finance Calculator.
-                                        It will help you budget for the coming months and make sure 
-                                        you save those penny's.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-*/
