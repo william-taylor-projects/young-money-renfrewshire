@@ -51,17 +51,17 @@ export default class Sidebar extends React.Component {
                 <AppBar title="Menu" iconElementLeft={<div></div>} style={{"textAlign":"center"}} />
                 <List>
                     <Subheader>Pages</Subheader>
-                    <ListItem onClick={() => this.change('home')} primaryText="Home" leftIcon={<HomeIcon />} />
-                    <ListItem onClick={() => this.change('info')} primaryText="Information" leftIcon={<InfoIcon />} />
-                    <ListItem onClick={() => this.change('new')} primaryText="Whats New?" leftIcon={<NewIcon />} />
-                    <ListItem onClick={() => this.change('deals')} primaryText="Good Deals" leftIcon={<ShopIcon />} />
-                    <ListItem onClick={() => this.change('tips')} primaryText="Top Tips" leftIcon={<TopIcon />} />
+                    <ListItem href='/' onClick={() => this.change('home')} primaryText="Home" leftIcon={<HomeIcon />} />
+                    <ListItem href='/info' onClick={() => this.change('info')} primaryText="Information" leftIcon={<InfoIcon />} />
+                    <ListItem href='/new' onClick={() => this.change('new')} primaryText="Whats New?" leftIcon={<NewIcon />} />
+                    <ListItem href='/deals' onClick={() => this.change('deals')} primaryText="Good Deals" leftIcon={<ShopIcon />} />
+                    <ListItem href='/tips' onClick={() => this.change('tips')} primaryText="Top Tips" leftIcon={<TopIcon />} />
                 </List>
                 <Divider />
                 <List>
                     <Subheader>Tools</Subheader>
-                    <ListItem onClick={() => this.change('calculator')} primaryText="Finance Calculator" leftIcon={<MathIcon />} />
-                    <ListItem onClick={() => this.change('map')} primaryText="Bank Map" leftIcon={<MapIcon />} />
+                    <ListItem href='/calculator' onClick={() => this.change('calculator')} primaryText="Finance Calculator" leftIcon={<MathIcon />} />
+                    <ListItem href='/map' onClick={() => this.change('map')} primaryText="Bank Map" leftIcon={<MapIcon />} />
                 </List>
                 <Divider />
                 <List>

@@ -9,7 +9,7 @@ export default class Page404 extends React.Component {
                 <div className='heading-404 text-center'>
                     <div className="jumbotron">
                         <h1>Sorry 404 Not Found :'(</h1>
-                        <p>This website is still under developement and this page is yet to be constructed.</p>
+                        <p>You are looking for a page that doesnt exist...</p>
                     </div>
                 </div>
             </div>
