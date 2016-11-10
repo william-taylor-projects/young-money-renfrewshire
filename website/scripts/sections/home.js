@@ -1,8 +1,9 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
-export default class Home extends React.Component {
+class Home extends React.Component {
     render() {
         return (
             <div>
@@ -32,13 +33,13 @@ export default class Home extends React.Component {
 
                     <div className='row'>
                         <div className='col-xs-4 text-center'>
-                            <img className='img-responsive img-center' src='http://www.scdc.org.uk/media/resources/images/news/PovertyAllianceLogo.gif' />
+                            <img className='img-responsive img-center' src='images/poverty-alliance-logo.gif' />
                         </div>
                         <div className='col-xs-4 text-center'>
-                            <img className='img-responsive img-center' src="https://upload.wikimedia.org/wikipedia/en/6/69/Barnardo's_logo.png" />
+                            <img className='img-responsive img-center' src="images/barnardos-logo.png" />
                         </div>
                         <div className='col-xs-4'>
-                            <img className='img-responsive img-center' src='https://www.myjobscotland.gov.uk/sites/default/files/styles/medium/public/organisations/Refrewshire_0.png?itok=iMO5CvRG' />
+                            <img className='img-responsive img-center' src='images/renfrewshire-council.png' />
                         </div>
                     </div>
                 </div>
@@ -46,3 +47,6 @@ export default class Home extends React.Component {
         );
     }
 }
+
+// Dont do this in future but its okay for now.
+export default connect(state => state)(Home)

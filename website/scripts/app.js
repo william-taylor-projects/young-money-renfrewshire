@@ -3,7 +3,7 @@ import ThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import HeaderBar from 'material-ui/AppBar';
 
 import { Router, Route, Link, browserHistory } from 'react-router'
-import { connect } from 'react-redux'
+import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
 import ReactTap from 'react-tap-event-plugin';
@@ -11,6 +11,26 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 
 ReactTap();
+
+function action() {
+    return {
+        type: 'TYPE',
+        msg: 'Here we go!'
+    };
+}
+
+function reducer(state, action) {
+    if(action.type == 'TYPE') {
+        return Object.assign({}, { MSG: action.msg });
+    }
+    
+    return state || {};;
+}
+
+let store = createStore(reducer);
+let unsubscribe = store.subscribe(() => console.log(store.getState()));
+
+store.dispatch(action());
 
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/editor/vertical-align-top';
@@ -89,24 +109,27 @@ class App extends React.Component {
 
         return (
             <ThemeProvider muiTheme={customTheme}>
-                <div>
-                    <HeaderBar {...headerProps}/>
-                    <SimpleDialog {...dialogProps} />
-                    <Router history={browserHistory}>
-                        <Route path="/" component={Home} />
-                        <Route path="/info" component={Information} />
-                        <Route path="/new" component={WhatsNew} />
-                        <Route path="/deals" component={GoodDeals} />
-                        <Route path="/tips" component={TopTips} />
-                        <Route path="/calculator" component={Calculator} />
-                        <Route path="/map" component={BankMap} />
-                        <Route path="*" component={Page404}/>
-                    </Router>
-                    <FloatingActionButton onClick={() => scrollToTop(750)} style={style}>
-                        <ContentAdd />
-                    </FloatingActionButton>
-                    <Sidebar ref='sidebar' onChange={name => this.change(name)} />
-                </div>
+                <Provider store={store}>
+                    <div>
+                        <HeaderBar {...headerProps}/>
+                        <SimpleDialog {...dialogProps} />
+                        <Sidebar ref='sidebar' onChange={name => this.change(name)} />
+                        <Router history={browserHistory}>
+                            <Route path="" component={Home} />
+                            <Route path="/" component={Home} />
+                            <Route path="/info" component={Information} />
+                            <Route path="/new" component={WhatsNew} />
+                            <Route path="/deals" component={GoodDeals} />
+                            <Route path="/tips" component={TopTips} />
+                            <Route path="/calculator" component={Calculator} />
+                            <Route path="/map" component={BankMap} />
+                            <Route path="*" component={Page404}/>
+                        </Router>
+                        <FloatingActionButton onClick={() => scrollToTop(750)} style={style}>
+                            <ContentAdd />
+                        </FloatingActionButton>
+                    </div>
+                </Provider>
             </ThemeProvider>
         );
     }
