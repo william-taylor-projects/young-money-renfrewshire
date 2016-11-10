@@ -6,7 +6,7 @@ const settings = {
   width: 1280,
   height: 800,
   resizable: false,
-  icon: `${__dirname}/images/council.png`,
+  icon: `${__dirname}/images/renfrewshire-council.png`,
   webPreferences: {
     webSecurity: false
   }

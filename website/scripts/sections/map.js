@@ -8,8 +8,6 @@ import { mapTheme } from '../theme.js';
 
 export default class BankMap extends React.Component {
     componentDidMount() {
-        console.log('HelloWorld');
-
         this.map = new google.maps.Map(this.refs.map, {
             center:{ lat: 55.8473, lng: -4.4401 },
             zoom: 8,

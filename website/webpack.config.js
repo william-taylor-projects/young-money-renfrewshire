@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-var prod = false;
+var prod = true;
 
 module.exports = {
   context: __dirname,
