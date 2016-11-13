@@ -167,7 +167,7 @@ export default class BankMap extends React.Component {
         <div className='container down'>
           <div className="row">
             <div className='col-md-12'>
-              <h1>Financial Services Near You</h1><hr/>
+              <h1>Financial Services</h1><hr/>
             </div>
             <div className='col-md-8'>
             <AutoComplete
