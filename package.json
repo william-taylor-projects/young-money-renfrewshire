@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Quick mockup of my idea for a charity",
-  "main": "server.js",
+  "main": "electron-entry.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
