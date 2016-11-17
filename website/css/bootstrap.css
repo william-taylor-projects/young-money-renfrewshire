@@ -1523,7 +1523,7 @@ blockquote.pull-right .small:after {
   content: '\00A0 \2014';
 }
 address {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-style: normal;
   line-height: 1.42857143;
 }

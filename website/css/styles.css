@@ -1,6 +1,7 @@
 
 
  html, body {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
     margin: 0px;
     padding: 0px;
     margin-bottom:50px;
@@ -32,7 +33,7 @@
 
 #map {
     margin-top:10px;
-    height: 500px;
+    height: 600px;
 }
 
 .calculator-heading {
@@ -60,10 +61,6 @@
     .elevate {
         margin-top:0px;
     }
-}
-
-::-webkit-scrollbar {
-    display: none;
 }
 
 .heading-404 {

@@ -61,13 +61,13 @@ class App extends React.Component {
             this.setState({
                 open: true,
                 title: 'Contact Us?',
-                message: 'Contact information will be release shortly'
+                message: 'Contact information will be released shortly.'
             });
         } else if(name == 'f&q') {
              this.setState({
                 open: true,
                 title: 'F&Q',
-                message: 'Please email us to have any questions answered'
+                message: 'Please email us to have any questions answered.'
             });
         } else {
             browserHistory.push('/'+name);

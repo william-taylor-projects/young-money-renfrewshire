@@ -14,7 +14,6 @@ export default class SideButton extends React.Component {
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
                 anchorOrigin={{horizontal: 'right', vertical: 'top'}}>
                 <MenuItem onTouchTap={() => open('http://www.renfrewshire.gov.uk/')} primaryText="Renfewshire Council" />
-                <MenuItem onTouchTap={() => open('http://www.povertyalliance.org/')} primaryText="Poverty Alliance" />
                 <MenuItem onTouchTap={() => open('https://www.barnardos.org.uk/')} primaryText="Barnardos" />
             </IconMenu>
         );

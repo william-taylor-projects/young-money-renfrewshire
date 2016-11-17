@@ -32,13 +32,13 @@ class Home extends React.Component {
                     </div>
 
                     <div className='row'>
-                        <div className='col-xs-4 text-center'>
-                            <img className='img-responsive img-center' src='images/poverty-alliance-logo.gif' />
+                        <div className='col-md-4 text-center'>
+                            <img className='img-responsive img-center' src='images/ymca.jpg' />
                         </div>
-                        <div className='col-xs-4 text-center'>
+                        <div className='col-md-4 text-center down'>
                             <img className='img-responsive img-center' src="images/barnardos-logo.png" />
                         </div>
-                        <div className='col-xs-4'>
+                        <div className='col-md-4 text-center down'>
                             <img className='img-responsive img-center' src='images/renfrewshire-council.png' />
                         </div>
                     </div>
