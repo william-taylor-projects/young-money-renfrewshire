@@ -13,90 +13,7 @@ import Avatar from 'material-ui/Avatar';
 import DoneIcon from 'material-ui/svg-icons/action/done';
 import TextField from 'material-ui/TextField';
 import Snackbar from 'material-ui/Snackbar';
-
-const parseTemplate = (name, body) => {
-  let content = `
-    <div id="content">
-       <div id="siteNotice">
-       </div>
-       <h1 id="firstHeading" class="firstHeading">#TITLE#</h1>
-       <div id="bodyContent">
-        <p>#BODY#</p>
-       </div>
-    </div>
-  `;
-
-  content = content.replace('#TITLE#', name);
-  content = content.replace('#BODY#', body);
-  return content;
-}
-
-const rawMarkers = [
-  {
-    name: 'Renfrewshire Credit Union',
-    body: 'Renfrewshire Wide Credit Union was established in 2006 as a merger of 3 smaller credit unions in Erskine, Renfrew and Linwood which has served the local community for over 30 years.',
-    type: 'CU',
-    position: { lat: 55.854066, lng: -4.426954 },
-    comments: [],
-    address: '41 High St, Paisley.',
-    link: 'http://www.rwcu.co.uk/'
-  },
-  {
-    name: 'Bank of Scotland',
-    body: 'Bank of Scotland was founded in 1695, by an Act of the Scottish Parliament - making it Scotland\'s first and oldest bank. It has enjoyed a long and prestigious history, acquiring many constituent companies along the way.',
-    type: 'NB',
-    position: { lat: 55.845309, lng: -4.423991 },
-    comments: [],
-    address: '41 High St, Paisley.',
-    link: 'http://www.rwcu.co.uk/'
-  },
-  {
-    name: 'TSB Bank',
-    body: 'We provide local banking for Britain to help local people, businesses and communities to thrive together.',
-    type: 'NB',
-    position: { lat: 55.845309, lng: -4.42597 },
-    comments: [],
-    address: '41 High St, Paisley.',
-    link: 'http://www.rwcu.co.uk/'
-  },
-  {
-    name: 'Santander',
-    body: 'We are Santander Bank, one of the country\'s top retail banks by deposits and a wholly owned subsidiary of one of the most respected banks in the world: Banco Santander. Our parent company, Santander Group, serves more than 100 million customers in the United Kingdom, Latin America, and Europe. Here in the Northeast, we are a team of 9,800 individuals all committed to a single mission: to help you make progress toward your goals. We aim to make your banking hassle-free by providing simple ways for you to spend, save and manage your money.',
-    type: 'NB',
-    position: { lat: 55.84521, lng: -4.424748 },
-    comments: [],
-    address: '41 High St, Paisley.',
-    link: 'http://www.rwcu.co.uk/'
-  },
-  {
-    name: 'Financial Advisor',
-    body: 'Financial Advisor Bureau is the free service that connects you with an Independent Financial Advisor (IFA) in your area for a free consultation. All IFA\'s on our panel are registered and regulated by the Financial Conduct Authority, the regulatory body for the financial services industry in the UK.',
-    type: 'FA',
-    position: { lat: 55.841092, lng: -4.42411 },
-    comments: [],
-    address: '41 High St, Paisley.',
-    link: 'http://www.rwcu.co.uk/'
-  },
-  {
-    name: 'Financial Planning Options',
-    body: 'As professional Independent Financial Advisers, Financial Planning Options Limited are authorised to deal with many forms of financial services, and specialise in giving advice to clients on a wide range of subjects to assist with personal and corporate financial planning. We listen to your needs, and offer clear, no-jargon advice on the most appropriate financial products for your personal circumstances.',
-    type: 'FA',
-    position: { lat: 55.841092, lng: -4.416362 },
-    comments: [],
-    address: '41 High St, Paisley.',
-    link: 'http://www.rwcu.co.uk/'
-  },
-  {
-    name: 'Royal Bank of Scotland',
-    body: 'At RBS, our purpose is to serve customers well. We serve around 24 million customers across the globe, and our aim is to consistently meet their needs wherever they find us.',
-    type: 'NB',
-    position: { lat: 55.847842, lng: -4.42409 },
-    comments: [],
-    address: '41 High St, Paisley.',
-    link: 'http://www.rwcu.co.uk/'
-  }
-];
-
+import { connect } from 'react-redux';
 
 class CommentDialog extends React.Component {
   constructor() {
@@ -204,7 +121,10 @@ class BankMapDialog extends React.Component {
             <a style={{marginTop: -5}} href={marker.link} target='_blank'>Website Link</a>
             <List>
             {
-              recentComments.map(comment => <ListItem size={20} leftAvatar={<DoneIcon style={{marginTop: 6}} />}>{comment.comment}</ListItem>)
+              recentComments.map((comment, index) => 
+                <ListItem key={index} size={20} leftAvatar={<DoneIcon style={{marginTop: 6}} />}>
+                  {comment.comment}
+                </ListItem>)
             }
             </List>
         </Dialog>
@@ -213,29 +133,33 @@ class BankMapDialog extends React.Component {
   }
 }
 
-export default class BankMap extends React.Component {
+class BankMap extends React.Component {
   constructor() {
     super();
     this.state = { type: 0, input: '' };
-    this.sources = rawMarkers.map(marker => {
-      return marker.name;
-    });
+    this.sources = []; 
   }
 
   componentDidMount() {
     this.markers = [];
     this.map = new google.maps.Map(this.refs.map, {
       center:{ lat: 55.843686, lng: -4.424485 },
-      zoom: 14,
       styles: mapTheme,
       disableDefaultUI: true,
       navigationControl: false,
       mapTypeControl: false,
       scaleControl: false,
-      draggable: true
+      draggable: true,
+      zoom: 14,
     });
 
     this.attachMarkers(this.map, 'ANY', '');
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    this.sources = nextProps.banks.markers.map(marker => {
+      return marker.name;
+    });
   }
 
   shouldAddMarker(marker, filter, name) {
@@ -245,7 +169,7 @@ export default class BankMap extends React.Component {
   }
 
   attachMarkers(map, filter, name) {
-    rawMarkers.forEach(marker => {
+    this.props.banks.markers.forEach(marker => {
       if(this.shouldAddMarker(marker, filter, name)) {
         const mapMarker = new google.maps.Marker({
           icon: 'images/purple-marker.png',
@@ -258,7 +182,7 @@ export default class BankMap extends React.Component {
 
         mapMarker.addListener('click', () => this.refs.dialog.open(marker));
       }
-    })
+    });
   }
 
   clearMarkers() {
@@ -340,3 +264,7 @@ export default class BankMap extends React.Component {
     );
   }
 }
+
+
+// Dont do this in future but its okay for now.
+export default connect(state => state)(BankMap)

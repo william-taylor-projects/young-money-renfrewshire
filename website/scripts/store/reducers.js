@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 
 function messages(state = {}, action) {
     if(action.type == 'TYPE') {
-        return Object.assign({}, { MSG: action.msg });
+        return Object.assign(state, { MSG: action.msg });
     }
     
     return state;
@@ -14,6 +14,10 @@ function finance(state = {}, action) {
 }
 
 function banks(state = {}, action) {
+      if(action.type == 'MAP_MARKERS') {
+        return Object.assign(state, { markers: action.markers });
+    }
+
     return state;
 }
 

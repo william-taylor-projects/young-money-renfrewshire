@@ -16,7 +16,7 @@ const updateData = [
 
 const Update = props => {
     return (
-        <Card>
+        <Card initiallyExpanded={props.index == 0}>
             <CardHeader
             title={props.update.title}
             subtitle={moment(props.update.date).format('DD/MM/YYYY')}
@@ -40,7 +40,7 @@ export default class WhatsNew extends React.Component {
                     <div className='col-md-12'>
                         {
                             updateData.map((update, index) => {
-                                return <div key={index}><Update update={update} /><br/></div>;
+                                return <div key={index}><Update index={index} update={update} /><br/></div>;
                             })
                         }
                     </div>
