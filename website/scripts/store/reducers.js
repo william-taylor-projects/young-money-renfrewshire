@@ -1,15 +1,24 @@
 
 import { combineReducers } from 'redux';
 
-function messages(state = {}, action) {
-    if(action.type == 'TYPE') {
-        return Object.assign(state, { MSG: action.msg });
-    }
-    
-    return state;
-}
+function calculator(state = {}, action) {
+    if(action.type == 'UPDATE') {
+        const section = action.section;
+        const value = action.value;
+        const name = action.name;
 
-function finance(state = {}, action) {
+        const newState = Object.assign({}, state);
+        newState[section][name] = action.value;
+        return newState;
+    }
+
+    if(action.type == 'DEFAULTS') {
+        const newState = Object.assign({}, state);
+        newState.income = {};
+        newState.expenses = {};
+        return newState;
+    }
+
     return state;
 }
 
@@ -21,18 +30,7 @@ function banks(state = {}, action) {
     return state;
 }
 
-function deals(state = {}, action) {
-    return state;
-}
-
-function tips(state = {}, action) {
-    return state;
-}
-
 export let reducers = combineReducers({
-    messages,
-    finance,
-    banks,
-    deals,
-    tips
+    calculator,
+    banks
 });

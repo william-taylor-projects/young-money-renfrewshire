@@ -42,6 +42,25 @@ export default class Information extends React.Component {
                         </p>
                     </div>
                 </div>
+                <div className="page-header down">
+                    <h1>Videos</h1>
+                </div>
+                <div className='row'>
+                    <div className='col-md-12'>    
+                        <div className='col-md-6'>
+                            <video width="100%" height="100%" controls>
+                                <source src="../videos/video1.mp4" type="video/mp4" />
+                                Sorry videos are not supported in your browser 
+                            </video>
+                        </div>
+                        <div className='col-md-6'>
+                            <video width="100%" height="100%" controls>
+                                <source src="../videos/video2.mp4" type="video/mp4" />
+                                Sorry videos are not supported in your browser 
+                            </video>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

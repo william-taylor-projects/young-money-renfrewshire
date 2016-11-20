@@ -16,55 +16,83 @@ import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import numeral from 'numeral';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import { connect } from 'react-redux';
 
-// Income cards
-import BenefitCard from '../components/cards/pay/benefit-card.js';
-import OtherCard from '../components/cards/pay/other-income.js';
-import PayCard from '../components/cards/pay/pay-card.js';
+import { HouseBills, Leisure, LivingCosts, Finance, Family } from '../components/expenses.js';
+import Income from '../components/income.js';
 
-// Household cards
-import RentCard from '../components/cards/house/rent.js';
-import HouseInsurance from '../components/cards/house/insurance.js';
-import HouseUtilities from '../components/cards/house/utilities.js';
 
-// Living cost cards
-import ClothesCard from '../components/cards/living-costs/clothes.js';
-import HealthCard from '../components/cards/living-costs/health.js';
-import FoodCard from '../components/cards/living-costs/food.js';
-import WorkCard from '../components/cards/living-costs/work.js';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'Recharts';
+const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300},
+                  {name: 'Group C', value: 300}, {name: 'Group D', value: 200}];
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
-// Leisure costs
-import CarCosts from '../components/cards/leisure/car.js';
-import EntertainmentCosts from '../components/cards/leisure/entertainment.js';
-import HolidaysCost from '../components/cards/leisure/holidays.js';
-import OneOffsCosts from '../components/cards/leisure/one-offs.js';
-import TransportCosts from '../components/cards/leisure/transport.js';
+const RADIAN = Math.PI / 180;                    
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+ 	const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x  = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy  + radius * Math.sin(-midAngle * RADIAN);
+ 
+  return (
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} 	dominantBaseline="central">
+    	{`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
 
-// Family
-import ChildrenCard from '../components/cards/family/children.js';
-import SchoolCard from '../components/cards/family/school.js';
-import PetsCard from '../components/cards/family/pets.js';
+const SimplePieChart = React.createClass({
+	render () {
+  	    return (
+          <ResponsiveContainer>
+            <PieChart onMouseEnter={this.onPieEnter}>
+            <Pie data={data}  labelLine={false} label={renderCustomizedLabel} outerRadius={80} fill="#8884d8">
+            {
+                data.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
+            }
+            </Pie>
+        </PieChart>
+        </ResponsiveContainer>
+    );
+  }
+})
 
-// Finance cards
-import BankingCard from '../components/cards/finance/banking.js';
-import InsuranceCard from '../components/cards/finance/insurance.js';
-import LoansCard from '../components/cards/finance/loans.js';
-import Savings from '../components/cards/finance/savings.js';
-
-export default class Calculator extends React.Component {
+class Calculator extends React.Component {
     constructor() {
         super();
         this.state = {
-            totalCosts: 100,
-            totalIncome: 100,
+            totalCosts: 0,
+            totalIncome: 0,
             largestIncome: 'Wage',
-            largestCost: 'Rsent'
+            largestCost: 'Rent'
         }
     }
+
+    componentDidMount() {
+        this.onChange();
+    }
+
+    onChange() {
+        let expensesTotal = 0.0;  
+        let incomeTotal = 0.0;
+
+        const incomeMap = this.props.calculator.income;
+        const expensesMap = this.props.calculator.expenses;
+        
+        for(let key in incomeMap) {
+            incomeTotal += numeral().unformat(incomeMap[key]);
+        }
+
+        for(let key in expensesMap) {
+            expensesTotal += numeral().unformat(expensesMap[key]);
+        }
+
+        this.setState({ totalIncome: incomeTotal, totalCosts: expensesTotal });
+    }
+
     render() {
         const { totalCosts, totalIncome, largestIncome, largestCost} = this.state;
         const netIncome = totalIncome - totalCosts;
-        const rating = 175.74
+        const rating = totalIncome * totalCosts;
 
         return (
             <div>
@@ -79,67 +107,33 @@ export default class Calculator extends React.Component {
                   <Tabs>
                      <Tab icon={<IncomeIcon />}>
                        <div className='container'>
-                            <div className='page-header'>
-                                <h1>Income</h1>
-                            </div>
-                            <PayCard /><br/>
-                            <BenefitCard /><br/>
-                            <OtherCard /><br/>
+                         <Income onChange={() => this.onChange()} />
                        </div>
                      </Tab>
                      <Tab icon={<HouseIcon />}>
                        <div className='container'>
-                         <div className='page-header'>
-                            <h1>House Bills</h1>
-                         </div>
-                         <RentCard /><br/>
-                         <HouseInsurance /><br/>
-                         <HouseUtilities /><br/>
+                         <HouseBills onChange={() => this.onChange()} />
                        </div>
                      </Tab>
                      <Tab icon={<FoodIcon />}>
                        <div className='container'>
-                         <div className='page-header'>
-                          <h1>Living Costs</h1>
-                         </div>
-                         <ClothesCard /><br/>
-                         <HealthCard /><br/>
-                         <FoodCard /><br/>
-                         <WorkCard /><br/>
+                         <LivingCosts onChange={() => this.onChange()} />
                        </div>
                      </Tab>
                      <Tab icon={<InsuranceIcon />}>
                        <div className='container'>
-                         <div className='page-header'>
-                          <h1>Finance</h1>
-                         </div>
-                         <BankingCard/><br/>
-                         <InsuranceCard/><br/>
-                         <LoansCard/><br/>
-                         <Savings/><br/>
+                         <Finance onChange={() => this.onChange()} />
                         </div>
                      </Tab>
                      <Tab icon={<SocialIcon />}>
                        <div className='container'>
-                         <div className='page-header'>
-                          <h1>Family &amp; Friends</h1>
-                         </div>
-                         <ChildrenCard /><br/>
-                         <SchoolCard /><br/>
-                         <PetsCard /><br/>
+                         <Family onChange={() => this.onChange()} />
                         </div>
                      </Tab>
                      <Tab icon={<LeisureIcon />}>
                        <div className='container'>
-                         <div className='page-header'>
-                          <h1>Leisure</h1>
-                         </div>
-                         <CarCosts /><br/>
-                         <EntertainmentCosts /><br/>
-                         <HolidaysCost /><br/>
-                         <OneOffsCosts/><br/>
-                         <TransportCosts /><br/>
-                        </div>
+                         <Leisure onChange={() => this.onChange()} />
+                       </div>
                      </Tab>
                      <Tab icon={<InsertChart />}>
                        <div className='container'>
@@ -152,35 +146,41 @@ export default class Calculator extends React.Component {
                                 <TableBody displayRowCheckbox={false}>
                                 <TableRow>
                                     <TableRowColumn>Total Costs</TableRowColumn>
-                                    <TableRowColumn>£{numeral(totalCosts).format('0,0.00')}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(totalCosts).format('0,0.00')}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Total Income</TableRowColumn>
-                                    <TableRowColumn>£{numeral(totalIncome).format('0,0.00')}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(totalIncome).format('0,0.00')}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Net Income</TableRowColumn>
-                                    <TableRowColumn>£{numeral(netIncome).format('0,0.00')}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(netIncome).format('0,0.00')}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Largest Cost</TableRowColumn>
-                                    <TableRowColumn>{largestCost}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>{largestCost}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Largest Income</TableRowColumn>
-                                    <TableRowColumn>{largestIncome}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>{largestIncome}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Finance Rating</TableRowColumn>
-                                    <TableRowColumn>{rating}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>{rating}</TableRowColumn>
                                 </TableRow>
                                 </TableBody>
                             </Table>
                            </div>
+                           <div className='col-md-6 pie-container text-center'>
+                            <SimplePieChart />
+                           </div>
+                           <div className='col-md-6 pie-container text-center'>
+                            <SimplePieChart />
+                           </div>
                            <div className='col-md-12 down'>
                             <h3>Advice</h3>
                             <p>
-                                Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest.Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest.Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest.Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest.Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest.Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest.Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest.
+                                Knowledge nay estimable questions repulsive daughters boy. Solicitude gay way unaffected expression for. His mistress ladyship required off horrible disposed rejoiced. Unpleasing pianoforte unreserved as oh he unpleasant no inquietude insipidity. Advantages can discretion possession add favourable cultivated admiration far. Why rather assure how esteem end hunted nearer and before. By an truth after heard going early given he. Charmed to it excited females whether at examine. Him abilities suffering may are yet dependent.    
                             </p>
                            </div>
                          </div>
@@ -193,10 +193,10 @@ export default class Calculator extends React.Component {
     }
 }
 
+export default connect(state => state)(Calculator)
 
 /*
-<div className='page-header'>
-                          <h1>Income</h1>
-                        </div>
-                       
+
+
+
 */

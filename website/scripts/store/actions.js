@@ -1,9 +1,17 @@
 
-export function msg() {
+export function updateField(section, name, value) {
     return {
-        type: 'TYPE',
-        msg: 'Here we go!'
-    };
+        type: 'UPDATE',
+        section,
+        value,
+        name
+    }
+}
+
+export function applyDefaults() {
+    return {
+        type: 'DEFAULTS'
+    }
 }
 
 export function markers() {

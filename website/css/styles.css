@@ -112,3 +112,7 @@ hr {
 .footer {
     margin-top:50px;
 }
+
+.pie-container {
+    height: 200px;
+}
