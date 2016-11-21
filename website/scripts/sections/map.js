@@ -137,11 +137,11 @@ class BankMap extends React.Component {
   constructor() {
     super();
     this.state = { type: 0, input: '' };
-    this.sources = []; 
+    this.sources = [];
+    this.markers = [];
   }
 
   componentDidMount() {
-    this.markers = [];
     this.map = new google.maps.Map(this.refs.map, {
       center:{ lat: 55.843686, lng: -4.424485 },
       styles: mapTheme,
@@ -152,14 +152,16 @@ class BankMap extends React.Component {
       draggable: true,
       zoom: 14,
     });
+    
+    this.attachMarkers(this.props, this.map, 'ANY', '');
+  }
 
-    this.attachMarkers(this.map, 'ANY', '');
+  componentWillReceiveProps(nextProps) {
+    this.attachMarkers(nextProps, this.map, 'ANY', '');
   }
 
   componentWillUpdate(nextProps, nextState) {
-    this.sources = nextProps.banks.markers.map(marker => {
-      return marker.name;
-    });
+    this.sources = nextProps.map.markers.map(marker => marker.name);
   }
 
   shouldAddMarker(marker, filter, name) {
@@ -168,8 +170,8 @@ class BankMap extends React.Component {
     return passName && passFilter;
   }
 
-  attachMarkers(map, filter, name) {
-    this.props.banks.markers.forEach(marker => {
+  attachMarkers(props, map, filter, name) {
+    props.map.markers.forEach(marker => {
       if(this.shouldAddMarker(marker, filter, name)) {
         const mapMarker = new google.maps.Marker({
           icon: 'images/purple-marker.png',
@@ -200,16 +202,16 @@ class BankMap extends React.Component {
   filterMarkers(index, name) {
     switch(index) {
       case 0:
-        this.attachMarkers(this.map, 'ANY', name);
+        this.attachMarkers(this.props, this.map, 'ANY', name);
         break;
       case 1:
-        this.attachMarkers(this.map, 'NB', name);
+        this.attachMarkers(this.props, this.map, 'NB', name);
         break;
       case 2:
-        this.attachMarkers(this.map, 'CU', name);
+        this.attachMarkers(this.props, this.map, 'CU', name);
         break;
       case 3:
-        this.attachMarkers(this.map, 'FA', name);
+        this.attachMarkers(this.props, this.map, 'FA', name);
         break;
     }
   }
@@ -264,7 +266,6 @@ class BankMap extends React.Component {
     );
   }
 }
-
 
 // Dont do this in future but its okay for now.
 export default connect(state => state)(BankMap)

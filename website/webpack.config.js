@@ -4,7 +4,7 @@ const prod = true;
 module.exports = {
   context: __dirname,
   devtool: prod ? '': "inline-sourcemap",
-  entry: "./scripts/app.js",
+  entry: ['whatwg-fetch', './scripts/app.js' ],
   output: {
     path: __dirname + "/build",
     filename: "app.min.js"

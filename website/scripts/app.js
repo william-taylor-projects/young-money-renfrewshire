@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import ReactTap from 'react-tap-event-plugin';
 import ReactDOM from 'react-dom';
 import React from 'react';
+import 'es6-promise/auto';
 
 ReactTap();
 

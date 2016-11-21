@@ -1,33 +1,31 @@
-
+import { connect } from 'react-redux';
 import React from 'react';
 
-const tips = [{},{},{},{},{},{},{},{},{}]
-
-export default class TopTips extends React.Component {
-    render(){
-        return (
-            <div className='container'>
-                <div className="page-header">
-                    <h1>Top Tips</h1>
-                </div>
-                <div className='row'>
-                {
-                    tips.map((tip, index) => {
-                        return (
-                            <div key={index} className="col-xs-12 col-md-4">
-                                <div className="thumbnail no-border text-center">
-                                    <img className='img-circle' src="http://placehold.it/350x350" alt="..." />
-                                    <div className="caption">
-                                        <h3>Write Your Own Budget</h3>
-                                        <p>Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest.</p>
-                                    </div>
+const TopTips = props => {
+    return (
+        <div className='container'>
+            <div className="page-header">
+                <h1>Top Tips</h1>
+            </div>
+            <div className='row'>
+            {
+                props.toptips.tips.map((tip, index) => {
+                    return (
+                        <div key={index} className="col-xs-12 col-md-4">
+                            <div className="thumbnail no-border text-center">
+                                <img className='img-circle' src={tip.img} alt="..." />
+                                <div className="caption">
+                                    <h3>{tip.title}</h3>
+                                    <p>{tip.text}</p>
                                 </div>
                             </div>
-                        );
-                    })
-                }
-                </div>
+                        </div>
+                    );
+                })
+            }
             </div>
-        )
-    }
+        </div>
+    )
 }
+
+export default connect(state => state)(TopTips)

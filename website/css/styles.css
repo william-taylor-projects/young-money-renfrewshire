@@ -99,6 +99,10 @@ hr {
     border-top: 1px solid #eee;
 }
 
+input::-ms-clear { 
+    display: none; 
+}
+
 .jumbotron {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -114,5 +118,5 @@ hr {
 }
 
 .pie-container {
-    height: 200px;
+    height: 300px;
 }

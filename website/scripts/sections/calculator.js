@@ -19,42 +19,18 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 import { connect } from 'react-redux';
 
 import { HouseBills, Leisure, LivingCosts, Finance, Family } from '../components/expenses.js';
+import PieChart from '../components/pie-chart.js';
 import Income from '../components/income.js';
 
-
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'Recharts';
-const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300},
-                  {name: 'Group C', value: 300}, {name: 'Group D', value: 200}];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
-const RADIAN = Math.PI / 180;                    
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
- 	const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x  = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy  + radius * Math.sin(-midAngle * RADIAN);
- 
-  return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} 	dominantBaseline="central">
-    	{`${(percent * 100).toFixed(0)}%`}
-    </text>
-  );
-};
-
-const SimplePieChart = React.createClass({
-	render () {
-  	    return (
-          <ResponsiveContainer>
-            <PieChart onMouseEnter={this.onPieEnter}>
-            <Pie data={data}  labelLine={false} label={renderCustomizedLabel} outerRadius={80} fill="#8884d8">
-            {
-                data.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
-            }
-            </Pie>
-        </PieChart>
-        </ResponsiveContainer>
-    );
-  }
-})
+const colours = [
+    '#e600e6',
+    '#673ab6',
+    '#ff80ff',
+    '#7733ff',
+    '#673ab3',
+    '#00C49F',
+    '#b69ee0'
+];
 
 class Calculator extends React.Component {
     constructor() {
@@ -62,8 +38,10 @@ class Calculator extends React.Component {
         this.state = {
             totalCosts: 0,
             totalIncome: 0,
-            largestIncome: 'Wage',
-            largestCost: 'Rent'
+            largestIncome: 'N/A',
+            largestCost: 'N/A',
+            incomeChart: [],
+            expenseChart: []
         }
     }
 
@@ -72,21 +50,52 @@ class Calculator extends React.Component {
     }
 
     onChange() {
+        let largestIncome = {name: 'N/A', v: 0.0};
+        let largestExpense = {name: 'N/A', v: 0.0};
         let expensesTotal = 0.0;  
         let incomeTotal = 0.0;
 
         const incomeMap = this.props.calculator.income;
         const expensesMap = this.props.calculator.expenses;
-        
+        const expensesPlots = [];
+        const incomePlots = [];
+
         for(let key in incomeMap) {
-            incomeTotal += numeral().unformat(incomeMap[key]);
+            const income = numeral().unformat(incomeMap[key]);
+            incomeTotal += income;
+            if(largestIncome.v < income) {
+                largestIncome.name = key;
+                largestIncome.v = income;
+            }
+
+            const color = colours[Math.floor(Math.random()*colours.length)];
+            if(income > 0.0) {
+                incomePlots.push({name: key, value: income, color });
+            }
         }
 
         for(let key in expensesMap) {
-            expensesTotal += numeral().unformat(expensesMap[key]);
+            const expense = numeral().unformat(expensesMap[key]);
+            expensesTotal += expense;
+            if(largestExpense.v < expense) {
+                largestExpense.name = key;
+                largestExpense.v = expense;
+            }
+
+            const color = colours[Math.floor(Math.random()*colours.length)];
+            if(expense > 0.0) {
+                expensesPlots.push({name: key, value: expense, color });
+            }
         }
 
-        this.setState({ totalIncome: incomeTotal, totalCosts: expensesTotal });
+        this.setState({ 
+            totalIncome: incomeTotal, 
+            totalCosts: expensesTotal,
+            largestCost: largestExpense.name,
+            largestIncome: largestIncome.name,
+            expenseChart: expensesPlots,
+            incomeChart: incomePlots
+        });
     }
 
     render() {
@@ -172,10 +181,14 @@ class Calculator extends React.Component {
                             </Table>
                            </div>
                            <div className='col-md-6 pie-container text-center'>
-                            <SimplePieChart />
+                            <h4>Income Chart</h4>
+                            { this.state.incomeChart.length == 0 ? <p>No Pie Chart Data Available</p> : null }
+                            <PieChart data={this.state.incomeChart} />
                            </div>
                            <div className='col-md-6 pie-container text-center'>
-                            <SimplePieChart />
+                            <h4>Expense Chart</h4>
+                            { this.state.expenseChart.length == 0 ? <p>No Pie Chart Data Available</p> : null }
+                            <PieChart data={this.state.expenseChart} />
                            </div>
                            <div className='col-md-12 down'>
                             <h3>Advice</h3>
@@ -194,9 +207,3 @@ class Calculator extends React.Component {
 }
 
 export default connect(state => state)(Calculator)
-
-/*
-
-
-
-*/

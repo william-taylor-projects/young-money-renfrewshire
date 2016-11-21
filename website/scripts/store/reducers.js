@@ -22,9 +22,35 @@ function calculator(state = {}, action) {
     return state;
 }
 
-function banks(state = {}, action) {
-      if(action.type == 'MAP_MARKERS') {
-        return Object.assign(state, { markers: action.markers });
+function whatsnew(state = {}, action) {
+    if(action.type == 'NEWS') {
+        return Object.assign({}, state, { news: action.news })
+    }
+
+    return state;
+}
+
+function gooddeals(state = {}, action) {
+    if(action.type == 'DEALS') {
+        return Object.assign({}, state, { deals: action.deals })
+    }
+
+    return state;
+}
+
+
+function toptips(state = {}, action) {
+    if(action.type == 'TIPS') {
+        return Object.assign({}, state, { tips: action.tips })
+    }
+    
+    return state;
+}
+
+
+function map(state = {}, action) {
+    if(action.type == 'MARKERS') {
+        return Object.assign({}, state, { markers: action.markers });
     }
 
     return state;
@@ -32,5 +58,8 @@ function banks(state = {}, action) {
 
 export let reducers = combineReducers({
     calculator,
-    banks
+    gooddeals,
+    whatsnew,
+    toptips,
+    map
 });
