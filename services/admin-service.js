@@ -13,12 +13,12 @@ const decrypt = (text, key) => {
 
 const router = express.Router();
 router.post('/login', (req, res) => {
-    const { usr, pwd } = req.body;
     const key = process.argv[process.argv.length-1];
-    const username = decrypt(loginData.username, key);
-    const password = decrypt(loginData.password, key);
 
-    res.json({login: usr == username && pwd == password });
+    const usrCorrect = req.body.username == decrypt(loginData.username, key);
+    const pswCorrect = req.body.password == decrypt(loginData.password, key);
+
+    res.json({login: pswCorrect && usrCorrect });
 });
 
 module.exports = router;

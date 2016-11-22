@@ -161,7 +161,7 @@ class BankMap extends React.Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    this.sources = nextProps.map.markers.map(marker => marker.name);
+    this.sources = nextProps.markers.map(marker => marker.name);
   }
 
   shouldAddMarker(marker, filter, name) {
@@ -171,7 +171,7 @@ class BankMap extends React.Component {
   }
 
   attachMarkers(props, map, filter, name) {
-    props.map.markers.forEach(marker => {
+    props.markers.forEach(marker => {
       if(this.shouldAddMarker(marker, filter, name)) {
         const mapMarker = new google.maps.Marker({
           icon: 'images/purple-marker.png',
@@ -267,5 +267,8 @@ class BankMap extends React.Component {
   }
 }
 
-// Dont do this in future but its okay for now.
-export default connect(state => state)(BankMap)
+const stateToProps = state => { 
+    return { markers: state.map.markers } 
+};
+
+export default connect(stateToProps)(BankMap)

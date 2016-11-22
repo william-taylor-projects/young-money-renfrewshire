@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
-class Home extends React.Component {
+export default class Home extends React.Component {
     render() {
         return (
             <div>
@@ -47,6 +47,3 @@ class Home extends React.Component {
         );
     }
 }
-
-// Dont do this in future but its okay for now.
-export default connect(state => state)(Home)

@@ -11,6 +11,7 @@ import { Tabs, Tab } from 'material-ui/Tabs';
 
 import ActionFlightTakeoff from 'material-ui/svg-icons/action/flight-takeoff';
 import { connect } from 'react-redux';
+import { post, get } from '../services/http.js';
 import moment from 'moment';
 
 const style = {
@@ -70,8 +71,8 @@ class Dashboard extends React.Component {
     constructor() {
         super();
         this.state = {
-            selectedNews: -1,
-            news: { date: '', message: '', title: '' }
+            news: { date: '', message: '', title: '' },
+            selectedNews: -1
         }
     }
 
@@ -80,29 +81,17 @@ class Dashboard extends React.Component {
     }
 
     postNews() {
-        fetch('/news/post', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ news: this.state.news })
-        })
-        .then(res => res.json())
-        .then(json => {
+        post('/news/post', { news: this.state.news }, json => {
             this.props.dispatch(news(json.news))
-        })
+        });
     }
 
     deleteNews() {
         if(this.state.selectedNews >= 0) {
             const newsToDelete = this.props.whatsnew.news[this.state.selectedNews];
-            fetch('/news/delete', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ news: newsToDelete })
-            })
-            .then(res => res.json())
-            .then(json => {
+            post('/news/delete', { news: newsToDelete }, json => {
                 this.props.dispatch(news(json.news))
-            })
+            });
         }  
     } 
 

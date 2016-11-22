@@ -1,25 +1,27 @@
 import { Card, CardHeader, CardText } from 'material-ui/Card';
-import { updateField } from '../store/actions.js';
-import { connect } from 'react-redux';
-
 import TextField from 'material-ui/TextField';
-import React from 'react';
+
+import { updateField } from '../store/actions.js';
+import { dispatch } from '../store/store.js';
+import { connect } from 'react-redux';
 import numeral from 'numeral';
+import React from 'react';
 
 function onChange(props, e, name) {
     if(e.target.value) {
         const value = e.target.value.replace(new RegExp('£', 'g'), '');
-        const action = updateField(props.output, name, value);
-        props.dispatch(action);
+        const action = updateField(props.values, name, value);
+        
+        dispatch(action);
     }
 }
 
 function onBlur(props, e, name) {
     if(e.target.value) {
         const value = numeral(e.target.value).format('0,0.00');
-        const action = updateField(props.output, name, value);
+        const action = updateField(props.values, name, value);
 
-        props.dispatch(action);
+        dispatch(action);
         props.onChange();
     }
 }
@@ -28,15 +30,13 @@ function onFocus(props, e, name) {
     if(e.target.value) {
         const noPoundValue = e.target.value.replace(new RegExp('£', 'g'), '');
         const value = numeral().unformat(noPoundValue);
-        const action = updateField(props.output, name, value);
+        const action = updateField(props.values, name, value);
 
-        props.dispatch(action);
+        dispatch(action);
     }
 }
 
-export default connect(state => state)((props, e, name) => {
-    const values = props.calculator[props.output];
-
+export default ((props, e, name) => {
     return (
         <Card initiallyExpanded={props.first}>
             <CardHeader title={props.title} showExpandableButton={true} />
@@ -51,7 +51,7 @@ export default connect(state => state)((props, e, name) => {
                                         onBlur={e => onBlur(props, e, field.name)} 
                                         onFocus={e => onFocus(props, e, field.name)}
                                         onChange={e => onChange(props, e, field.name)} 
-                                        value={'£' + (values[field.name] || '')} 
+                                        value={'£' + (props.values[field.name] || '')} 
                                         fullWidth={true} 
                                         floatingLabelText={field.label}
                                         hintText="£" />

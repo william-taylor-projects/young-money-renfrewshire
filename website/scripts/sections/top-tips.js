@@ -9,7 +9,7 @@ const TopTips = props => {
             </div>
             <div className='row'>
             {
-                props.toptips.tips.map((tip, index) => {
+                props.tips.map((tip, index) => {
                     return (
                         <div key={index} className="col-xs-12 col-md-4">
                             <div className="thumbnail no-border text-center">
@@ -28,4 +28,8 @@ const TopTips = props => {
     )
 }
 
-export default connect(state => state)(TopTips)
+const stateToProps = state => { 
+    return { tips: state.toptips.tips } 
+};
+
+export default connect(stateToProps)(TopTips)

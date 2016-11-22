@@ -1,10 +1,11 @@
 
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import { Card, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-import React from 'react';
-import moment from 'moment';
 import Paper from 'material-ui/Paper';
+
 import { connect } from 'react-redux';
+import moment from 'moment';
+import React from 'react';
 
 const Update = props => {
     return (
@@ -31,8 +32,13 @@ const WhatsNew = props => {
             <div className='row'>
                 <div className='col-md-12'>
                 {
-                    props.whatsnew.news.map((update, index) => {
-                        return <div key={index}><Update index={index} update={update} /><br/></div>;
+                    props.news.map((update, index) => {
+                        return (
+                            <div key={index}>
+                                <Update index={index} update={update} />
+                                <br/>
+                            </div>
+                        );
                     })
                 }
                 </div>
@@ -41,4 +47,8 @@ const WhatsNew = props => {
     );
 }
 
-export default connect(state => state)(WhatsNew)
+const stateToProps = state => { 
+    return { news: state.whatsnew.news } 
+};
+
+export default connect(stateToProps)(WhatsNew)

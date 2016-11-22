@@ -3,12 +3,14 @@ import { combineReducers } from 'redux';
 
 function calculator(state = {}, action) {
     if(action.type == 'UPDATE') {
-        const section = action.section;
-        const value = action.value;
-        const name = action.name;
-
         const newState = Object.assign({}, state);
-        newState[section][name] = action.value;
+
+        if(action.section == state.income) {
+           newState.income[action.name] = action.value;
+        } else {
+           newState.expense[action.name] = action.value;
+        }
+
         return newState;
     }
 

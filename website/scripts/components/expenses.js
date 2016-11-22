@@ -153,71 +153,82 @@ const transport = [
     { name: 'air-travel', label: 'Air Travel'}
 ];
 
-export let HouseBills = connect(state => state)(props => {
+const houseBills = props => {
     return (
         <div>
             <div className='page-header'>
                 <h1>House Bills</h1>
             </div>
-            <InputList title='Rent' output={'expenses'} onChange={props.onChange} fields={rent} first={true} /><br/>
-            <InputList title='Insurance' output={'expenses'} onChange={props.onChange} fields={buildingCover}/><br/>
-            <InputList title='Utilities' output={'expenses'} onChange={props.onChange} fields={utilities} /><br/>
+            <InputList values={props.values} title='Rent' onChange={props.onChange} fields={rent} first={true} /><br/>
+            <InputList values={props.values} title='Insurance' onChange={props.onChange} fields={buildingCover}/><br/>
+            <InputList values={props.values} title='Utilities' onChange={props.onChange} fields={utilities} /><br/>
         </div>
     )
-});
+};
 
-export let LivingCosts = props => {
+const livingCosts = props => {
     return (
         <div>
             <div className='page-header'>
                 <h1>Living Costs</h1>
             </div>
-            <InputList title='Food' output={'expenses'} onChange={props.onChange} fields={food} first={true} /><br/>
-            <InputList title='Health' output={'expenses'} onChange={props.onChange} fields={health} /><br/>
-            <InputList title='Work' output={'expenses'} onChange={props.onChange} fields={work} /><br/>
-            <InputList title='Clothes' output={'expenses'} onChange={props.onChange} fields={clothes} /><br/>
+            <InputList values={props.values} title='Food' onChange={props.onChange} fields={food} first={true} /><br/>
+            <InputList values={props.values} title='Health' onChange={props.onChange} fields={health} /><br/>
+            <InputList values={props.values} title='Work' onChange={props.onChange} fields={work} /><br/>
+            <InputList values={props.values} title='Clothes' onChange={props.onChange} fields={clothes} /><br/>
         </div>
     )
 }
 
-export let Family = props => {
+const family = props => {
     return (
         <div>
             <div className='page-header'>
                 <h1>Family &amp; Friends</h1>
             </div>
-            <InputList title='Children' output={'expenses'} onChange={props.onChange} fields={children} first={true}/><br/>
-            <InputList title='School' output={'expenses'} onChange={props.onChange} fields={school} /><br/>
-            <InputList title='Pets' output={'expenses'} onChange={props.onChange} fields={pets} /><br/>
+            <InputList values={props.values} title='Children' onChange={props.onChange} fields={children} first={true}/><br/>
+            <InputList values={props.values} title='School' onChange={props.onChange} fields={school} /><br/>
+            <InputList values={props.values} title='Pets' onChange={props.onChange} fields={pets} /><br/>
         </div>
     )
 }
 
-export let Leisure = props => {
+const leisure = props => {
     return (
         <div>
             <div className='page-header'>
                 <h1>Leisure Bills</h1>
             </div>
-            <InputList title='Insurance' output={'expenses'} onChange={props.onChange} fields={insurance} first={true} /><br/>
-            <InputList title='Banking' output={'expenses'} onChange={props.onChange} fields={banking} /><br/>
-            <InputList title='Loans' output={'expenses'} onChange={props.onChange} fields={loans} /><br/>
-            <InputList title='Savings' output={'expenses'} onChange={props.onChange} fields={savings} /><br/>
+            <InputList values={props.values} title='Insurance' onChange={props.onChange} fields={insurance} first={true} /><br/>
+            <InputList values={props.values} title='Banking' onChange={props.onChange} fields={banking} /><br/>
+            <InputList values={props.values} title='Loans' onChange={props.onChange} fields={loans} /><br/>
+            <InputList values={props.values} title='Savings' onChange={props.onChange} fields={savings} /><br/>
         </div>
     )
 }
 
-export let Finance = props => {
+const finance = props => {
     return (
         <div>
             <div className='page-header'>
                 <h1>Finance</h1>
             </div>
-            <InputList title='Car' output={'expenses'} onChange={props.onChange} fields={cars} first={true} /><br/>
-            <InputList title='Entertainment' output={'expenses'} onChange={props.onChange} fields={entertainment} /><br/>
-            <InputList title='Holidays' output={'expenses'} onChange={props.onChange} fields={holidays} /><br/>
-            <InputList title='One Offs' output={'expenses'} onChange={props.onChange} fields={oneoffs} /><br/>
-            <InputList title='Transport' output={'expenses'} onChange={props.onChange} fields={transport} /><br/>
+            <InputList values={props.values} title='Car' onChange={props.onChange} fields={cars} first={true} /><br/>
+            <InputList values={props.values} title='Entertainment' onChange={props.onChange} fields={entertainment} /><br/>
+            <InputList values={props.values} title='Holidays' onChange={props.onChange} fields={holidays} /><br/>
+            <InputList values={props.values} title='One Offs' onChange={props.onChange} fields={oneoffs} /><br/>
+            <InputList values={props.values} title='Transport'onChange={props.onChange} fields={transport} /><br/>
         </div>
     )
 }
+
+
+const stateToProps = state => {
+    return { values: state.calculator.expenses };
+}
+
+export let LivingCosts = connect(stateToProps)(livingCosts);
+export let HouseBills = connect(stateToProps)(houseBills);
+export let Finance = connect(stateToProps)(finance);
+export let Leisure = connect(stateToProps)(leisure);
+export let Family = connect(stateToProps)(family);

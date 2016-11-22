@@ -206,4 +206,4 @@ class Calculator extends React.Component {
     }
 }
 
-export default connect(state => state)(Calculator)
+export default connect(state => state)(Calculator);

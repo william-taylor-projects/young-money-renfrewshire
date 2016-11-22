@@ -72,7 +72,7 @@ class App extends React.Component {
                 message: 'Please email us to have any questions answered.'
             });
         } else {
-            browserHistory.push('/'+name);
+            browserHistory.push('/' + name);
         }
     }
 

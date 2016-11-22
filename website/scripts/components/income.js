@@ -34,17 +34,21 @@ const benefitFields = [
      { name: 'maternitiy-allowance', label: 'Materinity Allowance' }
 ]
 
-function Income(props) {
+const income = props => {
     return (
         <div>
             <div className='page-header'>
                 <h1>Income</h1>
             </div>
-            <InputList title='Pay' output={'income'} onChange={props.onChange} fields={payFields} first={true} /><br/>
-            <InputList title='Benefits' output={'income'} onChange={props.onChange} fields={benefitFields}/><br/>
-            <InputList title='Other' output={'income'} onChange={props.onChange} fields={otherFields} /><br/>
+            <InputList values={props.values} title='Pay' onChange={props.onChange} fields={payFields} first={true} /><br/>
+            <InputList values={props.values} title='Benefits' onChange={props.onChange} fields={benefitFields}/><br/>
+            <InputList values={props.values} title='Other' onChange={props.onChange} fields={otherFields} /><br/>
         </div>
     )
 }
 
-export default connect(state => state)(Income)
+const stateToProps = state => {
+    return { values: state.calculator.income };
+}
+
+export default connect(stateToProps)(income);

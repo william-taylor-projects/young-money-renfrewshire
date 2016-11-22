@@ -12,7 +12,7 @@ const GoodDeals = props => {
           <div className='row'>
               <div className='col-md-12 down'>
               {
-                  props.gooddeals.deals.map((deal, index) => {
+                  props.deals.map((deal, index) => {
                     return (
                       <div className='col-lg-3 col-md-4 col-xs-12' key={index}>
                         <Paper zDepth={1}>
@@ -36,4 +36,8 @@ const GoodDeals = props => {
     );
 }
 
-export default connect(state => state)(GoodDeals);
+const stateToProps = state => { 
+    return { deals: state.gooddeals.deals } 
+};
+
+export default connect(stateToProps)(GoodDeals);
