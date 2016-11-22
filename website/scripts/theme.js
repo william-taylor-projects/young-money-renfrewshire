@@ -13,7 +13,9 @@ export function bootstrapTheme() {
       // Secondary
       accent1Color: purple500,
       accent2Color: purple400,
-      accent3Color: purple300
+      accent3Color: purple300,
+
+      pickerHeaderColor: deepPurple500
     }
   });
 

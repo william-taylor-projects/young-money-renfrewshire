@@ -16,12 +16,13 @@ import ContentDrafts from 'material-ui/svg-icons/content/drafts';
 import Divider from 'material-ui/Divider';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 
+import AdminLogo from 'material-ui/svg-icons/action/account-box';
 import ShopIcon from 'material-ui/svg-icons/action/shopping-cart';
 import MathIcon from 'material-ui/svg-icons/action/assessment';
 import HomeIcon from 'material-ui/svg-icons/action/home';
-import NewIcon from 'material-ui/svg-icons/av/new-releases';
 import InfoIcon from 'material-ui/svg-icons/action/info';
 import TopIcon from 'material-ui/svg-icons/action/grade';
+import NewIcon from 'material-ui/svg-icons/av/new-releases';
 import MapIcon from 'material-ui/svg-icons/maps/map';
 
 export default class Sidebar extends React.Component {
@@ -68,6 +69,10 @@ export default class Sidebar extends React.Component {
                     <ListItem onClick={() => this.change('contact')} primaryText="Contact Us" rightIcon={<ActionInfo />} />
                     <ListItem onClick={() => this.change('f&q')} primaryText="F&Q" rightIcon={<ActionInfo />} />
                 </List>          
+                <Divider />
+                <List>
+                    <ListItem onClick={() => this.change('admin')} primaryText="Admin" leftIcon={<AdminLogo />} />
+                </List>
             </Drawer>
         );
     }

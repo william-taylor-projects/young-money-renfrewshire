@@ -37,6 +37,7 @@ import WhatsNew from './sections/whats-new.js';
 import BankMap from './sections/map.js';
 import Page404 from './sections/404.js';
 import Home from './sections/home.js';
+import Admin from './sections/admin.js';
 
 const applicationTitle = "YMR - Young Money Renfrewshire";
 const customTheme = bootstrapTheme();
@@ -105,6 +106,7 @@ class App extends React.Component {
                             <Route path="/new" component={WhatsNew} />
                             <Route path="/calculator" component={Calculator} />
                             <Route path="/map" component={BankMap} />
+                            <Route path="/admin" component={Admin} />
                             <Route path="*" component={Page404}/>
                         </Router>
                         <FloatingActionButton onClick={() => scrollToTop(750)} style={style}>

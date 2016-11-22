@@ -5,10 +5,10 @@ import { reducers } from './reducers';
 
 export let store = createStore(reducers);
 export let unsubscribe = store.subscribe(() => {
-    //console.log(store.getState());
+    console.log(store.getState());
 });
 
-const httpLink = 'http://52.209.203.208';
+const httpLink = 'http://localhost:3000'//'http://52.209.203.208';
 const { dispatch } = store;
 
 dispatch(applyDefaults());
