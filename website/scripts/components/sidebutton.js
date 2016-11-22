@@ -1,9 +1,9 @@
 
-import React from 'react';
-import IconMenu from 'material-ui/IconMenu';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
+import MenuItem from 'material-ui/MenuItem';
+import IconMenu from 'material-ui/IconMenu';
+import React from 'react';
 
 const open = url => window.open(url, '_blank');
 
