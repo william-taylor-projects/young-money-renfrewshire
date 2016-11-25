@@ -129,3 +129,13 @@ input::-ms-clear {
 .pie-container {
     height: 300px;
 }
+
+.deal-img {
+    object-fit: fill;
+    max-height: 180px;
+    min-height: 180px;
+}
+
+.description {
+    height: 75px;
+}

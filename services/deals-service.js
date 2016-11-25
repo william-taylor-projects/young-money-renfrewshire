@@ -16,21 +16,27 @@ const getDeals = action => {
       AttributesToGet: ["uniqueID", "description", "image", "title", "link", "price"]
     };
 
-    dynamoDB.scan(data, (err, news) => {
+    dynamoDB.scan(data, (err, deals) => {
       if (err) {
         console.log(err);
         action([]);
       } else {
-        action(news.Items); 
+        action(deals.Items); 
       }
     });
 }
 
 router.post('/post', (req, res) => {
+
     const params = {
         TableName: 'YMR-Deals',
         Item:  {
-           
+           uniqueID: { N: String(Date.now()) },
+           description: { S: req.body.deal.description },
+           image: { S: req.body.deal.image },
+           price: { N: req.body.deal.price },
+           title: { S: req.body.deal.title },
+           link: { S: req.body.deal.link }
         }
     };
 
@@ -49,7 +55,7 @@ router.post('/delete', (req, res) => {
     const params = {
         TableName: 'YMR-Deals',
         Key: {
-
+            uniqueID: { N: req.body.deal.uniqueID.N }
         }
     };
 

@@ -71,8 +71,8 @@ class Dashboard extends React.Component {
     constructor() {
         super();
         this.state = {
+            deal: { title: '', description: '', price: '', link: '', image: '' },
             news: { date: '', message: '', title: '' },
-            deal: {},
             selectedNews: -1,
             selectedDeal: -1
         }
@@ -101,8 +101,10 @@ class Dashboard extends React.Component {
         this.setState({ selectedNews: e.length == 0 ? -1 : e[0] });
     }
 
-    editDeal(date, message, title) {
-        this.setState({ news: { date, message, title } });
+    editDeal(e, name) {
+        const deal = this.state.deal;
+        deal[name] = e.target.value;
+        this.setState({ deal: deal });
     }
 
     postDeal() {
@@ -112,7 +114,7 @@ class Dashboard extends React.Component {
     }
 
     deleteDeal() {
-        if(this.state.selectedNews >= 0) {
+        if(this.state.selectedDeal >= 0) {
             const dealToDelete = this.props.gooddeals.deals[this.state.selectedDeal];
             post('/deals/delete', { deal: dealToDelete }, json => {
                 this.props.dispatch(deals(json.deals))
@@ -195,13 +197,14 @@ class Dashboard extends React.Component {
                                 </Table>
                                 <RaisedButton onClick={() => this.deleteDeal()} className='pull-right' label="Delete" style={style} primary={true} />
                             </div>
+                            
                             <div className='col-md-12 down'>
                                 <h2>Post Deal</h2><hr/>
-                                <TextField floatingLabelText="Enter Title" fullWidth={true} /><br />
-                                <TextField floatingLabelText="Enter Image" fullWidth={true} /><br />
-                                <TextField floatingLabelText="Enter Price" fullWidth={true} /><br />
-                                <TextField floatingLabelText="Enter Link" fullWidth={true} /><br />
-                                <TextField floatingLabelText="Enter Description" rows={3} multiLine={true} fullWidth={true} /><br />
+                                <TextField onChange={e => this.editDeal(e, 'title')} floatingLabelText="Enter Title" fullWidth={true} /><br />
+                                <TextField onChange={e => this.editDeal(e, 'image')} floatingLabelText="Enter Image" fullWidth={true} /><br />
+                                <TextField onChange={e => this.editDeal(e, 'price')} floatingLabelText="Enter Price" fullWidth={true} /><br />
+                                <TextField onChange={e => this.editDeal(e, 'link')} floatingLabelText="Enter Link" fullWidth={true} /><br />
+                                <TextField onChange={e => this.editDeal(e, 'description')} floatingLabelText="Enter Description" rows={3} multiLine={true} fullWidth={true} /><br />
                                 <RaisedButton 
                                     onClick={() => this.postDeal()} 
                                     className='pull-right' 
@@ -225,7 +228,7 @@ const Board = connect(state => state)(Dashboard);
 export default class Admin extends React.Component {
     constructor() {
         super();
-        this.state = { login: false, error: false, help: false }
+        this.state = { login: true, error: false, help: false }
     }
 
     login(username, password) {

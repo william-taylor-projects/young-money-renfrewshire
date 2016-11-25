@@ -14,9 +14,6 @@ const decrypt = (text, key) => {
 const router = express.Router();
 router.post('/login', (req, res) => {
     const key = process.argv[process.argv.length-1];
-
-    console.log(loginData.username, loginData.password);
-
     const usrCorrect = req.body.username == decrypt(loginData.username, key);
     const pswCorrect = req.body.password == decrypt(loginData.password, key);
 

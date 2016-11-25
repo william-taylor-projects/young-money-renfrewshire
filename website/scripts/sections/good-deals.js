@@ -14,18 +14,19 @@ const GoodDeals = props => {
               {
                   props.deals.map((deal, index) => {
                     return (
-                      <div className='col-lg-3 col-md-4 col-xs-12' key={index}>
+                      <div className='col-xs-12 col-sm-6 col-md-4' key={index}>
                         <Paper zDepth={1}>
                           <div className="thumbnail small-pd">
-                            <img className='img-responsive' src={deal.image.S} alt="" />
+                            <img className='img-responsive deal-img' src={deal.image.S} alt="" />
                             <div className="caption">
                                 <h4 className="pull-right">£{deal.price.N}</h4>
                                 <h4><a href={deal.link.S} target='_blank'>{deal.title.S}</a>
                                 </h4>
-                                <p>{deal.description.S}</p>
+                                <p className='description'>{deal.description.S}</p>
                             </div>
                           </div>
                         </Paper>
+                        <div class="clearfix"></div> 
                       </div>
                     )
                   })
