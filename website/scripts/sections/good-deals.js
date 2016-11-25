@@ -17,12 +17,12 @@ const GoodDeals = props => {
                       <div className='col-lg-3 col-md-4 col-xs-12' key={index}>
                         <Paper zDepth={1}>
                           <div className="thumbnail small-pd">
-                            <img className='img-responsive' src="http://placehold.it/320x320" alt="" />
+                            <img className='img-responsive' src={deal.image.S} alt="" />
                             <div className="caption">
-                                <h4 className="pull-right">$5.00</h4>
-                                <h4><a href="http://www.asda.com/" target='_blank'>Item</a>
+                                <h4 className="pull-right">£{deal.price.N}</h4>
+                                <h4><a href={deal.link.S} target='_blank'>{deal.title.S}</a>
                                 </h4>
-                                <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>{deal.description.S}</p>
                             </div>
                           </div>
                         </Paper>

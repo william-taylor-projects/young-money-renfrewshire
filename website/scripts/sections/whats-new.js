@@ -11,13 +11,13 @@ const Update = props => {
     return (
         <Card initiallyExpanded={props.index == 0}>
             <CardHeader
-            title={props.update.title}
-            subtitle={moment(props.update.date).format('DD/MM/YYYY')}
+            title={props.update.title.S}
+            subtitle={moment(Number(props.update.date.N)).format('DD/MM/YYYY')}
             actAsExpander={true}
             showExpandableButton={true}
             />
             <CardText expandable={true}>
-                {props.update.message}
+                {props.update.body.S}
             </CardText>
         </Card>
     )

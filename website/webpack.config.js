@@ -1,9 +1,9 @@
 const webpack = require('webpack');
-const prod = true;
+const prod = false;
 
 module.exports = {
   context: __dirname,
-  devtool: prod ? '': "inline-sourcemap",
+  devtool: "source-map",
   entry: ['whatwg-fetch', './scripts/app.js' ],
   output: {
     path: __dirname + "/build",
@@ -15,21 +15,20 @@ module.exports = {
         test   : /.js$/,
         loader : 'babel-loader',
         query: {
-          presets: ['es2015', 'react'],
+          compact: false,
+          presets: ['es2015', 'react']
         }
-      },
-      { test: /\.css$/, loader: "style-loader!css-loader" }
+      }
     ]
   },
   plugins: !prod ? [] : [
-    new webpack.optimize.UglifyJsPlugin({
-      output: {comments: false},
-      compress: { warnings: false }
-    }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env': {
        'NODE_ENV': JSON.stringify('production')
       }
-   })
+   }),
+   new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false }})
   ]
 };

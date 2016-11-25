@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/william-taylor/barnardos-prototype#readme",
   "dependencies": {
+    "aws-sdk": "^2.7.7",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
     "cors": "^2.8.1",

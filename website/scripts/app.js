@@ -42,6 +42,18 @@ import Admin from './sections/admin.js';
 const applicationTitle = "YMR - Young Money Renfrewshire";
 const customTheme = bootstrapTheme();
 
+Element.prototype.remove = function() {
+    this.parentElement.removeChild(this);
+}
+
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+    for(var i = this.length - 1; i >= 0; i--) {
+        if(this[i] && this[i].parentElement) {
+            this[i].parentElement.removeChild(this[i]);
+        }
+    }
+}
+
 class App extends React.Component {
     constructor() {
         super();
@@ -76,6 +88,14 @@ class App extends React.Component {
         }
     }
 
+    removeLoadingIcon() {
+        const element = document.getElementById("spinner");
+
+        if(element) {
+            element.remove();
+        }
+    }
+
     render() {
         const dialogProps = {
             onClose: () => this.setState({open: false}),
@@ -90,6 +110,8 @@ class App extends React.Component {
             iconElementRight: <SideButton/>,
             onLeftIconButtonTouchTap: () => this.openSidebar()
         };
+
+        this.removeLoadingIcon();
 
         return (
             <ThemeProvider muiTheme={customTheme}>

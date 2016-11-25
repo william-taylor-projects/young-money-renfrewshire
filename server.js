@@ -10,20 +10,17 @@ const cors = require('cors');
 const dir = "/website/";
 const app = express();
 
-// middleware
 app.use(express.static(__dirname + dir, { maxAge: 86400000 * 14 }));
 app.use(parser.json());
 app.use(compress());
 app.use(cors());
-
-// services
 app.use('/markers', markerService);
 app.use('/admin', adminService);
 app.use('/deals', dealsService);
 app.use('/news', newsService);
 app.use('/tips', tipsService);
 app.all('*', (req, res) => {
-  res.sendFile('index.html', { root: __dirname+dir });
+  res.sendFile('website/index.html', { root: __dirname });
 });
 
 const server = app.listen(3000, () => {

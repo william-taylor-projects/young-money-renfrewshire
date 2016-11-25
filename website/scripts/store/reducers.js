@@ -8,7 +8,7 @@ function calculator(state = {}, action) {
         if(action.section == state.income) {
            newState.income[action.name] = action.value;
         } else {
-           newState.expense[action.name] = action.value;
+           newState.expenses[action.name] = action.value;
         }
 
         return newState;

@@ -22,7 +22,6 @@ export function bootstrapTheme() {
   return muiTheme;
 }
 
-
 export const mapTheme = [
   {
     "featureType": "all",

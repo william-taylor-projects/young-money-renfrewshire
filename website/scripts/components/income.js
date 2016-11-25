@@ -2,7 +2,6 @@ import InputList from './inputlist.js';
 import { connect } from 'react-redux';
 import React from 'react';
 
-
 const payFields = [
     { name: 'pay', label: 'Pay (after tax)' },
     { name: 'selfPay', label: 'Income from self-employment' },

@@ -72,7 +72,9 @@ class Dashboard extends React.Component {
         super();
         this.state = {
             news: { date: '', message: '', title: '' },
-            selectedNews: -1
+            deal: {},
+            selectedNews: -1,
+            selectedDeal: -1
         }
     }
 
@@ -99,6 +101,29 @@ class Dashboard extends React.Component {
         this.setState({ selectedNews: e.length == 0 ? -1 : e[0] });
     }
 
+    editDeal(date, message, title) {
+        this.setState({ news: { date, message, title } });
+    }
+
+    postDeal() {
+        post('/deals/post', { deal: this.state.deal }, json => {
+            this.props.dispatch(deals(json.deals))
+        });
+    }
+
+    deleteDeal() {
+        if(this.state.selectedNews >= 0) {
+            const dealToDelete = this.props.gooddeals.deals[this.state.selectedDeal];
+            post('/deals/delete', { deal: dealToDelete }, json => {
+                this.props.dispatch(deals(json.deals))
+            });
+        }  
+    } 
+
+    dealSelected(e) {
+        this.setState({ selectedDeal: e.length == 0 ? -1 : e[0] });
+    }
+
     render() {
         const { date, message, title } = this.state.news;
 
@@ -116,15 +141,15 @@ class Dashboard extends React.Component {
                         <div className='container'>
                             <div className='col-md-12 down'>
                                 <h2>Whats New Posts</h2><hr/>
-                                <Table onRowSelection={e => this.newsSelected(e)}>
+                                <Table height={'300px'} onRowSelection={e => this.newsSelected(e)}>
                                     <TableBody deselectOnClickaway={false}>
                                     {
                                         this.props.whatsnew.news.map((e, index) => {
                                             return (
                                                 <TableRow selected={index == this.state.selectedNews} key={index}>
-                                                    <TableRowColumn>{moment(e.date).format('DD/MM/YYYY')}</TableRowColumn>
-                                                    <TableRowColumn>{e.title}</TableRowColumn>
-                                                    <TableRowColumn>{e.message}</TableRowColumn>
+                                                    <TableRowColumn>{moment(Number(e.date.N)).format('DD/MM/YYYY')}</TableRowColumn>
+                                                    <TableRowColumn>{e.title.S}</TableRowColumn>
+                                                    <TableRowColumn>{e.body.S}</TableRowColumn>
                                                 </TableRow>
                                             )
                                         })
@@ -147,9 +172,47 @@ class Dashboard extends React.Component {
                             </div>
                         </div>
                     </Tab>
-                    <Tab label='Deals' />
-                    <Tab label='Tips' />
-                    <Tab label='Map' />
+                    <Tab label='Deals'>
+                        <div className='container'>
+                            <div className='col-md-12 down'>
+                                <h2>Good Deals</h2><hr/>
+                                <Table onRowSelection={e => this.dealSelected(e)}>
+                                    <TableBody deselectOnClickaway={false}>
+                                    {
+                                        this.props.gooddeals.deals.map((e, index) => {
+                                            return (
+                                                <TableRow selected={index == this.state.selectedDeal} key={index}>
+                                                    <TableRowColumn>{e.title.S}</TableRowColumn>
+                                                    <TableRowColumn>£{e.price.N}</TableRowColumn>
+                                                    <TableRowColumn>{e.description.S}</TableRowColumn>
+                                                    <TableRowColumn>{e.link.S}</TableRowColumn>
+                                                    <TableRowColumn>{e.image.S}</TableRowColumn>
+                                                </TableRow>
+                                            )
+                                        })
+                                    }
+                                    </TableBody>
+                                </Table>
+                                <RaisedButton onClick={() => this.deleteDeal()} className='pull-right' label="Delete" style={style} primary={true} />
+                            </div>
+                            <div className='col-md-12 down'>
+                                <h2>Post Deal</h2><hr/>
+                                <TextField floatingLabelText="Enter Title" fullWidth={true} /><br />
+                                <TextField floatingLabelText="Enter Image" fullWidth={true} /><br />
+                                <TextField floatingLabelText="Enter Price" fullWidth={true} /><br />
+                                <TextField floatingLabelText="Enter Link" fullWidth={true} /><br />
+                                <TextField floatingLabelText="Enter Description" rows={3} multiLine={true} fullWidth={true} /><br />
+                                <RaisedButton 
+                                    onClick={() => this.postDeal()} 
+                                    className='pull-right' 
+                                    label="Post" 
+                                    style={style}
+                                    primary={true} />
+                            </div>
+                        </div>
+                    </Tab>
+                    <Tab label='Comments'>
+                    </Tab>
                 </Tabs>
             </div>
         );

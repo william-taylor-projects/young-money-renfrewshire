@@ -1,4 +1,5 @@
 
+const amazon = require('aws-sdk');
 const express = require('express');
 const router = express.Router();
 
@@ -12,7 +13,6 @@ const tipOne = {
 for(var i = 0; i < 9; i++) {
     tips.push(tipOne);
 }
-
 
 router.get('/get', (req, res) => {
     res.json({ 'tips': tips });
