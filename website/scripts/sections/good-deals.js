@@ -26,7 +26,6 @@ const GoodDeals = props => {
                             </div>
                           </div>
                         </Paper>
-                        <div class="clearfix"></div> 
                       </div>
                     )
                   })

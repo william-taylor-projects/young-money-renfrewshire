@@ -14,6 +14,13 @@ import DoneIcon from 'material-ui/svg-icons/action/done';
 import TextField from 'material-ui/TextField';
 import Snackbar from 'material-ui/Snackbar';
 import { connect } from 'react-redux';
+import { post } from '../services/http.js';
+import { markers } from '../store/actions.js';
+import { dispatch } from '../store/store.js';
+
+const style = {
+  maxHeight: '150px'
+}
 
 class CommentDialog extends React.Component {
   constructor() {
@@ -69,8 +76,15 @@ class BankMapDialog extends React.Component {
   }
 
   addComment(marker, comment) {
-    marker.comments.push({ date: Date.now(), comment });
-    this.setState({ open: true, addComment: false, openSnack: true });
+    const body = {
+      location: marker.name,
+      comment: comment
+    };
+
+    post('/markers/comment', body, json => {
+      dispatch(markers(json.markers));
+      this.setState({ open: false, addComment: false, openSnack: true });
+    });
   }
 
   closeSnack() {
@@ -95,8 +109,6 @@ class BankMapDialog extends React.Component {
         onTouchTap={() => this.close()} />
     ];
 
-    comments.sort((a, b) => a.date < b.date);
-    const recentComments = comments.slice(0, 5);
     return(
       <div>
         <CommentDialog ref='commentDialog' 
@@ -119,11 +131,11 @@ class BankMapDialog extends React.Component {
             <p className='down'>{marker.body}</p>
             <address><strong>{marker.address}</strong></address>
             <a style={{marginTop: -5}} href={marker.link} target='_blank'>Website Link</a>
-            <List>
+            <List style={style}>
             {
-              recentComments.map((comment, index) => 
+              comments.map((comment, index) => 
                 <ListItem key={index} size={20} leftAvatar={<DoneIcon style={{marginTop: 6}} />}>
-                  {comment.comment}
+                  {comment.comment.S}
                 </ListItem>)
             }
             </List>
@@ -136,7 +148,7 @@ class BankMapDialog extends React.Component {
 class BankMap extends React.Component {
   constructor() {
     super();
-    this.state = { type: 0, input: '' };
+    this.state = { type: 0, input: '', dialog: false, marker: {} };
     this.sources = [];
     this.markers = [];
   }
@@ -182,7 +194,9 @@ class BankMap extends React.Component {
 
         this.markers.push(mapMarker);
 
-        mapMarker.addListener('click', () => this.refs.dialog.open(marker));
+        mapMarker.addListener('click', () => {  
+          this.refs.dialog.open(marker);
+        });
       }
     });
   }

@@ -27,7 +27,6 @@ const getDeals = action => {
 }
 
 router.post('/post', (req, res) => {
-
     const params = {
         TableName: 'YMR-Deals',
         Item:  {
@@ -43,12 +42,10 @@ router.post('/post', (req, res) => {
     dynamoDB.putItem(params, function(err, data) {
         if (err) {
             console.log(err); 
-            res.json({'deals': [] });
-        } else {
-            getDeals(deals => res.json({'deals': deals}));
-        } 
+        }
+
+        getDeals(deals => res.json({ 'deals': deals }));
     });
-    
 })
 
 router.post('/delete', (req, res) => {
@@ -62,10 +59,9 @@ router.post('/delete', (req, res) => {
     dynamoDB.deleteItem(params, (err, data) => {
         if (err) {
             console.log(err);
-            res.json({ 'news': []});
-        } else {
-            getDeals(deals => res.json({'deals': deals}));
         } 
+
+        getDeals(deals => res.json({ 'deals': deals }));
     });
 })
 

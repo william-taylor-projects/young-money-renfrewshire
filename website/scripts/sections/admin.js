@@ -5,7 +5,6 @@ import DatePicker from 'material-ui/DatePicker';
 import React from 'react';
 import Dialog from '../dialogs/message-dialog.js';
 
-
 import { markers, news, tips, deals } from '../store/actions.js';
 import { Tabs, Tab } from 'material-ui/Tabs';
 
@@ -72,18 +71,24 @@ class Dashboard extends React.Component {
         super();
         this.state = {
             deal: { title: '', description: '', price: '', link: '', image: '' },
-            news: { date: '', message: '', title: '' },
+            news: { date: null, message: '', title: '' },
+            selectedComment: -1,
             selectedNews: -1,
             selectedDeal: -1
         }
     }
 
-    editNews(date, message, title) {
-        this.setState({ news: { date, message, title } });
+    editNews(name, value) {
+        const news = this.state.news;
+        news[name] = value;
+        this.setState({ news });
     }
 
     postNews() {
-        post('/news/post', { news: this.state.news }, json => {
+        const item = Object.assign({}, this.state.news);
+        item.date = item.date.getTime();
+        post('/news/post', { news: item }, json => {
+            this.setState({ news: { date: null, message: '', title: '' } });
             this.props.dispatch(news(json.news))
         });
     }
@@ -109,6 +114,7 @@ class Dashboard extends React.Component {
 
     postDeal() {
         post('/deals/post', { deal: this.state.deal }, json => {
+            this.setState({ deal: { title: '', description: '', price: '', link: '', image: '' } });
             this.props.dispatch(deals(json.deals))
         });
     }
@@ -122,12 +128,30 @@ class Dashboard extends React.Component {
         }  
     } 
 
+    commentSelected(e) {
+        this.setState({ selectedComment: e.length == 0 ? -1 : e[0] });
+    }
+
+    deleteComment(comments) {
+        const comment = comments[this.state.selectedComment];
+        post('markers/delete', comment, json => {
+             this.props.dispatch(markers(json.markers))
+        });
+    }
+
     dealSelected(e) {
         this.setState({ selectedDeal: e.length == 0 ? -1 : e[0] });
     }
 
     render() {
         const { date, message, title } = this.state.news;
+        const comments = [];
+
+        this.props.map.markers.forEach(marker => {
+            marker.comments.forEach(comment => {
+                comments.push(comment);
+            })
+        });
 
         return (
             <div>
@@ -162,9 +186,9 @@ class Dashboard extends React.Component {
                             </div>
                             <div className='col-md-12 down'>
                                 <h2>Post News</h2><hr/>
-                                <TextField onChange={e => this.editNews(date, message, e.target.value)} floatingLabelText="Enter Title" fullWidth={true} /><br />
-                                <TextField onChange={e => this.editNews(date, e.target.value, title)} floatingLabelText="Enter Body" rows={5} multiLine={true} fullWidth={true} /><br />
-                                <DatePicker onChange={(e, d) => this.editNews(d.getTime(), message, title)}  mode="landscape" hintText="Enter Date" fullWidth={true} />
+                                <TextField value={this.state.news.title} onChange={e => this.editNews('title', e.target.value)} floatingLabelText="Enter Title" fullWidth={true} /><br />
+                                <TextField value={this.state.news.message} onChange={e => this.editNews('message', e.target.value)} floatingLabelText="Enter Body" rows={5} multiLine={true} fullWidth={true} /><br />
+                                <DatePicker value={this.state.news.date} onChange={(e, d) => this.editNews('date', d)}  mode="landscape" hintText="Enter Date" fullWidth={true} />
                                 <RaisedButton 
                                     onClick={() => this.postNews()} 
                                     className='pull-right' 
@@ -200,11 +224,11 @@ class Dashboard extends React.Component {
                             
                             <div className='col-md-12 down'>
                                 <h2>Post Deal</h2><hr/>
-                                <TextField onChange={e => this.editDeal(e, 'title')} floatingLabelText="Enter Title" fullWidth={true} /><br />
-                                <TextField onChange={e => this.editDeal(e, 'image')} floatingLabelText="Enter Image" fullWidth={true} /><br />
-                                <TextField onChange={e => this.editDeal(e, 'price')} floatingLabelText="Enter Price" fullWidth={true} /><br />
-                                <TextField onChange={e => this.editDeal(e, 'link')} floatingLabelText="Enter Link" fullWidth={true} /><br />
-                                <TextField onChange={e => this.editDeal(e, 'description')} floatingLabelText="Enter Description" rows={3} multiLine={true} fullWidth={true} /><br />
+                                <TextField value={this.state.deal.title} onChange={e => this.editDeal(e, 'title')} floatingLabelText="Enter Title" fullWidth={true} /><br />
+                                <TextField value={this.state.deal.image} onChange={e => this.editDeal(e, 'image')} floatingLabelText="Enter Image" fullWidth={true} /><br />
+                                <TextField value={this.state.deal.price} onChange={e => this.editDeal(e, 'price')} floatingLabelText="Enter Price" fullWidth={true} /><br />
+                                <TextField value={this.state.deal.link} onChange={e => this.editDeal(e, 'link')} floatingLabelText="Enter Link" fullWidth={true} /><br />
+                                <TextField value={this.state.deal.description} onChange={e => this.editDeal(e, 'description')} floatingLabelText="Enter Description" rows={3} multiLine={true} fullWidth={true} /><br />
                                 <RaisedButton 
                                     onClick={() => this.postDeal()} 
                                     className='pull-right' 
@@ -215,6 +239,27 @@ class Dashboard extends React.Component {
                         </div>
                     </Tab>
                     <Tab label='Comments'>
+                        <div className='container'>
+                            <div className='col-md-12 down'>
+                                <h2>Remove Comments</h2><hr/>
+                                <Table height={'250px'} onRowSelection={e => this.commentSelected(e)}>
+                                    <TableBody deselectOnClickaway={false}>
+                                    {
+                                        comments.map((comment, index) => {
+                                            return (
+                                                <TableRow selected={index == this.state.selectedComment} key={index}>
+                                                    <TableRowColumn>{comment.location.S}</TableRowColumn>
+                                                    <TableRowColumn>{moment(Number(comment.date.N)).format('DD/MM/YYYY')}</TableRowColumn>
+                                                    <TableRowColumn>{comment.comment.S}</TableRowColumn>
+                                                </TableRow>
+                                            )
+                                        })
+                                    }
+                                    </TableBody>
+                                </Table>
+                                <RaisedButton onClick={() => this.deleteComment(comments)} className='pull-right' label="Delete" style={style} primary={true} />
+                            </div>
+                        </div>
                     </Tab>
                 </Tabs>
             </div>
@@ -228,7 +273,7 @@ const Board = connect(state => state)(Dashboard);
 export default class Admin extends React.Component {
     constructor() {
         super();
-        this.state = { login: true, error: false, help: false }
+        this.state = { login: false, error: false, help: false }
     }
 
     login(username, password) {

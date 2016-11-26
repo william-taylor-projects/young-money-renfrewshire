@@ -40,10 +40,9 @@ router.post('/post', (req, res) => {
     dynamoDB.putItem(params, function(err, data) {
         if (err) {
             console.log(err); 
-            res.json({'news': [] });
-        } else {
-            getNews(news => res.json({ 'news': news }));
-        } 
+        }
+
+        getNews(news => res.json({ 'news': news }));
     });
 })
 
@@ -59,10 +58,9 @@ router.post('/delete', (req, res) => {
     dynamoDB.deleteItem(params, (err, data) => {
         if (err) {
             console.log(err);
-            getNews(news => res.json({ 'news': [] }));
-        } else {
-            getNews(news => res.json({ 'news': news }));
         } 
+
+        getNews(news => res.json({ 'news': news }));
     });
 });
 
