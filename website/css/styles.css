@@ -139,3 +139,7 @@ input::-ms-clear {
 .description {
     height: 100px;
 }
+
+::-webkit-scrollbar { 
+    display: none; 
+}

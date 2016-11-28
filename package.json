@@ -1,11 +1,13 @@
 {
   "name": "server",
+  "productName": "Young Money Renfrewshire",
   "version": "1.0.0",
   "description": "Quick mockup of my idea for a charity",
   "main": "electron-entry.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build-app": "electron-packager ./ --version=1.4.6 --icon=./website/images/purple-marker.png --platform=win32 --arch=ia32 "
   },
   "repository": {
     "type": "git",

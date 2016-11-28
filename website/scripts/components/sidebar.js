@@ -62,6 +62,7 @@ export default class Sidebar extends React.Component {
                     <Subheader>Tools</Subheader>
                     <ListItem onClick={() => this.change('calculator')} primaryText="Finance Calculator" leftIcon={<MathIcon />} />
                     <ListItem onClick={() => this.change('map')} primaryText="Bank Map" leftIcon={<MapIcon />} />
+                    <ListItem onClick={() => this.change('admin')} primaryText="Admin" leftIcon={<AdminLogo />} />
                 </List>
                 <Divider />
                 <List>
@@ -70,9 +71,6 @@ export default class Sidebar extends React.Component {
                     <ListItem onClick={() => this.change('f&q')} primaryText="F&Q" rightIcon={<ActionInfo />} />
                 </List>          
                 <Divider />
-                <List>
-                    <ListItem onClick={() => this.change('admin')} primaryText="Admin" leftIcon={<AdminLogo />} />
-                </List>
             </Drawer>
         );
     }
