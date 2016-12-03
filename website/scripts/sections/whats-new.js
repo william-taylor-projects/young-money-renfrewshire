@@ -29,8 +29,21 @@ const Update = props => {
     )
 }
 
+const sortByDate = (a, b) => {
+    let date1 = Number(a.date.N);
+    let date2 = Number(b.date.N);
+
+    if (date1 < date2){
+        return -1;
+    } else if(date1 > date2) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 const WhatsNew = props => {
-    const sortedNews = props.news.sort((a, b) => Number(a.date.N) > Number(b.date.N));
+    const sortedNews = props.news.sort(sortByDate);
 
     return (
         <div className='container'>

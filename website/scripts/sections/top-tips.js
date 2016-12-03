@@ -11,14 +11,17 @@ const TopTips = props => {
             {
                 props.tips.map((tip, index) => {
                     return (
-                        <div key={index} className="col-xs-12 col-md-4">
-                            <div className="thumbnail no-border text-center">
-                                <img className='img-circle' src={tip.img} alt="..." />
-                                <div className="caption">
-                                    <h3>{tip.title}</h3>
-                                    <p>{tip.text}</p>
+                        <div key={index}>
+                            <div className="col-xs-12 col-md-4">
+                                <div className="thumbnail no-border text-center">
+                                    <img className='img-responsive img-circle' src={tip.img} alt="..." />
+                                    <div className="caption">
+                                        <h3>{tip.title}</h3>
+                                        <p>{tip.text}</p>
+                                    </div>
                                 </div>
                             </div>
+                            { (++index) % 3 == 0 ? <div className="clearfix"></div> : ''} 
                         </div>
                     );
                 })

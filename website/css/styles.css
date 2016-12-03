@@ -1,5 +1,4 @@
 
-
  html, body {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     margin: 0px;
@@ -134,6 +133,11 @@ input::-ms-clear {
     object-fit: fill;
     max-height: 180px;
     min-height: 180px;
+}
+
+.img-fixed {
+    width: 250px;
+    height: 250px;
 }
 
 .description {

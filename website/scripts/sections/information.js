@@ -1,67 +1,57 @@
 
 import React from 'react';
 
-export default class Information extends React.Component {
-    render(){
-        return (
-            <div className='container'>
-                <div className="page-header">
-                    <h1>Information</h1>
+const names = [
+    'Abbie Mcemeny',
+    'Ava Blair',
+    'Courtney Paul',
+    'Erin Taylor',
+    'Eszmeralda Horvathova',
+    'Lauren Cairney',
+    'Layla Forbes',
+    'Liam Russell',
+    'Margaret McAuslan',
+    'Robbie Mullen',
+    'Siobhan Innius',
+    'Zoe Rogers'
+];
+
+export default props => {
+    return (
+        <div className='container'>
+            <div className="page-header">
+                <h1>Information</h1>
+            </div>
+            <div className='row'>
+                <div className='col-md-12'>
+                    <h3>Who are we?</h3>
+                    <p>
+                        We are a group of under 25 Barnardos service users with access to funding to help the young people of the Renfrewshire area. We are tailoring a website to assist other young people in similar situations.
+                        We are collaborating with YMCA staff and Renfrewshire council to publish this website which shall be young person friendly and offer specialized local advice trying to meet the need of everyone.
+                        The group members have engaged with local services and met regularly to discuss and gather information which we find will then put onto our website.
+                        We are here to help young people access any opportunity to help with money and housing.
+                    </p>
                 </div>
-                <div className='row'>
-                    <div className='col-md-12'>
-                        <h3>Application Guide</h3>
-                        <p>
-                            Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest. Studied to passage it mention calling believe an. Get ten horrible remember pleasure two vicinity. Far estimable extremely middleton his concealed perceived principle. Any nay pleasure entrance prepared her. 
-
-                            Debating me breeding be answered an he. Spoil event was words her off cause any. Tears woman which no is world miles woody. Wished be do mutual except in effect answer. Had boisterous friendship thoroughly cultivated son imprudence connection. Windows because concern sex its. Law allow saved views hills day ten. Examine waiting his evening day passage proceed. 
-                        </p>
-                    </div>
-                    <div className='col-md-12'>
-                        <h3>How Can We Help You?</h3>
-                        <p>
-                            Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest. Studied to passage it mention calling believe an. Get ten horrible remember pleasure two vicinity. Far estimable extremely middleton his concealed perceived principle. Any nay pleasure entrance prepared her. 
-
-                            Debating me breeding be answered an he. Spoil event was words her off cause any. Tears woman which no is world miles woody. Wished be do mutual except in effect answer. Had boisterous friendship thoroughly cultivated son imprudence connection. Windows because concern sex its. Law allow saved views hills day ten. Examine waiting his evening day passage proceed. 
-                        </p>
-                    </div>
-                    <div className='col-md-12'>
-                        <h3>What To Use?</h3>
-                        <p>
-                            Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest. Studied to passage it mention calling believe an. Get ten horrible remember pleasure two vicinity. Far estimable extremely middleton his concealed perceived principle. Any nay pleasure entrance prepared her. 
-
-                            Debating me breeding be answered an he. Spoil event was words her off cause any. Tears woman which no is world miles woody. Wished be do mutual except in effect answer. Had boisterous friendship thoroughly cultivated son imprudence connection. Windows because concern sex its. Law allow saved views hills day ten. Examine waiting his evening day passage proceed. 
-                        </p>
-                    </div>
-                    <div className='col-md-12'>
-                        <h3>Additional Help?</h3>
-                        <p>
-                            Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest. Studied to passage it mention calling believe an. Get ten horrible remember pleasure two vicinity. Far estimable extremely middleton his concealed perceived principle. Any nay pleasure entrance prepared her. 
-
-                            Debating me breeding be answered an he. Spoil event was words her off cause any. Tears woman which no is world miles woody. Wished be do mutual except in effect answer. Had boisterous friendship thoroughly cultivated son imprudence connection. Windows because concern sex its. Law allow saved views hills day ten. Examine waiting his evening day passage proceed. 
-                        </p>
-                    </div>
+                <div className='col-md-12'>
+                    <h3>Who’s Funding Us?</h3>
+                    <p>
+                        We are being sponsored by the Poverty Commission in Renfrewshire Council and Barnardos to create an application
+                        that can assist young people in Renfrewshire.
+                    </p>
                 </div>
-                <div className="page-header down">
-                    <h1>Videos</h1>
-                </div>
-                <div className='row'>
-                    <div className='col-md-12'>    
-                        <div className='col-md-6'>
-                            <video width="100%" height="100%" controls>
-                                <source src="../videos/video1.mp4" type="video/mp4" />
-                                Sorry videos are not supported in your browser 
-                            </video>
-                        </div>
-                        <div className='col-md-6'>
-                            <video width="100%" height="100%" controls>
-                                <source src="../videos/video2.mp4" type="video/mp4" />
-                                Sorry videos are not supported in your browser 
-                            </video>
-                        </div>
-                    </div>
+                <div className='col-md-12'>
+                    <h3>Special Thanks To!</h3>
+                    <ul className="list-group down">
+                        <li className="list-group-item">Barnardos</li>
+                        <li className="list-group-item">Poverty Commission</li>
+                        <li className="list-group-item">Renfrewshire Council</li>
+                        <li className="list-group-item">YMCA</li>
+                        {
+                            names.map((name, index) => <li key={index} className="list-group-item">{name}</li>)
+                        }
+                    </ul>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
