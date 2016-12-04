@@ -19,18 +19,40 @@ import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColu
 import { connect } from 'react-redux';
 
 import { HouseBills, Leisure, LivingCosts, Finance, Family } from '../components/expenses.js';
+import { randomColour } from '../services/colour.js';
 import PieChart from '../components/pie-chart.js';
 import Income from '../components/income.js';
 
-const colours = [
-    '#e600e6',
-    '#673ab6',
-    '#ff80ff',
-    '#7733ff',
-    '#673ab3',
-    '#00C49F',
-    '#b69ee0'
-];
+const PositiveAnalysis = props => {
+    return (
+        <div>
+            <h3>Advice</h3>
+            <p>
+                Overall your situation is good. You have more income each month than expenses. You have a net income of £{props.netIncome}.
+                What you may want to look at is saving your money so when unexpected bills occur you can meet them without having
+                to take our an expensive loan. Remember no loan is free. Look at the following options.
+            </p>
+            <ul>
+                <li>Individual Savings Accounts (ISAs)</li>
+                <li>Fixed Rate Saving Accounts</li>
+                <li>NS&amp;I Premium Bonds</li>
+            </ul>
+        </div>
+    )
+}
+
+const NegativeAnalysis = props => {
+    return (
+        <div>
+            <h3>Advice</h3>
+            <p>
+                Unfortunately, your situation does not look good. You have less income in each month than expenses, £{props.netIncome} in fact.
+                You may want to look at cutting expenses to a more sustainable level or look at ways of increasing your income.
+            </p>
+        </div>
+    )
+}
+
 
 class Calculator extends React.Component {
     constructor() {
@@ -47,6 +69,10 @@ class Calculator extends React.Component {
 
     componentDidMount() {
         this.onChange();
+    }
+
+    ratio(a, b) {
+        return (b == 0) ? a : this.ratio(b, a%b);
     }
 
     onChange() {
@@ -68,9 +94,8 @@ class Calculator extends React.Component {
                 largestIncome.v = income;
             }
 
-            const color = colours[Math.floor(Math.random()*colours.length)];
             if(income > 0.0) {
-                incomePlots.push({name: key, value: income, color });
+                incomePlots.push({name: key, value: income, color: randomColour() });
             }
         }
 
@@ -82,9 +107,8 @@ class Calculator extends React.Component {
                 largestExpense.v = expense;
             }
 
-            const color = colours[Math.floor(Math.random()*colours.length)];
             if(expense > 0.0) {
-                expensesPlots.push({name: key, value: expense, color });
+                expensesPlots.push({name: key, value: expense, color: randomColour() });
             }
         }
 
@@ -100,9 +124,10 @@ class Calculator extends React.Component {
 
     render() {
         const { totalCosts, totalIncome, largestIncome, largestCost} = this.state;
+        const hasInput = totalCosts > 0 && totalIncome > 0;
         const netIncome = totalIncome - totalCosts;
-        const rating = totalIncome * totalCosts;
-
+        const ratio = hasInput ? this.ratio(totalIncome, totalCosts) : 1;
+        
         return (
             <div>
                 <div className='calculator-heading text-center'>
@@ -154,12 +179,12 @@ class Calculator extends React.Component {
                             <Table>
                                 <TableBody displayRowCheckbox={false}>
                                 <TableRow>
-                                    <TableRowColumn>Total Costs</TableRowColumn>
-                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(totalCosts).format('0,0.00')}</TableRowColumn>
-                                </TableRow>
-                                <TableRow>
                                     <TableRowColumn>Total Income</TableRowColumn>
                                     <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(totalIncome).format('0,0.00')}</TableRowColumn>
+                                </TableRow>
+                                <TableRow>
+                                    <TableRowColumn>Total Costs</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(totalCosts).format('0,0.00')}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Net Income</TableRowColumn>
@@ -174,27 +199,30 @@ class Calculator extends React.Component {
                                     <TableRowColumn style={{fontWeight: 'bold'}}>{largestIncome}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
-                                    <TableRowColumn>Finance Rating</TableRowColumn>
-                                    <TableRowColumn style={{fontWeight: 'bold'}}>{rating}</TableRowColumn>
+                                    <TableRowColumn>Income to Expense Ratio</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>
+                                        {totalIncome / ratio} / {totalCosts / ratio}</TableRowColumn>
                                 </TableRow>
                                 </TableBody>
                             </Table>
                            </div>
-                           <div className='col-md-6 pie-container text-center'>
+                           <div className='col-md-6 pie-container text-center down'>
                             <h4>Income Chart</h4>
                             { this.state.incomeChart.length == 0 ? <p>No Pie Chart Data Available</p> : null }
                             <PieChart data={this.state.incomeChart} />
                            </div>
-                           <div className='col-md-6 pie-container text-center'>
+                           <div className='col-md-6 pie-container text-center down'>
                             <h4>Expense Chart</h4>
                             { this.state.expenseChart.length == 0 ? <p>No Pie Chart Data Available</p> : null }
                             <PieChart data={this.state.expenseChart} />
                            </div>
                            <div className='col-md-12 down'>
-                            <h3>Advice</h3>
-                            <p>
-                                Knowledge nay estimable questions repulsive daughters boy. Solicitude gay way unaffected expression for. His mistress ladyship required off horrible disposed rejoiced. Unpleasing pianoforte unreserved as oh he unpleasant no inquietude insipidity. Advantages can discretion possession add favourable cultivated admiration far. Why rather assure how esteem end hunted nearer and before. By an truth after heard going early given he. Charmed to it excited females whether at examine. Him abilities suffering may are yet dependent.    
-                            </p>
+                            { 
+                                hasInput ?
+                                    netIncome >= 0 ? 
+                                        <PositiveAnalysis netIncome={netIncome} /> : <NegativeAnalysis netIncome={netIncome} /> 
+                                    : ''
+                            }
                            </div>
                          </div>
                         </div>

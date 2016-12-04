@@ -75,13 +75,13 @@ class App extends React.Component {
             this.setState({
                 open: true,
                 title: 'Contact Us?',
-                message: 'Contact information will be released shortly.'
+                message: 'You can send us an email at dummyemail@dummylocation.co.uk.'
             });
         } else if(name == 'f&q') {
              this.setState({
                 open: true,
                 title: 'F&Q',
-                message: 'Please email us to have any questions answered.'
+                message: 'Please email us to have any questions answered at dummyemail@dummylocation.co.uk .'
             });
         } else {
             browserHistory.push('/' + name);

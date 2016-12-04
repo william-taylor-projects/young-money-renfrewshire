@@ -5,7 +5,7 @@ export default props => {
     return (
         <ResponsiveContainer>
             <PieChart>
-                <Pie isAnimationActive={true} data={props.data} label outerRadius={120} fill="#8884d8">
+                <Pie isAnimationActive={true} data={props.data} label outerRadius={110} fill="#8884d8">
                 {
                     props.data.map((entry, index) => <Cell key={index} fill={entry.color}/>)
                 }
