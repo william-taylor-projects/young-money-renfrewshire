@@ -4,7 +4,7 @@ const app = electron.app;
 const settings = {
   center: true,
   width: 900,
-  height: 800,
+  height: 700,
   resizable: false,
   icon: `${__dirname}/website/images/purple-marker.png`
 };
