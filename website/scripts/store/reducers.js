@@ -14,7 +14,7 @@ function calculator(state = {}, action) {
         return newState;
     }
 
-    if(action.type == 'DEFAULTS') {
+    if(action.type == 'DEFAULTS' || action.type == 'CLEAR_CALCULATOR') {
         const newState = Object.assign({}, state);
         newState.income = {};
         newState.expenses = {};

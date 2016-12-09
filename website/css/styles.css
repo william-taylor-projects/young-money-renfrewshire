@@ -147,3 +147,12 @@ input::-ms-clear {
 ::-webkit-scrollbar { 
     display: none; 
 }
+
+.list-down {
+    margin-top: 50px;
+}
+
+.calculator-summary {
+    width: 75%;
+    margin: auto;
+}

@@ -8,6 +8,12 @@ export function updateField(section, name, value) {
     }
 }
 
+export function clearCal() {
+    return {
+        type: 'CLEAR_CALCULATOR'
+    }
+}
+
 export function applyDefaults() {
     return {
         type: 'DEFAULTS'

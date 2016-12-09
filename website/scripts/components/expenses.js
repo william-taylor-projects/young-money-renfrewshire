@@ -184,7 +184,7 @@ const family = props => {
     return (
         <div>
             <div className='page-header'>
-                <h1>Family &amp; Friends</h1>
+                <h1>Family, Pets &amp; Children</h1>
             </div>
             <InputList values={props.values} title='Children' onChange={props.onChange} fields={children} first={true}/><br/>
             <InputList values={props.values} title='School' onChange={props.onChange} fields={school} /><br/>
@@ -197,21 +197,21 @@ const leisure = props => {
     return (
         <div>
             <div className='page-header'>
-                <h1>Leisure Bills</h1>
+                <h1>Bank Bills</h1>
             </div>
-            <InputList values={props.values} title='Insurance' onChange={props.onChange} fields={insurance} first={true} /><br/>
-            <InputList values={props.values} title='Banking' onChange={props.onChange} fields={banking} /><br/>
+            <InputList values={props.values} title='Banking' onChange={props.onChange} fields={banking} first={true} /><br/>
             <InputList values={props.values} title='Loans' onChange={props.onChange} fields={loans} /><br/>
             <InputList values={props.values} title='Savings' onChange={props.onChange} fields={savings} /><br/>
+            <InputList values={props.values} title='Insurance' onChange={props.onChange} fields={insurance} /><br/>
         </div>
     )
 }
 
-const finance = props => {
+const luxurys = props => {
     return (
         <div>
             <div className='page-header'>
-                <h1>Finance</h1>
+                <h1>Luxurys</h1>
             </div>
             <InputList values={props.values} title='Car' onChange={props.onChange} fields={cars} first={true} /><br/>
             <InputList values={props.values} title='Entertainment' onChange={props.onChange} fields={entertainment} /><br/>
@@ -229,6 +229,6 @@ const stateToProps = state => {
 
 export let LivingCosts = connect(stateToProps)(livingCosts);
 export let HouseBills = connect(stateToProps)(houseBills);
-export let Finance = connect(stateToProps)(finance);
+export let Finance = connect(stateToProps)(luxurys);
 export let Leisure = connect(stateToProps)(leisure);
 export let Family = connect(stateToProps)(family);

@@ -60,6 +60,9 @@ export default ((props, e, name) => {
                         })
                     }
                     </div>
+                    <div className='col-md-12'>
+                        <p className='down'><i>{props.text}</i></p>
+                    </div>
                 </div>
             </CardText>
         </Card>

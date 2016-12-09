@@ -12,17 +12,9 @@ import 'es6-promise/auto';
 
 ReactTap();
 
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/editor/vertical-align-top';
-
+import FloatingActionButton from './components/floating-button.js';
 import { scrollToTop } from './services/scrollbar.js';
 import { store } from './store/store.js';
-
-const style = {
-  position: 'fixed',
-  bottom: 20,
-  right: 20
-};
 
 import SimpleDialog from './dialogs/message-dialog.js';
 import { bootstrapTheme } from './theme.js';
@@ -75,13 +67,13 @@ class App extends React.Component {
             this.setState({
                 open: true,
                 title: 'Contact Us?',
-                message: 'You can send us an email at dummyemail@dummylocation.co.uk.'
+                message: 'You can send us an email at youngmoneyren@gmail.com.'
             });
         } else if(name == 'f&q') {
              this.setState({
                 open: true,
                 title: 'F&Q',
-                message: 'Please email us to have any questions answered at dummyemail@dummylocation.co.uk .'
+                message: 'Please email us to have any questions answered at youngmoneyren@gmail.com.'
             });
         } else {
             browserHistory.push('/' + name);
@@ -131,9 +123,7 @@ class App extends React.Component {
                             <Route path="/admin" component={Admin} />
                             <Route path="*" component={Page404}/>
                         </Router>
-                        <FloatingActionButton onClick={() => scrollToTop(750)} style={style}>
-                            <ContentAdd />
-                        </FloatingActionButton>
+                        <FloatingActionButton />
                     </div>
                 </Provider>
             </ThemeProvider>

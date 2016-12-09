@@ -40,8 +40,17 @@ const income = props => {
                 <h1>Income</h1>
             </div>
             <InputList values={props.values} title='Pay' onChange={props.onChange} fields={payFields} first={true} /><br/>
-            <InputList values={props.values} title='Benefits' onChange={props.onChange} fields={benefitFields}/><br/>
-            <InputList values={props.values} title='Other' onChange={props.onChange} fields={otherFields} /><br/>
+            <InputList values={props.values} 
+                title='Benefits' 
+                onChange={props.onChange} 
+                fields={benefitFields}
+                text={'If you get housing benefit directly, include it here.'} 
+            /><br/>
+            <InputList values={props.values} 
+                title='Other'
+                onChange={props.onChange} 
+                fields={otherFields}
+                /><br/>
         </div>
     )
 }

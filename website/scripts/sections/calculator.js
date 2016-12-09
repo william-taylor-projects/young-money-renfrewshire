@@ -8,10 +8,10 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import IncomeIcon from 'material-ui/svg-icons/action/credit-card';
 import HouseIcon from 'material-ui/svg-icons/action/home';
 import SocialIcon from 'material-ui/svg-icons/action/face';
-import InsuranceIcon from 'material-ui/svg-icons/action/https';
+import InsuranceIcon from 'material-ui/svg-icons/action/event-seat';
 import InsertChart from 'material-ui/svg-icons/editor/insert-chart';
 import FoodIcon from 'material-ui/svg-icons/maps/restaurant';
-import LeisureIcon from 'material-ui/svg-icons/notification/drive-eta';
+import LeisureIcon from 'material-ui/svg-icons/editor/attach-money';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import numeral from 'numeral';
@@ -67,7 +67,7 @@ class Calculator extends React.Component {
         }
     }
 
-    componentDidMount() {
+    componentWillReceiveProps() {
         this.onChange();
     }
 
@@ -134,6 +134,10 @@ class Calculator extends React.Component {
                     <div className="container-fixed">
                         <div className="jumbotron">
                             <h1>Finance Calculator</h1>
+                            <p className='calculator-summary'>
+                                A monthly calculator to help you manage your money. Enter data on a monthly basis
+                                to get an analysis of your budget.
+                            </p>
                         </div>
                     </div>
                 </div>
