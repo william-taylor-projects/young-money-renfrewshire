@@ -3,7 +3,7 @@ const electron = require('electron');
 const app = electron.app;
 const settings = {
   center: true,
-  width: 900,
+  width: 1015,
   height: 700,
   resizable: false,
   icon: `${__dirname}/website/images/icon.png`
@@ -20,7 +20,6 @@ function createWindow() {
     mainWindow = null;
   });
 }
-
 
 app.on('ready', createWindow)
 app.on('browser-window-created', function(e,window) {
