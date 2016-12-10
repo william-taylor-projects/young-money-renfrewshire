@@ -222,13 +222,8 @@ const luxurys = props => {
     )
 }
 
-
-const stateToProps = state => {
-    return { values: state.calculator.expenses };
-}
-
-export let LivingCosts = connect(stateToProps)(livingCosts);
-export let HouseBills = connect(stateToProps)(houseBills);
-export let Finance = connect(stateToProps)(luxurys);
-export let Leisure = connect(stateToProps)(leisure);
-export let Family = connect(stateToProps)(family);
+export let LivingCosts = livingCosts;
+export let HouseBills = houseBills;
+export let Finance = luxurys;
+export let Leisure = leisure;
+export let Family = family;

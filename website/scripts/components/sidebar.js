@@ -16,6 +16,7 @@ import ContentDrafts from 'material-ui/svg-icons/content/drafts';
 import Divider from 'material-ui/Divider';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 
+import DownloadLogo from 'material-ui/svg-icons/file/file-download'; 
 import AdminLogo from 'material-ui/svg-icons/action/account-box';
 import ShopIcon from 'material-ui/svg-icons/action/shopping-cart';
 import MathIcon from 'material-ui/svg-icons/action/assessment';
@@ -62,6 +63,7 @@ export default class Sidebar extends React.Component {
                     <Subheader>Tools</Subheader>
                     <ListItem onClick={() => this.change('calculator')} primaryText="Finance Calculator" leftIcon={<MathIcon />} />
                     <ListItem onClick={() => this.change('map')} primaryText="Bank Map" leftIcon={<MapIcon />} />
+                    <ListItem onClick={() => this.change('download')} primaryText="Download" leftIcon={<DownloadLogo />} />
                     <ListItem onClick={() => this.change('admin')} primaryText="Admin" leftIcon={<AdminLogo />} />
                 </List>
                 <Divider />

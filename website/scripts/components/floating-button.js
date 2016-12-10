@@ -1,11 +1,12 @@
 
-import React from 'react';
-
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/editor/vertical-align-top';
 import ClearIcon from 'material-ui/svg-icons/content/clear';
 
-import { connect } from 'react-redux'
+import { browserHistory } from 'react-router';
+import { connect } from 'react-redux';
+import React from 'react';
+
 import { scrollToTop } from '../services/scrollbar.js';
 import { clearCal } from '../store/actions.js';
 
@@ -16,6 +17,10 @@ const style = {
 };
 
 class FloatingButton extends React.Component {
+    componentDidMount() {
+        browserHistory.listen(location => this.forceUpdate());
+    }
+
     onClick() {
         if(location.pathname == '/calculator') {
             this.props.dispatch(clearCal());
@@ -25,11 +30,9 @@ class FloatingButton extends React.Component {
     }
 
     render() {
-        const isCal = location.pathname == '/calculator';
-
         return (
             <FloatingActionButton onClick={() => this.onClick()} style={style}>
-                { isCal ? <ClearIcon /> : <ContentAdd /> }
+                { location.pathname == '/calculator' ? <ClearIcon /> : <ContentAdd /> }
             </FloatingActionButton>
         )
     }

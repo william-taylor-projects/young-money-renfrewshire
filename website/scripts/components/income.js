@@ -39,24 +39,15 @@ const income = props => {
             <div className='page-header'>
                 <h1>Income</h1>
             </div>
-            <InputList values={props.values} title='Pay' onChange={props.onChange} fields={payFields} first={true} /><br/>
+            <InputList values={props.values} title='Pay' fields={payFields} first={true} /><br/>
             <InputList values={props.values} 
                 title='Benefits' 
-                onChange={props.onChange} 
                 fields={benefitFields}
                 text={'If you get housing benefit directly, include it here.'} 
             /><br/>
-            <InputList values={props.values} 
-                title='Other'
-                onChange={props.onChange} 
-                fields={otherFields}
-                /><br/>
+            <InputList values={props.values} title='Other' fields={otherFields} /><br/>
         </div>
     )
 }
 
-const stateToProps = state => {
-    return { values: state.calculator.income };
-}
-
-export default connect(stateToProps)(income);
+export default income;

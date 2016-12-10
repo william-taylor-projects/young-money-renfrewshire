@@ -130,7 +130,10 @@ class BankMapDialog extends React.Component {
            autoScrollBodyContent={true}>
             <p className='down'>{marker.body}</p>
             <address><strong>{marker.address}</strong></address>
-            <a style={{marginTop: -5}} href={marker.link} target='_blank'>Website Link</a>
+            {
+              marker.link ? <a style={{marginTop: -5}} href={marker.link} target='_blank'>Website Link</a> : null
+            }
+            
             <List style={style}>
             {
               comments.map((comment, index) => 
@@ -174,6 +177,7 @@ class BankMap extends React.Component {
 
   componentWillUpdate(nextProps, nextState) {
     this.sources = nextProps.markers.map(marker => marker.name);
+    this.sources = this.sources.filter((item, index, inputArray) => inputArray.indexOf(item) == index);
   }
 
   shouldAddMarker(marker, filter, name) {

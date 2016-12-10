@@ -28,9 +28,9 @@ const PositiveAnalysis = props => {
         <div>
             <h3>Advice</h3>
             <p>
-                Overall your situation is good. You have more income each month than expenses. You have a net income of £{props.netIncome}.
+                Your situation is good. You have more income each month than expenses. You have a net income of £{props.netIncome}.
                 What you may want to look at is saving your money so when unexpected bills occur you can meet them without having
-                to take our an expensive loan. Remember no loan is free. Look at the following options.
+                to take out an expensive loan. Remember no loan is free. Look at the following saving options.
             </p>
             <ul>
                 <li>Individual Savings Accounts (ISAs)</li>
@@ -49,33 +49,26 @@ const NegativeAnalysis = props => {
                 Unfortunately, your situation does not look good. You have less income in each month than expenses, £{props.netIncome} in fact.
                 You may want to look at cutting expenses to a more sustainable level or look at ways of increasing your income.
             </p>
+            <ul>
+                <li>Reduce expenses by looking at less expensive options</li>
+                <li>Look for higher paying job opportunities</li>
+                <li>Increase hours at work to increase your income</li>
+            </ul>
         </div>
     )
 }
 
 
 class Calculator extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            totalCosts: 0,
-            totalIncome: 0,
-            largestIncome: 'N/A',
-            largestCost: 'N/A',
-            incomeChart: [],
-            expenseChart: []
-        }
-    }
-
-    componentWillReceiveProps() {
-        this.onChange();
-    }
-
     ratio(a, b) {
         return (b == 0) ? a : this.ratio(b, a%b);
     }
 
     onChange() {
+       
+    }
+
+    render() {
         let largestIncome = {name: 'N/A', v: 0.0};
         let largestExpense = {name: 'N/A', v: 0.0};
         let expensesTotal = 0.0;  
@@ -111,22 +104,10 @@ class Calculator extends React.Component {
                 expensesPlots.push({name: key, value: expense, color: randomColour() });
             }
         }
-
-        this.setState({ 
-            totalIncome: incomeTotal, 
-            totalCosts: expensesTotal,
-            largestCost: largestExpense.name,
-            largestIncome: largestIncome.name,
-            expenseChart: expensesPlots,
-            incomeChart: incomePlots
-        });
-    }
-
-    render() {
-        const { totalCosts, totalIncome, largestIncome, largestCost} = this.state;
-        const hasInput = totalCosts > 0 && totalIncome > 0;
-        const netIncome = totalIncome - totalCosts;
-        const ratio = hasInput ? this.ratio(totalIncome, totalCosts) : 1;
+        
+        const hasInput = expensesTotal > 0 && incomeTotal > 0;
+        const netIncome = incomeTotal - expensesTotal;
+        const ratio = hasInput ? this.ratio(incomeTotal, expensesTotal) : 1;
         
         return (
             <div>
@@ -145,32 +126,32 @@ class Calculator extends React.Component {
                   <Tabs>
                      <Tab icon={<IncomeIcon />}>
                        <div className='container'>
-                         <Income onChange={() => this.onChange()} />
+                         <Income values={incomeMap}/>
                        </div>
                      </Tab>
                      <Tab icon={<HouseIcon />}>
                        <div className='container'>
-                         <HouseBills onChange={() => this.onChange()} />
+                         <HouseBills values={expensesMap} />
                        </div>
                      </Tab>
                      <Tab icon={<FoodIcon />}>
                        <div className='container'>
-                         <LivingCosts onChange={() => this.onChange()} />
+                         <LivingCosts values={expensesMap}  />
                        </div>
                      </Tab>
                      <Tab icon={<InsuranceIcon />}>
                        <div className='container'>
-                         <Finance onChange={() => this.onChange()} />
+                         <Finance values={expensesMap}  />
                         </div>
                      </Tab>
                      <Tab icon={<SocialIcon />}>
                        <div className='container'>
-                         <Family onChange={() => this.onChange()} />
+                         <Family values={expensesMap}  />
                         </div>
                      </Tab>
                      <Tab icon={<LeisureIcon />}>
                        <div className='container'>
-                         <Leisure onChange={() => this.onChange()} />
+                         <Leisure values={expensesMap}  />
                        </div>
                      </Tab>
                      <Tab icon={<InsertChart />}>
@@ -184,41 +165,47 @@ class Calculator extends React.Component {
                                 <TableBody displayRowCheckbox={false}>
                                 <TableRow>
                                     <TableRowColumn>Total Income</TableRowColumn>
-                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(totalIncome).format('0,0.00')}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(incomeTotal).format('0,0.00')} pm</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Total Costs</TableRowColumn>
-                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(totalCosts).format('0,0.00')}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(expensesTotal).format('0,0.00')} pm</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Net Income</TableRowColumn>
-                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(netIncome).format('0,0.00')}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{numeral(netIncome).format('0,0.00')} pm</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Largest Cost</TableRowColumn>
-                                    <TableRowColumn style={{fontWeight: 'bold'}}>{largestCost}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>{largestExpense.v}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Largest Income</TableRowColumn>
-                                    <TableRowColumn style={{fontWeight: 'bold'}}>{largestIncome}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>{largestIncome.v}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Income to Expense Ratio</TableRowColumn>
                                     <TableRowColumn style={{fontWeight: 'bold'}}>
-                                        {totalIncome / ratio} / {totalCosts / ratio}</TableRowColumn>
+                                        {incomeTotal / ratio} / {expensesTotal / ratio}</TableRowColumn>
                                 </TableRow>
                                 </TableBody>
                             </Table>
                            </div>
+                           <div className='col-md-12 down'>
+                            <ul>
+                                <li><strong>Income/Expense Ratio</strong> - A ratio letting you know how your income relates to your expenses</li>
+                                <li><strong>Net Income</strong> - Difference between your total income and total expenses</li>
+                            </ul>
+                          </div>
                            <div className='col-md-6 pie-container text-center down'>
                             <h4>Income Chart</h4>
-                            { this.state.incomeChart.length == 0 ? <p>No Pie Chart Data Available</p> : null }
-                            <PieChart data={this.state.incomeChart} />
+                            { incomePlots.length == 0 ? <p>No Pie Chart Data Available</p> : null }
+                            <PieChart data={incomePlots} />
                            </div>
                            <div className='col-md-6 pie-container text-center down'>
                             <h4>Expense Chart</h4>
-                            { this.state.expenseChart.length == 0 ? <p>No Pie Chart Data Available</p> : null }
-                            <PieChart data={this.state.expenseChart} />
+                            { expensesPlots.length == 0 ? <p>No Pie Chart Data Available</p> : null }
+                            <PieChart data={expensesPlots} />
                            </div>
                            <div className='col-md-12 down'>
                             { 

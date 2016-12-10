@@ -111,6 +111,10 @@ input::-ms-clear {
     display: none; 
 }
 
+input::-ms-reveal {
+    display: none;
+}
+
 .jumbotron {
     padding-top: 30px;
     padding-bottom: 30px;

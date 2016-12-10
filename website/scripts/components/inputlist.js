@@ -22,7 +22,6 @@ function onBlur(props, e, name) {
         const action = updateField(props.values, name, value);
 
         dispatch(action);
-        props.onChange();
     }
 }
 

@@ -75,6 +75,8 @@ class App extends React.Component {
                 title: 'F&Q',
                 message: 'Please email us to have any questions answered at youngmoneyren@gmail.com.'
             });
+        } else if(name == "download") {
+            window.open('zip/app.zip', '_blank');
         } else {
             browserHistory.push('/' + name);
         }
@@ -115,13 +117,13 @@ class App extends React.Component {
                         <Router history={browserHistory}>
                             <Route path="/" component={Home} />
                             <Route path="/info" component={Information} />
-                            <Route path="/deals" component={GoodDeals} />
-                            <Route path="/tips" component={TopTips} />
-                            <Route path="/new" component={WhatsNew} />
+                            <Route path="/deals" component={GoodDeals}  />
+                            <Route path="/tips" component={TopTips}  />
+                            <Route path="/new" component={WhatsNew}  />
                             <Route path="/calculator" component={Calculator} />
                             <Route path="/map" component={BankMap} />
-                            <Route path="/admin" component={Admin} />
-                            <Route path="*" component={Page404}/>
+                            <Route path="/admin" component={Admin}  />
+                            <Route path="*" component={Page404} />
                         </Router>
                         <FloatingActionButton />
                     </div>

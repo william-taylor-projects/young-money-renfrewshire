@@ -6,7 +6,7 @@ const settings = {
   width: 900,
   height: 700,
   resizable: false,
-  icon: `${__dirname}/website/images/purple-marker.png`
+  icon: `${__dirname}/website/images/icon.png`
 };
 
 let mainWindow = null;
@@ -14,7 +14,7 @@ let mainWindow = null;
 function createWindow() {
   mainWindow = new electron.BrowserWindow(settings);
   mainWindow.webContents.clearHistory();
-  mainWindow.loadURL(`http://www.youngmoneyren.org`);
+  mainWindow.loadURL(`http://www.youngmoneyren.org`, {"extraHeaders" : "pragma: no-cache\n"});
   mainWindow.setMenu(null);
   mainWindow.on('closed', function () {
     mainWindow = null;
