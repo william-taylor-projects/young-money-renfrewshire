@@ -15,7 +15,6 @@ export default class Home extends React.Component {
                         </div>    
                     </div>
                 </div>
-
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-12'>
@@ -30,15 +29,14 @@ export default class Home extends React.Component {
                             <br/>
                         </div>
                     </div>
-
                     <div className='row'>
-                        <div className='col-md-4 text-center'>
+                        <div className='col-xs-4 text-center'>
                             <img className='img-responsive img-center' src='images/ymca.jpg' />
                         </div>
-                        <div className='col-md-4 text-center down'>
+                        <div className='col-xs-4 text-center'>
                             <img className='img-responsive img-center' src="images/barnardos-logo.png" />
                         </div>
-                        <div className='col-md-4 text-center down'>
+                        <div className='col-xs-4 text-center'>
                             <img className='img-responsive img-center' src='images/renfrewshire-council.png' />
                         </div>
                     </div>

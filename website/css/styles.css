@@ -6,7 +6,9 @@
     margin-bottom:50px;
 }
 
-.img-center {margin:0 auto;}
+.img-center {
+    margin:0 auto;
+}
 
 .heading {
     width:100%;
@@ -100,6 +102,7 @@
 .logo {
     width: 100%;
 }
+
 hr {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -146,10 +149,6 @@ input::-ms-reveal {
 
 .description {
     height: 100px;
-}
-
-::-webkit-scrollbar { 
-    display: none; 
 }
 
 .list-down {

@@ -116,8 +116,7 @@ class Calculator extends React.Component {
                         <div className="jumbotron">
                             <h1>Finance Calculator</h1>
                             <p className='calculator-summary'>
-                                A monthly calculator to help you manage your money. Enter data on a monthly basis
-                                to get an analysis of your budget.
+                                A monthly calculator to help you manage your money.
                             </p>
                         </div>
                     </div>

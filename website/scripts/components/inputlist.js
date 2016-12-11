@@ -45,7 +45,7 @@ export default ((props, e, name) => {
                     {
                         props.fields.map((field, index) => {
                             return (
-                                <div key={index} className='col-md-6'>
+                                <div key={index} className='col-xs-6'>
                                     <TextField
                                         onBlur={e => onBlur(props, e, field.name)} 
                                         onFocus={e => onFocus(props, e, field.name)}

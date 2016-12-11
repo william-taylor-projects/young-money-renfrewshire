@@ -42,7 +42,7 @@ export default props => {
                 <div className='col-md-12'>
                     <h3>Special Thanks To!</h3><hr/>
                     <h4 className='pull-right'><span className="label label-info">Individual</span></h4>
-                    <h4 className='pull-right'><span className="label label-success">Company</span></h4>
+                    <h4 className='pull-right'><span className="label label-success">Organisation</span></h4>
                     <ul className="list-group list-down">
                         <li className="list-group-item list-group-item-success">Barnardos</li>
                         <li className="list-group-item list-group-item-success">Poverty Commission</li>

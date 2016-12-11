@@ -250,6 +250,9 @@ class BankMap extends React.Component {
           <div className="container-fixed">
             <div className="jumbotron">
               <h1>Financial Services Map</h1>
+              <p className='calculator-summary'>
+                  Find local financial services in your area.
+              </p>
             </div>
           </div>
         </div>
