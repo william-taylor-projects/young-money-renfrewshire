@@ -6,9 +6,9 @@ function calculator(state = {}, action) {
         const newState = Object.assign({}, state);
 
         if(action.section == state.income) {
-           newState.income[action.name] = action.value;
+           newState.income[action.name] = { value: action.value, weekly: action.weekly };
         } else {
-           newState.expenses[action.name] = action.value;
+           newState.expenses[action.name] = { value: action.value, weekly: action.weekly };
         }
 
         return newState;

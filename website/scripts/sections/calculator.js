@@ -80,7 +80,12 @@ class Calculator extends React.Component {
         const incomePlots = [];
 
         for(let key in incomeMap) {
-            const income = numeral().unformat(incomeMap[key]);
+            let income = numeral().unformat(incomeMap[key].value);
+
+            if(incomeMap[key].weekly) {
+                income = Math.floor((income * 52) / 12);
+            }
+
             incomeTotal += income;
             if(largestIncome.v < income) {
                 largestIncome.name = key;
@@ -93,7 +98,7 @@ class Calculator extends React.Component {
         }
 
         for(let key in expensesMap) {
-            const expense = numeral().unformat(expensesMap[key]);
+            const expense = numeral().unformat(expensesMap[key].value);
             expensesTotal += expense;
             if(largestExpense.v < expense) {
                 largestExpense.name = key;
@@ -176,11 +181,11 @@ class Calculator extends React.Component {
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Largest Cost</TableRowColumn>
-                                    <TableRowColumn style={{fontWeight: 'bold'}}>{largestExpense.v}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{largestExpense.v}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Largest Income</TableRowColumn>
-                                    <TableRowColumn style={{fontWeight: 'bold'}}>{largestIncome.v}</TableRowColumn>
+                                    <TableRowColumn style={{fontWeight: 'bold'}}>£{largestIncome.v}</TableRowColumn>
                                 </TableRow>
                                 <TableRow>
                                     <TableRowColumn>Income to Expense Ratio</TableRowColumn>

@@ -1,10 +1,11 @@
 
-export function updateField(section, name, value) {
+export function updateField(section, name, value, weekly) {
     return {
         type: 'UPDATE',
         section,
         value,
-        name
+        name,
+        weekly
     }
 }
 

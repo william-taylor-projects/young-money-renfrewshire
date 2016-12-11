@@ -39,10 +39,8 @@ const income = props => {
             <div className='page-header'>
                 <h1>Income</h1>
             </div>
-            <InputList values={props.values} title='Pay' fields={payFields} first={true} /><br/>
-            <InputList values={props.values} 
-                title='Benefits' 
-                fields={benefitFields}
+            <InputList values={props.values} title='Pay' fields={payFields} first={true} variable /><br/>
+            <InputList values={props.values} title='Benefits' fields={benefitFields}
                 text={'If you get housing benefit directly, include it here.'} 
             /><br/>
             <InputList values={props.values} title='Other' fields={otherFields} /><br/>
