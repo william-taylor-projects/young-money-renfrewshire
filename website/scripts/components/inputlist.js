@@ -5,7 +5,6 @@ import MenuItem from 'material-ui/MenuItem';
 
 import { updateField } from '../store/actions.js';
 import { dispatch } from '../store/store.js';
-import { connect } from 'react-redux';
 import numeral from 'numeral';
 import React from 'react';
 

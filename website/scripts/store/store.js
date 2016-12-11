@@ -7,7 +7,7 @@ import { get } from '../services/http.js';
 export let store = createStore(reducers);
 export let dispatch = store.dispatch;
 export let unsubscribe = store.subscribe(() => {
-    console.log(store.getState());
+    //console.log(store.getState());
 });
 
 dispatch(applyDefaults());
