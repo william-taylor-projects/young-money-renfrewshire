@@ -48,7 +48,7 @@ const WhatsNew = props => {
     return (
         <div className='container'>
             <div className="page-header">
-                <h1>What's New?</h1>
+                <h1>What's On?</h1>
             </div>
             <div className='row'>
                 <div className='col-md-12'>

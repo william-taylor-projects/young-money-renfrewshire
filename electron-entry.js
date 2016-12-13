@@ -6,7 +6,7 @@ const day = 86400000;
 const app = electron.app;
 const settings = {
   center: true,
-  width: 955,
+  width: 1020,
   height: 700,
   resizable: false,
   icon: `${__dirname}/website/images/icon.png`

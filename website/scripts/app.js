@@ -67,16 +67,10 @@ class App extends React.Component {
             this.setState({
                 open: true,
                 title: 'Contact Us?',
-                message: 'You can send us an email at youngmoneyren@gmail.com.'
-            });
-        } else if(name == 'f&q') {
-             this.setState({
-                open: true,
-                title: 'F&Q',
-                message: 'Please email us to have any questions answered at youngmoneyren@gmail.com.'
+                message: <span>You can send us an email at <a href='mailto:youngmoneyren@gmail.com'>youngmoneyren@gmail.com</a></span>
             });
         } else if(name == "download") {
-            window.open('zip/app.zip', '_blank');
+            window.open('zip/app.zip');
         } else {
             browserHistory.push('/' + name);
         }
@@ -100,7 +94,7 @@ class App extends React.Component {
         };
 
         const headerProps = {
-            title: applicationTitle,
+            title: <span style={{cursor: 'pointer'}}>{applicationTitle}</span>,
             iconElementRight: <SideButton/>,
             onLeftIconButtonTouchTap: () => this.openSidebar()
         };
@@ -111,7 +105,7 @@ class App extends React.Component {
             <ThemeProvider muiTheme={customTheme}>
                 <Provider store={store}>
                     <div>
-                        <HeaderBar {...headerProps}/>
+                        <HeaderBar onTitleTouchTap={() => browserHistory.push('/')} {...headerProps}/>
                         <SimpleDialog {...dialogProps} />
                         <Sidebar ref='sidebar' onChange={name => this.change(name)} />
                         <Router history={browserHistory}>

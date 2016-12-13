@@ -46,6 +46,15 @@
     box-shadow: 0px 2px 20px #888888;
 }
 
+.information-heading {
+    width:100%;
+    padding: 50px;
+    background: url('../images/info.jpg');
+    height:400px;
+    background-size: cover;
+    box-shadow: 0px 2px 20px #888888;
+}
+
 .dashboard-heading {
     width:100%;
     padding: 50px;
@@ -89,6 +98,7 @@
 
 .small-pd {
   padding: 0px;
+  height: 375px;
 }
 
 .down {
@@ -156,6 +166,11 @@ input::-ms-reveal {
 }
 
 .calculator-summary {
+    width: 75%;
+    margin: auto;
+}
+
+.information-summary {
     width: 75%;
     margin: auto;
 }

@@ -12,7 +12,7 @@ const TopTips = props => {
                 props.tips.map((tip, index) => {
                     return (
                         <div key={index}>
-                            <div className="col-xs-12 col-sm-6 col-md-4">
+                            <div className="col-xs-12 col-md-4">
                                 <div className="thumbnail no-border text-center">
                                     <img className='img-responsive img-circle' src={tip.img} alt="..." />
                                     <div className="caption">
@@ -21,8 +21,7 @@ const TopTips = props => {
                                     </div>
                                 </div>
                             </div>
-                            { (++index) % 2 == 0 ? <div className="clearfix visible-sm-block"></div> : ''} 
-                            { (++index) % 3 == 0 ? <div className="clearfix visible-md-block"></div> : ''} 
+                            { (++index) % 3 == 0 ? <div className="clearfix visible-md-block"></div> : ''}
                         </div>
                     );
                 })

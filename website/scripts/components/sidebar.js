@@ -54,14 +54,14 @@ export default class Sidebar extends React.Component {
                     <Subheader>Pages</Subheader>
                     <ListItem onClick={() => this.change('')} primaryText="Home" leftIcon={<HomeIcon />} />
                     <ListItem onClick={() => this.change('info')} primaryText="Information" leftIcon={<InfoIcon />} />
-                    <ListItem onClick={() => this.change('new')} primaryText="Whats New?" leftIcon={<NewIcon />} />
+                    <ListItem onClick={() => this.change('new')} primaryText="What's On?" leftIcon={<NewIcon />} />
                     <ListItem onClick={() => this.change('deals')} primaryText="Good Deals" leftIcon={<ShopIcon />} />
                     <ListItem onClick={() => this.change('tips')} primaryText="Top Tips" leftIcon={<TopIcon />} />
                 </List>
                 <Divider />
                 <List>
                     <Subheader>Tools</Subheader>
-                    <ListItem onClick={() => this.change('calculator')} primaryText="Finance Calculator" leftIcon={<MathIcon />} />
+                    <ListItem onClick={() => this.change('calculator')} primaryText="Calculator" leftIcon={<MathIcon />} />
                     <ListItem onClick={() => this.change('map')} primaryText="Bank Map" leftIcon={<MapIcon />} />
                     <ListItem onClick={() => this.change('download')} primaryText="Download" leftIcon={<DownloadLogo />} />
                     <ListItem onClick={() => this.change('admin')} primaryText="Admin" leftIcon={<AdminLogo />} />
@@ -70,9 +70,7 @@ export default class Sidebar extends React.Component {
                 <List>
                     <Subheader>Help</Subheader>
                     <ListItem onClick={() => this.change('contact')} primaryText="Contact Us" rightIcon={<ActionInfo />} />
-                    <ListItem onClick={() => this.change('f&q')} primaryText="F&Q" rightIcon={<ActionInfo />} />
                 </List>          
-                <Divider />
             </Drawer>
         );
     }

@@ -71,7 +71,7 @@ export default class InputList extends React.Component {
                             props.fields.map((field, index) => {
                                 return (
                                     <div key={index}>
-                                        <div className='col-xs-6'>
+                                        <div className='col-xs-12 col-sm-6'>
                                             <TextField
                                                 onBlur={e => onBlur(props, e, field.name, state.values[index])} 
                                                 onFocus={e => onFocus(props, e, field.name, state.values[index])}
@@ -83,8 +83,8 @@ export default class InputList extends React.Component {
                                         </div>
                                         {
                                             props.variable ? 
-                                                <div> 
-                                                    <SelectField onChange={(n, i) => this.handleChange(i, index, field.name)} value={this.state.values[index]} floatingLabelText="Frequency">
+                                                <div className='col-xs-12 col-sm-6'> 
+                                                    <SelectField fullWidth={true} onChange={(n, i) => this.handleChange(i, index, field.name)} value={this.state.values[index]} floatingLabelText="Frequency">
                                                         <MenuItem value={0} primaryText="Per Month" />
                                                         <MenuItem value={1} primaryText="Per Week" />
                                                     </SelectField>

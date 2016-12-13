@@ -4876,14 +4876,14 @@ a.label:focus {
   background-color: #286090;
 }
 .label-success {
-  background-color: #5cb85c;
+  background-color: #9900cc;
 }
 .label-success[href]:hover,
 .label-success[href]:focus {
   background-color: #449d44;
 }
 .label-info {
-  background-color: #5bc0de;
+  background-color: #cc33ff;
 }
 .label-info[href]:hover,
 .label-info[href]:focus {
@@ -5318,8 +5318,8 @@ button.list-group-item {
   color: #c7ddef;
 }
 .list-group-item-success {
-  color: #3c763d;
-  background-color: #dff0d8;
+  color: #9900cc;
+  background-color: white;
 }
 a.list-group-item-success,
 button.list-group-item-success {
@@ -5347,8 +5347,8 @@ button.list-group-item-success.active:focus {
   border-color: #3c763d;
 }
 .list-group-item-info {
-  color: #31708f;
-  background-color: #d9edf7;
+  color: #cc33ff;
+  background-color: white;
 }
 a.list-group-item-info,
 button.list-group-item-info {
