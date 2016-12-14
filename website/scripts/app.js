@@ -109,15 +109,14 @@ class App extends React.Component {
                         <SimpleDialog {...dialogProps} />
                         <Sidebar ref='sidebar' onChange={name => this.change(name)} />
                         <Router history={browserHistory}>
-                            <Route path="/" component={Home} />
                             <Route path="/info" component={Information} />
                             <Route path="/deals" component={GoodDeals}  />
                             <Route path="/tips" component={TopTips}  />
                             <Route path="/new" component={WhatsNew}  />
                             <Route path="/calculator" component={Calculator} />
-                            <Route path="/map" component={BankMap} />
                             <Route path="/admin" component={Admin}  />
-                            <Route path="*" component={Page404} />
+                            <Route path="/map" component={BankMap} />
+                            <Route path="*" component={Home} />
                         </Router>
                         <FloatingActionButton />
                     </div>
