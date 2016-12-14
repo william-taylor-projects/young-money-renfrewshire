@@ -41,7 +41,7 @@ export default class InputList extends React.Component {
         super(props);
 
         const length = props.fields.length;
-        const values = Array.from(Array(length)).map(v => 0);
+        const values = Array.apply(null, Array(5)).map(v => 0);
 
         this.state = { values };
     }

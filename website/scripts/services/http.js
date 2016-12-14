@@ -1,6 +1,8 @@
 
+const baseUrl = '52.209.203.208:3000';
+
 export let post = (url, body, action) => {
-    fetch(url, {
+    fetch(baseUrl + url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
@@ -10,7 +12,7 @@ export let post = (url, body, action) => {
 }
 
 export let get = (url, action) => {
-    fetch(url)
+    fetch(baseUrl + url)
         .then(res => res.json())
         .then(json => action(json));
 }
