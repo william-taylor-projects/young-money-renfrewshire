@@ -27,7 +27,6 @@ import Information from './sections/information.js';
 import TopTips from './sections/top-tips.js';
 import WhatsNew from './sections/whats-new.js';
 import BankMap from './sections/map.js';
-import Page404 from './sections/404.js';
 import Home from './sections/home.js';
 import Admin from './sections/admin.js';
 
