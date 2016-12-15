@@ -190,7 +190,7 @@ class BankMap extends React.Component {
     props.markers.forEach(marker => {
       if(this.shouldAddMarker(marker, filter, name)) {
         const mapMarker = new google.maps.Marker({
-          icon: 'images/purple-marker.png',
+          icon: './images/purple-marker.png',
           position: marker.position,
           title: marker.name,
           map : map

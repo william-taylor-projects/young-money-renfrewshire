@@ -14,7 +14,7 @@ const TopTips = props => {
                         <div key={index}>
                             <div className="col-xs-12 col-md-4">
                                 <div className="thumbnail no-border text-center">
-                                    <img className='img-responsive img-circle' src={tip.img} alt="..." />
+                                    <img className='img-responsive img-circle' src={"./"+tip.img} alt="..." />
                                     <div className="caption">
                                         <h3>{tip.title}</h3>
                                         <p>{tip.text}</p>

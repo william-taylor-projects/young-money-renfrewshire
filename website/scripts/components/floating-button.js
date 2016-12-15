@@ -12,8 +12,8 @@ import { clearCal } from '../store/actions.js';
 
 const style = {
   position: 'fixed',
-  bottom: 40,
-  right: 40
+  bottom: 20,
+  right: 20
 };
 
 class FloatingButton extends React.Component {
