@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 
 import RaisedButton from 'material-ui/RaisedButton';
+import isMobile from 'ismobilejs';
 import {List, ListItem} from 'material-ui/List';
 import ContentInbox from 'material-ui/svg-icons/content/inbox';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
@@ -63,7 +64,10 @@ export default class Sidebar extends React.Component {
                     <Subheader>Tools</Subheader>
                     <ListItem onClick={() => this.change('calculator')} primaryText="Calculator" leftIcon={<MathIcon />} />
                     <ListItem onClick={() => this.change('map')} primaryText="Bank Map" leftIcon={<MapIcon />} />
-                    <ListItem onClick={() => this.change('download')} primaryText="Download" leftIcon={<DownloadLogo />} />
+                    {
+                        !isMobile.any ? 
+                            <ListItem onClick={() => this.change('download')} primaryText="Download" leftIcon={<DownloadLogo />} /> : null
+                    }   
                     <ListItem onClick={() => this.change('admin')} primaryText="Admin" leftIcon={<AdminLogo />} />
                 </List>
                 <Divider />

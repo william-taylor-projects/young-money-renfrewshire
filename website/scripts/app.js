@@ -4,7 +4,6 @@ import HeaderBar from 'material-ui/AppBar';
 
 import { Router, Route, Link, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
-
 import ReactTap from 'react-tap-event-plugin';
 import ReactDOM from 'react-dom';
 import React from 'react';
