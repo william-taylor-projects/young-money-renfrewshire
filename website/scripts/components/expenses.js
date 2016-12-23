@@ -99,14 +99,14 @@ const loans = [
     { name: 'loan-repayments', label: 'Loan Repayments' },
     { name: 'student-loan', label: 'Student Loan Repayments' },
     { name: 'credit-card-repay', label: 'Credit Card Repayments' },
-    { name: 'hire-purchase', label: 'Hire Purchase & Catalogue Repayments' }
+    { name: 'hire-purchase', label: 'Hire Purchase' }
 ];
 
 const savings = [
     { name: 'regular-savings', label: 'Regular saving' },
     { name: 'lump-sum-saving', label: 'Lump sum saving' },
     { name: 'payments-into-isas', label: 'Payments into ISAs' },
-    { name: 'buying-shares', label: 'Buying shares & other investments' }
+    { name: 'buying-shares', label: 'Buying shares' }
 ];
 
 const cars = [
