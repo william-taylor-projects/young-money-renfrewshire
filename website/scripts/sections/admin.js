@@ -165,99 +165,108 @@ class Dashboard extends React.Component {
                 <Tabs className='container-fixed'>
                     <Tab label='Whats New'>
                         <div className='container'>
-                            <div className='col-md-12 down'>
-                                <h2>Whats New Posts</h2><hr/>
-                                <Table height={'300px'} onRowSelection={e => this.newsSelected(e)}>
-                                    <TableBody deselectOnClickaway={false}>
-                                    {
-                                        this.props.whatsnew.news.map((e, index) => {
-                                            return (
-                                                <TableRow selected={index == this.state.selectedNews} key={index}>
-                                                    <TableRowColumn>{moment(Number(e.date.N)).format('DD/MM/YYYY')}</TableRowColumn>
-                                                    <TableRowColumn>{e.title.S}</TableRowColumn>
-                                                    <TableRowColumn>{e.body.S}</TableRowColumn>
-                                                </TableRow>
-                                            )
-                                        })
-                                    }
-                                    </TableBody>
-                                </Table>
-                                <RaisedButton onClick={() => this.deleteNews()} className='pull-right' label="Delete" style={style} primary={true} />
+                            <div className='row'>
+                                <div className='col-md-12 down'>
+                                    <h2>Whats New Posts</h2><hr/>
+                                    <Table height={'300px'} onRowSelection={e => this.newsSelected(e)}>
+                                        <TableBody deselectOnClickaway={false}>
+                                        {
+                                            this.props.whatsnew.news.map((e, index) => {
+                                                return (
+                                                    <TableRow selected={index == this.state.selectedNews} key={index}>
+                                                        <TableRowColumn>{moment(Number(e.date.N)).format('DD/MM/YYYY')}</TableRowColumn>
+                                                        <TableRowColumn>{e.title.S}</TableRowColumn>
+                                                        <TableRowColumn>{e.body.S}</TableRowColumn>
+                                                    </TableRow>
+                                                )
+                                            })
+                                        }
+                                        </TableBody>
+                                    </Table>
+                                    <RaisedButton onClick={() => this.deleteNews()} className='pull-right' label="Delete" style={style} primary={true} />
+                                </div>
                             </div>
-                            <div className='col-md-12 down'>
-                                <h2>Post News</h2><hr/>
-                                <TextField value={this.state.news.title} onChange={e => this.editNews('title', e.target.value)} floatingLabelText="Enter Title" fullWidth={true} /><br />
-                                <TextField value={this.state.news.message} onChange={e => this.editNews('message', e.target.value)} floatingLabelText="Enter Body" rows={5} multiLine={true} fullWidth={true} /><br />
-                                <DatePicker value={this.state.news.date} onChange={(e, d) => this.editNews('date', d)}  mode="landscape" hintText="Enter Date" fullWidth={true} />
-                                <RaisedButton 
-                                    onClick={() => this.postNews()} 
-                                    className='pull-right' 
-                                    label="Post" 
-                                    style={style}
-                                    primary={true} />
+                            <div className='row'>
+                                <div className='col-md-12 down'>
+                                    <h2>Post News</h2><hr/>
+                                    <TextField value={this.state.news.title} onChange={e => this.editNews('title', e.target.value)} floatingLabelText="Enter Title" fullWidth={true} /><br />
+                                    <TextField value={this.state.news.message} onChange={e => this.editNews('message', e.target.value)} floatingLabelText="Enter Body" rows={5} multiLine={true} fullWidth={true} /><br />
+                                    <DatePicker value={this.state.news.date} onChange={(e, d) => this.editNews('date', d)}  mode="landscape" hintText="Enter Date" fullWidth={true} />
+                                    <RaisedButton 
+                                        onClick={() => this.postNews()} 
+                                        className='pull-right' 
+                                        label="Post" 
+                                        style={style}
+                                        primary={true} />
+                                </div>
                             </div>
                         </div>
                     </Tab>
                     <Tab label='Deals'>
                         <div className='container'>
-                            <div className='col-md-12 down'>
-                                <h2>Good Deals</h2><hr/>
-                                <Table onRowSelection={e => this.dealSelected(e)}>
-                                    <TableBody deselectOnClickaway={false}>
-                                    {
-                                        this.props.gooddeals.deals.map((e, index) => {
-                                            return (
-                                                <TableRow selected={index == this.state.selectedDeal} key={index}>
-                                                    <TableRowColumn>{e.title.S}</TableRowColumn>
-                                                    <TableRowColumn>£{e.price.N}</TableRowColumn>
-                                                    <TableRowColumn>{e.description.S}</TableRowColumn>
-                                                    <TableRowColumn>{e.link.S}</TableRowColumn>
-                                                    <TableRowColumn>{e.image.S}</TableRowColumn>
-                                                </TableRow>
-                                            )
-                                        })
-                                    }
-                                    </TableBody>
-                                </Table>
-                                <RaisedButton onClick={() => this.deleteDeal()} className='pull-right' label="Delete" style={style} primary={true} />
+                            <div className='row'>
+                                <div className='col-md-12 down'>
+                                    <h2>Good Deals</h2><hr/>
+                                    <Table onRowSelection={e => this.dealSelected(e)}>
+                                        <TableBody deselectOnClickaway={false}>
+                                        {
+                                            this.props.gooddeals.deals.map((e, index) => {
+                                                return (
+                                                    <TableRow selected={index == this.state.selectedDeal} key={index}>
+                                                        <TableRowColumn>{e.title.S}</TableRowColumn>
+                                                        <TableRowColumn>£{e.price.N}</TableRowColumn>
+                                                        <TableRowColumn>{e.description.S}</TableRowColumn>
+                                                        <TableRowColumn>{e.link.S}</TableRowColumn>
+                                                        <TableRowColumn>{e.image.S}</TableRowColumn>
+                                                    </TableRow>
+                                                )
+                                            })
+                                        }
+                                        </TableBody>
+                                    </Table>
+                                    <RaisedButton onClick={() => this.deleteDeal()} className='pull-right' label="Delete" style={style} primary={true} />
+                                </div>
                             </div>
-                            
-                            <div className='col-md-12 down'>
-                                <h2>Post Deal</h2><hr/>
-                                <TextField value={this.state.deal.title} onChange={e => this.editDeal(e, 'title')} floatingLabelText="Enter Title" fullWidth={true} /><br />
-                                <TextField value={this.state.deal.image} onChange={e => this.editDeal(e, 'image')} floatingLabelText="Enter Image" fullWidth={true} /><br />
-                                <TextField value={this.state.deal.price} onChange={e => this.editDeal(e, 'price')} floatingLabelText="Enter Price" fullWidth={true} /><br />
-                                <TextField value={this.state.deal.link} onChange={e => this.editDeal(e, 'link')} floatingLabelText="Enter Link" fullWidth={true} /><br />
-                                <TextField value={this.state.deal.description} onChange={e => this.editDeal(e, 'description')} floatingLabelText="Enter Description" rows={3} multiLine={true} fullWidth={true} /><br />
-                                <RaisedButton 
-                                    onClick={() => this.postDeal()} 
-                                    className='pull-right' 
-                                    label="Post" 
-                                    style={style}
-                                    primary={true} />
+                            <div className='row'>
+                                <div className='col-md-12 down'>
+                                    <h2>Post Deal</h2><hr/>
+                                    <TextField value={this.state.deal.title} onChange={e => this.editDeal(e, 'title')} floatingLabelText="Enter Title" fullWidth={true} /><br />
+                                    <TextField value={this.state.deal.image} onChange={e => this.editDeal(e, 'image')} floatingLabelText="Enter Image" fullWidth={true} /><br />
+                                    <TextField value={this.state.deal.price} onChange={e => this.editDeal(e, 'price')} floatingLabelText="Enter Price" fullWidth={true} /><br />
+                                    <TextField value={this.state.deal.link} onChange={e => this.editDeal(e, 'link')} floatingLabelText="Enter Link" fullWidth={true} /><br />
+                                    <TextField value={this.state.deal.description} onChange={e => this.editDeal(e, 'description')} floatingLabelText="Enter Description" rows={3} multiLine={true} fullWidth={true} /><br />
+                                    <RaisedButton 
+                                        onClick={() => this.postDeal()} 
+                                        className='pull-right' 
+                                        label="Post" 
+                                        style={style}
+                                        primary={true} />
+                                </div>
                             </div>
                         </div>
                     </Tab>
                     <Tab label='Comments'>
                         <div className='container'>
-                            <div className='col-md-12 down'>
-                                <h2>Remove Comments</h2><hr/>
-                                <Table height={'250px'} onRowSelection={e => this.commentSelected(e)}>
-                                    <TableBody deselectOnClickaway={false}>
-                                    {
-                                        comments.map((comment, index) => {
-                                            return (
-                                                <TableRow selected={index == this.state.selectedComment} key={index}>
-                                                    <TableRowColumn>{comment.location.S}</TableRowColumn>
-                                                    <TableRowColumn>{moment(Number(comment.date.N)).format('DD/MM/YYYY')}</TableRowColumn>
-                                                    <TableRowColumn>{comment.comment.S}</TableRowColumn>
-                                                </TableRow>
-                                            )
-                                        })
-                                    }
-                                    </TableBody>
-                                </Table>
-                                <RaisedButton onClick={() => this.deleteComment(comments)} className='pull-right' label="Delete" style={style} primary={true} />
+                            <div className='row'>
+                                <div className='col-md-12 down'>
+                                    <h2>Remove Comments</h2><hr/>
+                                    <Table height={'250px'} onRowSelection={e => this.commentSelected(e)}>
+                                        <TableBody deselectOnClickaway={false}>
+                                        {
+                                            comments.map((comment, index) => {
+                                                return (
+                                                    <TableRow selected={index == this.state.selectedComment} key={index}>
+                                                        <TableRowColumn>{comment.location.S}</TableRowColumn>
+                                                        <TableRowColumn>{moment(Number(comment.date.N)).format('DD/MM/YYYY')}</TableRowColumn>
+                                                        <TableRowColumn>{comment.comment.S}</TableRowColumn>
+                                                    </TableRow>
+                                                )
+                                            })
+                                        }
+                                        </TableBody>
+                                    </Table>
+                                    <RaisedButton onClick={() => this.deleteComment(comments)} className='pull-right' label="Delete" style={style} primary={true} />
+                                </div>
                             </div>
                         </div>
                     </Tab>
