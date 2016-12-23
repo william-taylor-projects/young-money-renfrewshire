@@ -21,7 +21,7 @@ const TopTips = props => {
                                     </div>
                                 </div>
                             </div>
-                            { (++index) % 3 == 0 ? <div className="clearfix visible-md-block"></div> : ''}
+                            { (++index) % 3 == 0 ? <div className="clearfix visible-md-block visible-lg-block visible-xl-block"></div> : ''}
                         </div>
                     );
                 })

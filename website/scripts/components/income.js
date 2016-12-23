@@ -10,7 +10,7 @@ const payFields = [
 ]
 
 const otherFields = [
-    { name: 'savings', label: 'Income from savings & investments' },
+    { name: 'savings', label: 'Investments Income' },
     { name: 'rent', label: 'Board or rent' },
     { name: 'child', label: 'Child maintenance' },
     { name: 'loans', label: 'Student loans & grants' },
@@ -24,7 +24,7 @@ const benefitFields = [
      { name: 'working-tax-credit', label: 'Working Tax Credit' },
      { name: 'child-tax-credit', label: 'Child Tax Credit' },
      { name: 'child-benefit', label: 'Child Benefit' },
-     { name: 'employement-allowance', label: 'Employment and Support Allowance' },
+     { name: 'employement-allowance', label: 'Employment Allowance' },
      { name: 'universal-credit', label: 'Universal Credit' },
      { name: 'disability-allowance', label: 'Disability Living Allowance' },
      { name: 'attendance-allowance', label: 'Attendance Allowance' },
