@@ -33,6 +33,12 @@ export const mapTheme = [
     ]
   },
   {
+    "featureType": "poi",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },
+  {
     "featureType": "administrative",
     "elementType": "all",
     "stylers": [

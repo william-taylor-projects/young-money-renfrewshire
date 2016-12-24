@@ -134,7 +134,7 @@ class Dashboard extends React.Component {
 
     deleteComment(comments) {
         const comment = comments[this.state.selectedComment];
-        post('markers/delete', comment, json => {
+        post('/markers/delete', comment, json => {
              this.props.dispatch(markers(json.markers))
         });
     }

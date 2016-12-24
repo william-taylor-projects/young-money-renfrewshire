@@ -128,20 +128,22 @@ class BankMapDialog extends React.Component {
           modal={false} open={this.state.open} actions={actions}
            onRequestClose={() => this.close()}
            autoScrollBodyContent={true}>
-            <p className='down'>{marker.body}</p>
-            <address><strong>{marker.address}</strong></address>
-            {
-              marker.link ? <a style={{marginTop: -5}} href={marker.link} target='_blank'>Website Link</a> : null
-            }
-            
-            <List style={style}>
-            {
-              comments.map((comment, index) => 
-                <ListItem key={index} size={20} leftAvatar={<DoneIcon style={{marginTop: 6}} />}>
-                  {comment.comment.S}
-                </ListItem>)
-            }
-            </List>
+           <div className='col-md-12'>
+              <p className='down'>{marker.body}</p>
+              <address><strong>{marker.address}</strong></address>
+              {
+                marker.link ? <a style={{marginTop: -5}} href={marker.link} target='_blank'>Website Link</a> : null
+              }
+              
+              <List style={style}>
+              {
+                comments.map((comment, index) => 
+                  <ListItem key={index} size={20} leftAvatar={<DoneIcon style={{marginTop: 6}} />}>
+                    {comment.comment.S}
+                  </ListItem>)
+              }
+              </List>
+           </div>
         </Dialog>
       </div> 
     )
