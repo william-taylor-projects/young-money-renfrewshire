@@ -5,6 +5,10 @@ body {
     padding: 0px;
 }
 
+.noscrollbar::-webkit-scrollbar { 
+    display: none; 
+}
+
 #app {
     margin-bottom: 50px;
 }

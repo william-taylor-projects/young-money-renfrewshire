@@ -110,7 +110,7 @@ class BankMapDialog extends React.Component {
     ];
 
     return(
-      <div>
+      <div id='noscrollbar'>
         <CommentDialog ref='commentDialog' 
           onAddComment={comment => this.addComment(marker, comment)} 
           open={this.state.addComment}
@@ -127,7 +127,9 @@ class BankMapDialog extends React.Component {
         <Dialog title={marker.name}
           modal={false} open={this.state.open} actions={actions}
            onRequestClose={() => this.close()}
-           autoScrollBodyContent={true}>
+           autoScrollBodyContent={true}
+           bodyClassName='noscrollbar'
+           >
            <div className='col-md-12'>
               <p className='down'>{marker.body}</p>
               <address><strong>{marker.address}</strong></address>
