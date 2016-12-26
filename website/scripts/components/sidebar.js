@@ -47,6 +47,10 @@ export default class Sidebar extends React.Component {
         }
     }
 
+    showDownload() {
+        return !isMobile.any && !(window && window.process && window.process.type)
+    }
+
     render() {
         return (
             <Drawer docked={false} open={this.state.open} width={250} onRequestChange={(open) => this.setState({open})}>
@@ -65,7 +69,7 @@ export default class Sidebar extends React.Component {
                     <ListItem onClick={() => this.change('calculator')} primaryText="Calculator" leftIcon={<MathIcon />} />
                     <ListItem onClick={() => this.change('map')} primaryText="Bank Map" leftIcon={<MapIcon />} />
                     {
-                        !isMobile.any ? 
+                        this.showDownload() ? 
                             <ListItem onClick={() => this.change('download')} primaryText="Download" leftIcon={<DownloadLogo />} /> : null
                     }   
                     <ListItem onClick={() => this.change('admin')} primaryText="Admin" leftIcon={<AdminLogo />} />

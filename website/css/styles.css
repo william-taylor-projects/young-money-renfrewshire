@@ -1,8 +1,9 @@
 
 body {
-    overflow: auto;
+    overflow-x: hidden;
     margin: 0px;
     padding: 0px;
+    height:100%;
 }
 
 .noscrollbar::-webkit-scrollbar { 
