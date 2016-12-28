@@ -1,7 +1,7 @@
 
 import { combineReducers } from 'redux';
 
-function calculator(state = {}, action) {
+const calculator = (state = {}, action) => {
     if(action.type == 'UPDATE') {
         const newState = Object.assign({}, state);
 
@@ -16,15 +16,15 @@ function calculator(state = {}, action) {
 
     if(action.type == 'DEFAULTS' || action.type == 'CLEAR_CALCULATOR') {
         const newState = Object.assign({}, state);
-        newState.income = {};
         newState.expenses = {};
+        newState.income = {};
         return newState;
     }
 
     return state;
 }
 
-function whatsnew(state = {}, action) {
+const whatsnew = (state = {}, action) => {
     if(action.type == 'NEWS') {
         return Object.assign({}, state, { news: action.news })
     }
@@ -32,7 +32,7 @@ function whatsnew(state = {}, action) {
     return state;
 }
 
-function gooddeals(state = {}, action) {
+const gooddeals = (state = {}, action) => {
     if(action.type == 'DEALS') {
         return Object.assign({}, state, { deals: action.deals })
     }
@@ -41,7 +41,7 @@ function gooddeals(state = {}, action) {
 }
 
 
-function toptips(state = {}, action) {
+const toptips = (state = {}, action) => {
     if(action.type == 'TIPS') {
         return Object.assign({}, state, { tips: action.tips })
     }
@@ -50,7 +50,7 @@ function toptips(state = {}, action) {
 }
 
 
-function map(state = {}, action) {
+const map = (state = {}, action) => {
     if(action.type == 'MARKERS') {
         return Object.assign({}, state, { markers: action.markers });
     }

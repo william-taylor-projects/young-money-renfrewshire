@@ -64,10 +64,6 @@ class Calculator extends React.Component {
         return (b == 0) ? a : this.ratio(b, a%b);
     }
 
-    onChange() {
-       
-    }
-
     render() {
         let largestIncome = {name: 'N/A', v: 0.0};
         let largestExpense = {name: 'N/A', v: 0.0};

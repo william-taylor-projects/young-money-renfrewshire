@@ -7,7 +7,7 @@ const payFields = [
     { name: 'selfPay', label: 'Income from self-employment' },
     { name: 'sickPay', label: 'Statutory Sick Pay' },
     { name: 'maternityPay', label: 'Statutory Maternity Pay' }
-]
+];
 
 const otherFields = [
     { name: 'savings', label: 'Investments Income' },
@@ -16,7 +16,7 @@ const otherFields = [
     { name: 'loans', label: 'Student loans & grants' },
     { name: 'other', label: 'Other financial support' },
     { name: 'gifts', label: 'Gifts from family & friends' }
-]
+];
 
 const benefitFields = [
      { name: 'job-allowance', label: 'Jobseeker\'s Allowance' },
@@ -31,7 +31,7 @@ const benefitFields = [
      { name: 'carers-allowance', label: 'Carer\'s Allowance' },
      { name: 'housing-benefit', label: 'Housing Benefit' },
      { name: 'maternitiy-allowance', label: 'Materinity Allowance' }
-]
+];
 
 const income = props => {
     return (
@@ -45,7 +45,7 @@ const income = props => {
             /><br/>
             <InputList values={props.values} title='Other' fields={otherFields} /><br/>
         </div>
-    )
+    );
 }
 
 export default income;

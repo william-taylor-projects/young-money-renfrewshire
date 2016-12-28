@@ -1,5 +1,5 @@
 
-export function randomColour() {
+export const randomColour = () => {
     let letters = '0123456789ABCDEF';
     let color = '#';
 

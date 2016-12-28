@@ -1,5 +1,5 @@
 
-import { markers, news, tips, deals, applyDefaults } from './actions.js';
+import * as actions from './actions.js';
 import { createStore } from 'redux';
 import { reducers } from './reducers';
 import { get } from '../services/http.js';
@@ -7,16 +7,17 @@ import { get } from '../services/http.js';
 export let store = createStore(reducers);
 export let dispatch = store.dispatch;
 export let unsubscribe = store.subscribe(() => {
+    // in development mode uncomment
     //console.log(store.getState());
 });
 
-dispatch(applyDefaults());
-dispatch(markers([]));
-dispatch(deals([]));
-dispatch(news([]));
-dispatch(tips([]));
+dispatch(actions.applyDefaults());
+dispatch(actions.markers([]));
+dispatch(actions.deals([]));
+dispatch(actions.news([]));
+dispatch(actions.tips([]));
 
-get(`/markers/get`, json => dispatch(markers(json.markers)));
-get(`/deals/get`, json => dispatch(deals(json.deals)));
-get(`/news/get`, json => dispatch(news(json.news)));
-get(`/tips/get`, json => dispatch(tips(json.tips)));
+get(`/markers/get`, json => dispatch(actions.markers(json.markers)));
+get(`/deals/get`, json => dispatch(actions.deals(json.deals)));
+get(`/news/get`, json => dispatch(actions.news(json.news)));
+get(`/tips/get`, json => dispatch(actions.tips(json.tips)));

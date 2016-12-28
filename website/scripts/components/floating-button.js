@@ -2,13 +2,12 @@
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/editor/vertical-align-top';
 import ClearIcon from 'material-ui/svg-icons/content/clear';
-
-import { browserHistory } from 'react-router';
-import { connect } from 'react-redux';
 import React from 'react';
 
 import { scrollToTop } from '../services/scrollbar.js';
 import { clearCal } from '../store/actions.js';
+import { browserHistory } from 'react-router';
+import { connect } from 'react-redux';
 
 const style = {
   position: 'fixed',

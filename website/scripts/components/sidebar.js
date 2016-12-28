@@ -24,7 +24,7 @@ import MathIcon from 'material-ui/svg-icons/action/assessment';
 import HomeIcon from 'material-ui/svg-icons/action/home';
 import InfoIcon from 'material-ui/svg-icons/action/info';
 import TopIcon from 'material-ui/svg-icons/action/grade';
-import NewIcon from 'material-ui/svg-icons/av/new-releases';
+import NewIcon from 'material-ui/svg-icons/action/event';
 import MapIcon from 'material-ui/svg-icons/maps/map';
 
 export default class Sidebar extends React.Component {

@@ -1,32 +1,22 @@
-import React from 'react';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+import Dialog from 'material-ui/Dialog';
+import React from 'react';
 
-export default class SimpleDialog extends React.Component {
-  render() {
-    const actions = [
-      <FlatButton
-        label="Okay"
-        primary={true}
-        keyboardFocused={true}
-        onTouchTap={() => this.props.onClose()}
-      />
-    ];
+export default props => {
+  const actions = [
+    <FlatButton label="Okay" primary={true} keyboardFocused={true} onTouchTap={() => props.onClose()} />
+  ];
 
-    return (
-      <div>
-        <Dialog
-          title={this.props.title}
-          actions={actions}
-          modal={false}
-          open={this.props.open}
-          onRequestClose={() => this.props.onClose()}>
-          <p>
-            {this.props.message}
-          </p>
-        </Dialog>
-      </div>
-    );
-  }
+  return (
+    <Dialog
+      title={props.title}
+      actions={actions}
+      modal={false}
+      open={props.open}
+      onRequestClose={() => props.onClose()}>
+      <p>{props.message}</p>
+    </Dialog>
+  );
 }

@@ -1,21 +1,20 @@
 
-import { purple500, purple400, purple300, deepPurple500, deepPurple400, deepPurple300 } from 'material-ui/styles/colors';
+import * as colours from 'material-ui/styles/colors';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-export function bootstrapTheme() {
+export const bootstrapTheme = () => {
   const muiTheme = getMuiTheme({
     fontFamily: 'Roboto, sans-serif',
     palette: {
-      // Primary
-      primary1Color: deepPurple500,
-      primary2Color: deepPurple400,
-      primary3Color: deepPurple300,
-      // Secondary
-      accent1Color: purple500,
-      accent2Color: purple400,
-      accent3Color: purple300,
+      primary1Color: colours.deepPurple500,
+      primary2Color: colours.deepPurple400,
+      primary3Color: colours.deepPurple300,
+      
+      accent1Color: colours.purple500,
+      accent2Color: colours.purple400,
+      accent3Color: colours.purple300,
 
-      pickerHeaderColor: deepPurple500
+      pickerHeaderColor: colours.deepPurple500
     }
   });
 

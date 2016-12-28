@@ -326,7 +326,6 @@ export default class Admin extends React.Component {
                 { this.state.login ? bashboardComponent: loginComponent }
                 <Dialog open={this.state.help} 
                     onClose={() => this.helpClose()} 
-                    ref='dialog' 
                     title='Cant Login?' 
                     message={messageBody}/>
             </div>

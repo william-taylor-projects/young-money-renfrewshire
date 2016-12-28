@@ -1,50 +1,34 @@
 
-export function updateField(section, name, value, weekly) {
+export const updateField = (section, name, value, weekly) => {
     return {
         type: 'UPDATE',
         section,
         value,
         name,
         weekly
-    }
+    };
 }
 
-export function clearCal() {
-    return {
-        type: 'CLEAR_CALCULATOR'
-    }
+export const clearCal = () => {
+    return { type: 'CLEAR_CALCULATOR' };
 }
 
-export function applyDefaults() {
-    return {
-        type: 'DEFAULTS'
-    }
+export const applyDefaults = () => {
+    return { type: 'DEFAULTS' };
 }
 
-export function markers(markers) {
-    return {
-        type: 'MARKERS',
-        markers
-    }
+export const markers = (markers) => {
+    return { type: 'MARKERS', markers };
 }
 
-export function news(news) {
-    return {
-        type: 'NEWS',
-        news
-    }
+export const news = (news) => {
+    return { type: 'NEWS', news };
 }
 
-export function tips(tips) {
-    return {
-        type: 'TIPS',
-        tips
-    }
+export const tips = (tips) => {
+    return { type: 'TIPS', tips };
 }
 
-export function deals(deals) {
-    return {
-        type: 'DEALS',
-        deals
-    }
+export const deals = (deals) => {
+    return { type: 'DEALS', deals };
 }

@@ -87,8 +87,7 @@ class App extends React.Component {
             onClose: () => this.setState({open: false}),
             message: this.state.message,
             title : this.state.title,
-            open: this.state.open,
-            ref: 'dialog'
+            open: this.state.open
         };
 
         const headerProps = {
