@@ -2,7 +2,7 @@
 
 <img align='right' width='150' height='150' src="https://raw.githubusercontent.com/william-taylor/young-money-renfrewshire/master/website/People-256.png" />
 
-# Young Money Renfrewshire :couple::person_with_blond_hair::family::information_desk_person:
+# Young Money Renfrewshire
 
 Young Money Renfrewshire is a custom tailored website for the charity Barnardos. It is an application for under 25s who can help with your financial problems. We can help with budgeting, where to find deals and where to find the best advice. The application was built in collaboration with the Poverty Alliance, Barnardos staff and Renfewshire Council.
 
@@ -12,7 +12,13 @@ TBD
 
 ## Requirements
 
-TBD
+To locally test and run to the website, Webpack + Minify will need to be globally installed via npm. Once they have you can use the following npm scripts to launch builds.
+
+```cmd
+    npm install
+    npm run dev
+    npm run build
+```
 
 ## Technologies
 
