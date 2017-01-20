@@ -2,7 +2,7 @@
 
 # Young Money Renfrewshire
 
-This repository contains the code for the website YoungMoneyRen.org. I created it as part of a piece of contract work for Barnardo's who wanted a digital website for their programme to get more people.
+Young Money Renfrewshire is a custom tailored website for the charity Barnardos. It is an application for under 25s who can help with your financial problems. We can help with budgeting, where to find deals and where to find the best advice. The application was built in collaboration with the Poverty Alliance, Barnardos staff and Renfewshire Council.
 
 <img align='right' src="demo.gif" />
 
