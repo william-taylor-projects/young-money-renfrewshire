@@ -16,17 +16,13 @@ TBD
 
 ## Technologies
 
-##### Front End
-* React
-* Material-UI
-* Bootstrap
-* Webpack
+##### Front-end
 
-##### Back End
-* Node
-* DynamoDB
-* AWS
-* EC2 
+> React, Material-UI, Bootstrap, Webpack
+
+##### Backend
+
+> Node, DynamoDB, AWS, EC2 
 
 ## License
 
