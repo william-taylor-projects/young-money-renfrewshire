@@ -1,4 +1,4 @@
-<img style="float: right; width:15%;" src="https://raw.githubusercontent.com/william-taylor/young-money-renfrewshire/master/website/People-256.png" />
+<img align='right' src="https://raw.githubusercontent.com/william-taylor/young-money-renfrewshire/master/website/People-256.png" />
 
 # Young Money Renfrewshire
 
