@@ -28,5 +28,4 @@ TBD
 
 MIT
 
-<img align='right'src="http://forthebadge.com/images/badges/built-for-android.svg" />
 <img align='right'src="http://forthebadge.com/images/badges/built-with-love.svg" />
