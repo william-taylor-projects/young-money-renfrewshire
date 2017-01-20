@@ -14,9 +14,11 @@ Youngmoneyren.org was a custom made website for Barnardos. It provides informati
 
 To locally test and run to the website, Webpack + Minify will need to be globally installed via npm. Once they have you can use the following npm scripts to launch builds.
 
-$ npm install
-$ npm run dev
-$ npm run build
+```bash
+npm install
+npm run dev
+npm run build
+```
 
 ## Technologies
 
