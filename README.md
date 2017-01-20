@@ -1,3 +1,4 @@
+<img style="float: right; width:15%;" src="https://raw.githubusercontent.com/william-taylor/young-money-renfrewshire/master/website/People-256.png" />
 
 # Young Money Renfrewshire
 
@@ -17,5 +18,3 @@ Here are the technologies used for the website. More details will be revealed la
 * DynamoDB
 * AWS
 * EC2 
-
-
