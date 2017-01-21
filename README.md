@@ -1,6 +1,6 @@
 <img src="demo.gif" />
 
-<img align='right' width='150' height='150' src="https://raw.githubusercontent.com/william-taylor/young-money-renfrewshire/master/website/People-256.png" />
+<img align='right' width='150' height='150' src="https://raw.githubusercontent.com/william-taylor/young-money-renfrewshire/master/website/icon.png" />
 
 # Young Money Renfrewshire
 
