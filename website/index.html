@@ -30,9 +30,13 @@
     </div>
 
     <link href='css/bootstrap.min.css' rel='stylesheet' />
-    <link href="css/styles.min.css" rel='stylesheet'>
+    <link href="css/styles.css" rel='stylesheet'>
 
-    <script>function initMap(){}</script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script>
+        function initMap(){}
+        if(app) { app.initialize(); }
+    </script>
     <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA-YINvF-0mhKh9Z5scMLBzrGtfKDJ6SAM&callback=initMap'></script>
     <script src='build/app.min.js'></script>
 </body>
