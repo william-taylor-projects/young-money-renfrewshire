@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns     = "http://www.w3.org/ns/widgets"
-        xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.littlebox.ymr"
-        version   = "1.0.0">
-
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id= "com.littlebox.ymr" version="1.0.0">
     <name>Young Money Renfrewshire</name>
-
     <description>
         An app for young adults in renfrewshire.
     </description>
-
     <author href="http://www.williamsamtaylor.co.uk">
         Littlebox
     </author>
 
-    <preference name="permissions"                value="none"/>
-
     <!-- Customize your app and platform with the preference element. -->
+    <preference name="permissions"                value="none"/>
     <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
     <preference name="webviewbounce"              value="false" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
-    <preference name="prerendered-icon"           value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
+    <preference name="prerendered-icon"           value="false" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
     <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
     <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
     <preference name="detect-data-types"          value="true" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
@@ -58,10 +51,54 @@
     <plugin name="cordova-plugin-vibration" />
     <plugin name="cordova-plugin-statusbar" />
 
-    <preference name="SplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value="0"/>
+    <preference name="AutoHideSplashScreen" value="true" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashScreen" value="screen" />
 
- <!-- Define app icon for each platform. -->
+    <icon src="icons/icon.png" />
+    <splash src="icons/splash.png" />
+
+    <platform name="android">
+        <icon src="icons/res/icons/android/ldpi.png" platform="android" qualifier="ldpi" />
+        <icon src="icons/res/icons/android/mdpi.png" platform="android" qualifier="mdpi" />
+        <icon src="icons/res/icons/android/hdpi.png" platform="android" qualifier="hdpi" />
+        <icon src="icons/res/icons/android/xhdpi.png" platform="android" qualifier="xhdpi" />
+        <icon src="icons/res/icons/android/xxhdpi.png" platform="android" qualifier="xxhdpi" />
+
+        <splash src="icons/res/screens/android/screen-ldpi-portrait.png" platform="android" qualifier="ldpi" />
+        <splash src="icons/res/screens/android/screen-mdpi-portrait.png" platform="android" qualifier="mdpi" />
+        <splash src="icons/res/screens/android/screen-hdpi-portrait.png" platform="android" qualifier="hdpi" />
+        <splash src="icons/res/screens/android/screen-xhdpi-portrait.png" platform="android" qualifier="xhdpi" />
+        <splash src="icons/res/screens/android/screen-portrait-xxhdpi-portrait.png" platform="android" qualifier="port-xxhdpi" />
+    </platform>
+
+    <platform name="ios">
+        <!-- iPhone 6 / 6+ -->
+        <icon src="icons/res/icons/ios/icon-60-3x.png" platform="ios" width="180" height="180" />
+        <!-- iPhone / iPod Touch  -->
+        <icon src="icons/res/icons/ios/icon-60.png" platform="ios" width="60" height="60" />
+        <icon src="icons/res/icons/ios/icon-60-2x.png" platform="ios" width="120" height="120" />
+        <!-- iPad -->
+        <icon src="icons/res/icons/ios/icon-76.png" platform="ios" width="76" height="76" />
+        <icon src="icons/res/icons/ios/icon-76-2x.png" platform="ios" width="152" height="152" />
+        <!-- Settings Icon -->
+        <icon src="icons/res/icons/ios/icon-small.png" platform="ios" width="29" height="29" />
+        <icon src="icons/res/icons/ios/icon-small-2x.png" platform="ios" width="58" height="58" />
+        <!-- Spotlight Icon -->
+        <icon src="icons/res/icons/ios/icon-40.png" platform="ios" width="40" height="40" />
+        <icon src="icons/res/icons/ios/icon-40-2x.png" platform="ios" width="80" height="80" />
+
+        <splash src="icons/res/screens/ios/screen-iphone-portrait.png" platform="ios" width="320" height="480" />
+        <splash src="icons/res/screens/ios/screen-iphone-portrait-2x.png" platform="ios" width="640" height="960" />
+        <splash src="icons/res/screens/ios/screen-iphone-portrait-568h-2x.png" platform="ios" width="640" height="1136" />
+        <splash src="icons/res/screens/ios/screen-iphone-portrait-667h.png" platform="ios" width="750" height="1334" />
+        <splash src="icons/res/screens/ios/screen-iphone-portrait-736h.png" platform="ios" width="1242" height="2208" />
+        <splash src="icons/res/screens/ios/screen-ipad-portrait.png" platform="ios" width="768" height="1024" />
+        <splash src="icons/res/screens/ios/screen-ipad-portrait-2x.png" platform="ios" width="1536" height="2048" />
+    </platform>
+    
+    <!-- Define app icon for each platform. 
     <icon src="icons/icon.png" />
     <icon src="icons/res/icons/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
     <icon src="icons/res/icons/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
@@ -72,8 +109,9 @@
     <icon src="icons/res/icons/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
     <icon src="icons/res/icons/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
     <icon src="icons/res/icons/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
+    -->
 
-    <!-- Define app splash screen for each platform. -->
+    <!-- Define app splash screen for each platform. 
     <splash src="icons/res/screens/android/screen-ldpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
     <splash src="icons/res/screens/android/screen-mdpi-portrait.png"       gap:platform="android" gap:qualifier="port-mdpi" />
     <splash src="icons/res/screens/android/screen-hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
@@ -84,12 +122,10 @@
     <splash src="icons/res/screens/ios/screen-iphone-portrait-568h-2x.png" gap:platform="ios"     width="640" height="1136" />
     <splash src="icons/res/screens/ios/screen-ipad-portrait.png"           gap:platform="ios"     width="768" height="1024" />
     <splash src="icons/res/screens/ios/screen-ipad-landscape.png"          gap:platform="ios"     width="1024" height="768" />
-
-
+-->
     <config-file platform="ios" parent="CFBundleShortVersionString">
         <string>110</string>
     </config-file>
-
 
     <access origin="*"/>
 
