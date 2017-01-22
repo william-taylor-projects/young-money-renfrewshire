@@ -30,7 +30,7 @@ body {
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 50px;
-    background: url('../images/town-hall.jpg');
+    background: url('http://www.youngmoneyren.org/images/town-hall.jpg');
     height:400px;
     background-size: cover;
     box-shadow: 0px 2px 20px #888888;
@@ -43,7 +43,7 @@ body {
 .bank-heading {
     width:100%;
     padding: 50px;
-    background: url('../images/bank.jpg');
+    background: url('http://www.youngmoneyren.org/images/bank.jpg');
     height:400px;
     background-size: cover;
     box-shadow: 0px 2px 20px #888888;
@@ -57,7 +57,7 @@ body {
 .calculator-heading {
     width:100%;
     padding: 50px;
-    background: url('../images/finance.jpg');
+    background: url('http://www.youngmoneyren.org/images/finance.jpg');
     height:350px;
     background-size: cover;
     box-shadow: 0px 2px 20px #888888;
@@ -66,7 +66,7 @@ body {
 .information-heading {
     width:100%;
     padding: 50px;
-    background: url('../images/info.jpg');
+    background: url('http://www.youngmoneyren.org/images/info.jpg');
     height:400px;
     background-size: cover;
     box-shadow: 0px 2px 20px #888888;
@@ -75,7 +75,7 @@ body {
 .dashboard-heading {
     width:100%;
     padding: 50px;
-    background: url('../images/dashboard.jpg');
+    background: url('http://www.youngmoneyren.org/images/dashboard.jpg');
     height:350px;
     background-size: cover;
     box-shadow: 0px 2px 20px #888888;
@@ -102,7 +102,7 @@ body {
 .heading-404 {
     width:100%;
     padding: 50px;
-    background: url('../images/paisley.jpg');
+    background: url('http://www.youngmoneyren.org/images/paisley.jpg');
     height:800px;
     background-size: cover;
     box-shadow: 0px 2px 20px #888888;
