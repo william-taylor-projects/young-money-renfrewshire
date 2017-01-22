@@ -9,7 +9,7 @@ const settings = {
   width: 1020,
   height: 700,
   resizable: false,
-  icon: `${__dirname}/website/images/icon.png`
+  icon: `${__dirname}/website/icon-256.png`
 };
 
 let mainWindow = null;
