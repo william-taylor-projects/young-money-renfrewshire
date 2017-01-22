@@ -35,7 +35,7 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script>
         function initMap(){}
-        if(app) { app.initialize(); }
+        if(app['initialize']) { app.initialize(); }
     </script>
     <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA-YINvF-0mhKh9Z5scMLBzrGtfKDJ6SAM&callback=initMap'></script>
     <script src='build/app.min.js'></script>
