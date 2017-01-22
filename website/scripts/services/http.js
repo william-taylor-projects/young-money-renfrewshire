@@ -5,6 +5,7 @@ const baseUrl = 'http://52.209.203.208:3000';
 export let post = (url, body, action) => {
     fetch(baseUrl + url, {
         method: 'POST',
+        mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
     })
@@ -13,7 +14,10 @@ export let post = (url, body, action) => {
 }
 
 export let get = (url, action) => {
-    fetch(baseUrl + url)
-        .then(res => res.json())
-        .then(json => action(json));
+    fetch(baseUrl + url, {
+        method: 'GET',
+        mode: 'cors'
+    })
+    .then(res => res.json())
+    .then(json => action(json));
 }

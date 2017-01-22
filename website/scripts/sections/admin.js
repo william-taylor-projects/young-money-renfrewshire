@@ -286,14 +286,8 @@ export default class Admin extends React.Component {
     }
 
     login(username, password) {
-        fetch('/admin/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password })
-        })
-        .then(res => res.json())
-        .then(json => {
-            this.setState({ login: json.login, error: !json.login });
+        post('/admin/login', { username, password }, json => {
+             this.setState({ login: json.login, error: !json.login });
         });
     }
 

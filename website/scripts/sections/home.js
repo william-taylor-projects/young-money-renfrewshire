@@ -7,11 +7,11 @@ export default class Home extends React.Component {
     render() {
         return (
             <div>
-                <div className='heading text-center'>
+                <div className='heading'>
                     <div className="container">
                         <div className="jumbotron">
-                            <h1>Young Money Renfrewshire</h1>
-                            <p>Friendly local advice brought and designed for you</p>
+                            <h1 className='text-center'>Young Money Renfrewshire</h1>
+                            <p className='text-center'>Friendly local advice brought and designed for you</p>
                         </div>    
                     </div>
                 </div>
