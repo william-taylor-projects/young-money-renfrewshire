@@ -34,25 +34,37 @@ let mainWindow = null;
 let first = true;
 
 function writeCacheFile() {
-  const cache =  JSON.stringify({ time: Date.now() });
-  fs.writeFileSync(`${__dirname}/cache.json`, cache, 'utf8');
+  try {
+    const cache =  JSON.stringify({ time: Date.now() });
+    fs.writeFileSync(`${__dirname}/cache.json`, cache, 'utf8');
+  } catch (e) {
+    // ignore
+  }
+}
+
+function readCacheFile(headers) {
+  try {
+    if(fs.existsSync('./cache.json')) {
+      const cache = JSON.parse(fs.readFileSync(`${__dirname}/cache.json`, 'utf8'));
+      
+      if(Date.now() - cache.time > day) {
+        headers = {"extraHeaders" : "pragma: no-cache\n"};
+        writeCacheFile();
+      }
+    } else {
+      headers = {"extraHeaders" : "pragma: no-cache\n"};
+      writeCacheFile();
+    }
+  } catch(e) {
+    // ignore
+  }
 }
 
 function createWindow() {
   let firstLoad = true;
   let headers = {};
 
-  if(fs.existsSync('./cache.json')) {
-    const cache = JSON.parse(fs.readFileSync(`${__dirname}/cache.json`, 'utf8'));
-    
-    if(Date.now() - cache.time > day) {
-      headers = {"extraHeaders" : "pragma: no-cache\n"};
-      writeCacheFile();
-    }
-  } else {
-    headers = {"extraHeaders" : "pragma: no-cache\n"};
-    writeCacheFile();
-  }
+  readCacheFile(headers);
 
   mainWindow = new electron.BrowserWindow(settings);
   mainWindow.webContents.clearHistory();
