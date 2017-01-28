@@ -24,6 +24,7 @@ import Sidebar from './components/sidebar.js';
 
 import Calculator from './sections/calculator.js';
 import GoodDeals from './sections/good-deals.js';
+import Emergency from './sections/emergency.js'
 import Information from './sections/information.js';
 import TopTips from './sections/top-tips.js';
 import WhatsNew from './sections/whats-new.js';
@@ -157,6 +158,7 @@ class App extends React.Component {
                         <SimpleDialog {...dialogProps} />
                         <Sidebar ref='sidebar' onChange={name => this.change(name)} />
                         <Router history={browserHistory}>
+                            <Route path="/emergency" component={Emergency} />
                             <Route path="/info" component={Information} />
                             <Route path="/deals" component={GoodDeals}  />
                             <Route path="/tips" component={TopTips}  />

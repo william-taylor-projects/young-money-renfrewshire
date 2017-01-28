@@ -79,7 +79,7 @@ export default class Sidebar extends React.Component {
                 <List>
                     <Subheader>Help</Subheader>
                     <ListItem onClick={() => this.change('contact')} primaryText="Contact Us" rightIcon={<ActionInfo />} />
-                    <ListItem onClick={() => this.change('emegency')} primaryText="Emergency" rightIcon={<ActionInfo />} />
+                    <ListItem onClick={() => this.change('emergency')} primaryText="Emergency" rightIcon={<ActionInfo />} />
                 </List>          
             </Drawer>
         );

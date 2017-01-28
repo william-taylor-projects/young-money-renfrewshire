@@ -321,7 +321,7 @@ export default class Admin extends React.Component {
                 <Dialog open={this.state.help} 
                     onClose={() => this.helpClose()} 
                     title='Cant Login?' 
-                    message={messageBody}/>
+                    body={messageBody}/>
             </div>
         )
     }
