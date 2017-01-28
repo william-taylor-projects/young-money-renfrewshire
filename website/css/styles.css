@@ -17,6 +17,7 @@ body {
 
 #app {
     margin-bottom: 50px;
+    overflow-x: hidden;
 }
 
 .img-center {
