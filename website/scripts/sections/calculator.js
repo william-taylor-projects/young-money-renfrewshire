@@ -127,32 +127,32 @@ class Calculator extends React.Component {
                   <Tabs>
                      <Tab icon={<IncomeIcon />}>
                        <div className='container'>
-                         <Income values={incomeMap}/>
+                         <Income values={incomeMap} advanced={this.props.calculator.advanced} />
                        </div>
                      </Tab>
                      <Tab icon={<HouseIcon />}>
                        <div className='container'>
-                         <HouseBills values={expensesMap} />
+                         <HouseBills values={expensesMap} advanced={this.props.calculator.advanced} />
                        </div>
                      </Tab>
                      <Tab icon={<FoodIcon />}>
                        <div className='container'>
-                         <LivingCosts values={expensesMap}  />
+                         <LivingCosts values={expensesMap} advanced={this.props.calculator.advanced} />
                        </div>
                      </Tab>
                      <Tab icon={<InsuranceIcon />}>
                        <div className='container'>
-                         <Finance values={expensesMap}  />
+                         <Finance values={expensesMap} advanced={this.props.calculator.advanced} />
                         </div>
                      </Tab>
                      <Tab icon={<SocialIcon />}>
                        <div className='container'>
-                         <Family values={expensesMap}  />
+                         <Family values={expensesMap} advanced={this.props.calculator.advanced} />
                         </div>
                      </Tab>
                      <Tab icon={<LeisureIcon />}>
                        <div className='container'>
-                         <Leisure values={expensesMap}  />
+                         <Leisure values={expensesMap} advanced={this.props.calculator.advanced} />
                        </div>
                      </Tab>
                      <Tab icon={<InsertChart />}>
