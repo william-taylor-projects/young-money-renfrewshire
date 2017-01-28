@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "build-win": "electron-packager ./ --version=1.4.6 --icon=./website/icon.ico --platform=win32 --arch=ia32 --overwrite",
-    "build-mac": "electron-packager ./ --version=1.4.6 --icon=./website/icon.ico --overwrite"
+    "build-win": "electron-packager ./ --version=1.4.6 --icon=./icon.ico --platform=win32 --arch=ia32 --overwrite",
+    "build-mac": "electron-packager ./ --version=1.4.6 --icon=./icon.icns --overwrite"
   },
   "repository": {
     "type": "git",
