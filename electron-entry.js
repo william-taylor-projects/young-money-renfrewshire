@@ -38,6 +38,7 @@ function writeCacheFile() {
 }
 
 function createWindow() {
+  let firstLoad = true;
   let headers = {};
 
   if(fs.existsSync('./cache.json')) {
@@ -60,8 +61,11 @@ function createWindow() {
     mainWindow = null;
   });
 
-  mainWindow.webContents.on('did-finish-load', function() {
-    mainWindow.webContents.insertCSS(css)
+  mainWindow.webContents.on('did-finish-load', () => {
+    if(firstLoad) {
+      mainWindow.webContents.insertCSS(css);
+      firstLoad = false;
+    }
   });
 }
 
