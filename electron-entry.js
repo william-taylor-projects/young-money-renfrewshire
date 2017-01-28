@@ -6,11 +6,28 @@ const day = 86400000;
 const app = electron.app;
 const settings = {
   center: true,
-  width: 1020,
-  height: 700,
-  resizable: false,
+  width: 950,
+  height: 750,
+  resizable: true,
   icon: `${__dirname}/website/icon-256.png`
 };
+
+const css = `
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #805bc1;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+`;
 
 let mainWindow = null;
 let first = true;
@@ -41,6 +58,10 @@ function createWindow() {
   mainWindow.setMenu(null);
   mainWindow.on('closed', function () {
     mainWindow = null;
+  });
+
+  mainWindow.webContents.on('did-finish-load', function() {
+    mainWindow.webContents.insertCSS(css)
   });
 }
 
