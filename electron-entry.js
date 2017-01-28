@@ -8,25 +8,27 @@ const settings = {
   center: true,
   width: 950,
   height: 750,
-  resizable: true,
-  icon: `${__dirname}/website/icon-256.png`
+  resizable: false,
+  fullscreen: false,
+  icon: `${__dirname}/website/icon-256.png`,
+  'title-bar-style': 'hidden-inset'
 };
 
 const css = `
-::-webkit-scrollbar {
-    height: 8px;
-    width: 8px;
-    background: #000;
-}
+  ::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+      background: #000;
+  }
 
-::-webkit-scrollbar-thumb {
-    background: #805bc1;
-    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
-}
+  ::-webkit-scrollbar-thumb {
+      background: #805bc1;
+      -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+  }
 
-::-webkit-scrollbar-corner {
-    background: #000;
-}
+  ::-webkit-scrollbar-corner {
+      background: #000;
+  }
 `;
 
 let mainWindow = null;
@@ -34,14 +36,14 @@ let first = true;
 
 function writeCacheFile() {
   const cache =  JSON.stringify({ time: Date.now() });
-  fs.writeFileSync('./cache.json', cache, 'utf8');
+  fs.writeFileSync(`${__dirname}/cache.json`, cache, 'utf8');
 }
 
 function createWindow() {
   let headers = {};
 
   if(fs.existsSync('./cache.json')) {
-    const cache = JSON.parse(fs.readFileSync('./cache.json', 'utf8'));
+    const cache = JSON.parse(fs.readFileSync(`${__dirname}/cache.json`, 'utf8'));
     
     if(Date.now() - cache.time > day) {
       headers = {"extraHeaders" : "pragma: no-cache\n"};
