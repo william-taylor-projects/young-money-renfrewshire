@@ -1,6 +1,7 @@
 
+// For server development
 //const baseUrl = 'http://localhost:3000';
-const baseUrl = 'http://52.209.203.208:3000';
+const baseUrl = 'http://52.209.203.208:3000'
 const retry = 2500;
 
 export let post = (url, body, action) => {
