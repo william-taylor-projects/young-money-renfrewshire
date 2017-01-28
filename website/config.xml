@@ -101,34 +101,9 @@
         <splash src="icons/res/screens/ios/screen-ipad-portrait.png" platform="ios" width="768" height="1024" />
         <splash src="icons/res/screens/ios/screen-ipad-portrait-2x.png" platform="ios" width="1536" height="2048" />
     </platform>
-    
-    <!-- Define app icon for each platform. 
-    <icon src="icons/icon.png" />
-    <icon src="icons/res/icons/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
-    <icon src="icons/res/icons/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
-    <icon src="icons/res/icons/android/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
-    <icon src="icons/res/icons/android/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
 
-    <icon src="icons/res/icons/ios/icon-57.png"            gap:platform="ios"        width="57" height="57" />
-    <icon src="icons/res/icons/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
-    <icon src="icons/res/icons/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
-    <icon src="icons/res/icons/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
-    -->
-
-    <!-- Define app splash screen for each platform. 
-    <splash src="icons/res/screens/android/screen-ldpi-portrait.png"       gap:platform="android" gap:qualifier="port-ldpi" />
-    <splash src="icons/res/screens/android/screen-mdpi-portrait.png"       gap:platform="android" gap:qualifier="port-mdpi" />
-    <splash src="icons/res/screens/android/screen-hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
-    <splash src="icons/res/screens/android/screen-xhdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
-    
-    <splash src="icons/res/screens/ios/screen-iphone-portrait.png"         gap:platform="ios"     width="320" height="480" />
-    <splash src="icons/res/screens/ios/screen-iphone-portrait-2x.png"      gap:platform="ios"     width="640" height="960" />
-    <splash src="icons/res/screens/ios/screen-iphone-portrait-568h-2x.png" gap:platform="ios"     width="640" height="1136" />
-    <splash src="icons/res/screens/ios/screen-ipad-portrait.png"           gap:platform="ios"     width="768" height="1024" />
-    <splash src="icons/res/screens/ios/screen-ipad-landscape.png"          gap:platform="ios"     width="1024" height="768" />
--->
     <config-file platform="ios" parent="CFBundleShortVersionString">
-        <string>110</string>
+        <string>1.0</string>
     </config-file>
 
     <access origin="*"/>

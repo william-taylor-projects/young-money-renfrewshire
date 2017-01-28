@@ -10,7 +10,7 @@ const settings = {
   height: 750,
   resizable: false,
   fullscreen: false,
-  icon: `${__dirname}/website/icon-256.png`
+  icon: `${__dirname}/website/icons/icon.png`
 };
 
 const css = `
