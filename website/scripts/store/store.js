@@ -8,7 +8,7 @@ export let store = createStore(reducers);
 export let dispatch = store.dispatch;
 export let unsubscribe = store.subscribe(() => {
     // in development mode uncomment
-    console.log(store.getState());
+    //console.log(store.getState());
 });
 
 dispatch(actions.applyDefaults());

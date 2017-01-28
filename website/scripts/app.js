@@ -114,14 +114,14 @@ class App extends React.Component {
                 open: true,
                 title: 'Download',
                 body: 
-                    <div className='col-md-offset-4 col-md-6'>
+                    <div className='col-md-offset-3 col-md-6'>
                         <div className='col-xs-6'>
-                            <a target='_blank' href='zip/app-macos.zip'>
+                            <a target='_blank' href='zip/app-win32.zip'>
                                 <img className='img img-responsive center-block' src='images/windows.png' />
                             </a>
                         </div>
                         <div className='col-xs-6'>
-                            <a target='_blank' href='zip/app-win32.zip'>
+                            <a target='_blank' href='zip/app-macos.zip'>
                                 <img className='img img-responsive center-block' src='images/apple.png' />
                             </a>
                         </div>
