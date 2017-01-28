@@ -9,6 +9,10 @@ export const updateField = (section, name, value, weekly) => {
     };
 }
 
+export const toggleCalculator = value => {
+    return { type: 'TOGGLE_CALCULATOR', value };
+}
+
 export const clearCal = () => {
     return { type: 'CLEAR_CALCULATOR' };
 }

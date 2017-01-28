@@ -22,6 +22,13 @@ const calculator = (state = {}, action) => {
         return newState;
     }
 
+    if(action.type == 'TOGGLE_CALCULATOR')
+    {
+        const newState = Object.assign({}, state);
+        newState.advanced = action.value;
+        return newState;
+    }
+
     return state;
 }
 

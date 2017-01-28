@@ -14,6 +14,7 @@ ReactTap();
 
 import FloatingActionButton from './components/floating-button.js';
 import { scrollToTop } from './services/scrollbar.js';
+import { toggleCalculator } from './store/actions.js';
 import { store } from './store/store.js';
 
 import SimpleDialog from './dialogs/message-dialog.js';
@@ -29,6 +30,7 @@ import WhatsNew from './sections/whats-new.js';
 import BankMap from './sections/map.js';
 import Home from './sections/home.js';
 import Admin from './sections/admin.js';
+import Jobs from './sections/jobs.js';
 
 const applicationTitle = "YMR - Young Money Renfrewshire";
 const customTheme = bootstrapTheme();
@@ -48,32 +50,49 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
 class Header extends React.Component {
     constructor() {
         super();
-        browserHistory.listen( location => this.forceUpdate());
+        browserHistory.listen(location => this.forceUpdate());
+    }
+
+    onChange(e) {
+        this.props.dispatch(toggleCalculator(!this.props.advanced));
     }
    
     render() {
-        return <HeaderBar onLeftIconButtonTouchTap={this.props.onLeftIconButtonTouchTap} 
-             onTitleTouchTap={this.props.onTitleTouchTap}
-             iconElementRight={window.location.pathname == "/calculator" ? <Toggle style={{marginTop:'13px'}} label='Advanced' toggled={this.props.advanced} /> : <SideButton/>}
-             onTitleTouchTap={() => browserHistory.push('/')} 
-             title={<span style={{cursor: 'pointer'}}>{applicationTitle}</span>}
-             
+        const styles = {
+            toggle: { marginTop: '13px' },
+            trackOff: { backgroundColor: 'rgb(149, 117, 205)' },
+            trackSwitched: { backgroundColor: 'rgb(149, 117, 205' },
+            labelStyle: {color: 'white'}
+        };
+
+        const title = <span style={{cursor: 'pointer'}}>{applicationTitle}</span>;
+        const right = window.location.pathname == "/calculator" ? 
+            <Toggle onToggle={e => this.onChange(e)} 
+                style={styles.toggle} 
+                label={this.props.advanced ? 'Advanced' : 'Simple'} 
+                labelStyle={styles.labelStyle}
+                trackSwitchedStyle={styles.trackSwitched}
+                trackStyle={styles.trackOff}
+                toggled={this.props.advanced} /> : <SideButton />
+
+        return (
+            <HeaderBar 
+                onLeftIconButtonTouchTap={this.props.onLeftIconButtonTouchTap} 
+                onTitleTouchTap={this.props.onTitleTouchTap}
+                onTitleTouchTap={() => browserHistory.push('/')} 
+                iconElementRight={right}
+                title={title}
             />
+        );
     }
 }
 
-const CustomHeader = connect(state =>{
-    return { advanced: state.calculator.advanced }
-})(Header);
+const CustomHeader = connect(state => { return { advanced: state.calculator.advanced }})(Header);
 
 class App extends React.Component {
     constructor() {
         super();
-        this.state = {
-            open: false,
-            title: '',
-            body: ''
-        };
+        this.state = { open: false, title: '', body: ''};
     }
     
     openSidebar() {
@@ -145,6 +164,7 @@ class App extends React.Component {
                             <Route path="/calculator" component={Calculator} />
                             <Route path="/admin" component={Admin}  />
                             <Route path="/map" component={BankMap} />
+                            <Route path="/jobs" component={Jobs} />
                             <Route path="*" component={Home} />
                         </Router>
                         <FloatingActionButton />
