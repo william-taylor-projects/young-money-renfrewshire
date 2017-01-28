@@ -1,14 +1,20 @@
 
 import { combineReducers } from 'redux';
 
+let calculatorIncome = {};
+let calculatorExpenses = {};
+
 const calculator = (state = {}, action) => {
     if(action.type == 'UPDATE') {
-        const newState = Object.assign({}, state);
+    const newState = Object.assign({}, state);
+
+        const income = newState.income;
+        const expenses = newState.expenses;
 
         if(action.section == state.income) {
-           newState.income[action.name] = { value: action.value, weekly: action.weekly };
+           income[action.name] = { value: action.value, weekly: action.weekly };
         } else {
-           newState.expenses[action.name] = { value: action.value, weekly: action.weekly };
+           expenses[action.name] = { value: action.value, weekly: action.weekly };
         }
 
         return newState;
@@ -24,8 +30,16 @@ const calculator = (state = {}, action) => {
 
     if(action.type == 'TOGGLE_CALCULATOR')
     {
+        const oldExpenses = state.expenses;
+        const oldIncome = state.income;
+
         const newState = Object.assign({}, state);
         newState.advanced = action.value;
+        newState.expenses = calculatorExpenses;
+        newState.income = calculatorIncome;
+
+        calculatorExpenses = oldExpenses;
+        calculatorIncome = oldIncome;
         return newState;
     }
 

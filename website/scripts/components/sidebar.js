@@ -21,10 +21,12 @@ import DownloadLogo from 'material-ui/svg-icons/file/file-download';
 import AdminLogo from 'material-ui/svg-icons/action/account-box';
 import ShopIcon from 'material-ui/svg-icons/action/shopping-cart';
 import MathIcon from 'material-ui/svg-icons/action/assessment';
+import HelpIcon from 'material-ui/svg-icons/communication/live-help';
 import HomeIcon from 'material-ui/svg-icons/action/home';
 import InfoIcon from 'material-ui/svg-icons/action/info';
 import TopIcon from 'material-ui/svg-icons/action/grade';
 import NewIcon from 'material-ui/svg-icons/action/event';
+import WorkIcon from 'material-ui/svg-icons/action/work';
 import MapIcon from 'material-ui/svg-icons/maps/map';
 
 export default class Sidebar extends React.Component {
@@ -62,7 +64,7 @@ export default class Sidebar extends React.Component {
                     <ListItem onClick={() => this.change('new')} primaryText="What's On?" leftIcon={<NewIcon />} />
                     <ListItem onClick={() => this.change('deals')} primaryText="Good Deals" leftIcon={<ShopIcon />} />
                     <ListItem onClick={() => this.change('tips')} primaryText="Top Tips" leftIcon={<TopIcon />} />
-                    <ListItem onClick={() => this.change('jobs')} primaryText="Jobs & Skills" leftIcon={<ActionInfo />} />
+                    <ListItem onClick={() => this.change('jobs')} primaryText="Jobs & Skills" leftIcon={<WorkIcon />} />
                 </List>
                 <Divider />
                 <List>
@@ -79,7 +81,7 @@ export default class Sidebar extends React.Component {
                 <List>
                     <Subheader>Help</Subheader>
                     <ListItem onClick={() => this.change('contact')} primaryText="Contact Us" rightIcon={<ActionInfo />} />
-                    <ListItem onClick={() => this.change('emergency')} primaryText="Emergency" rightIcon={<ActionInfo />} />
+                    <ListItem onClick={() => this.change('emergency')} primaryText="Emergency" rightIcon={<HelpIcon />} />
                 </List>          
             </Drawer>
         );
