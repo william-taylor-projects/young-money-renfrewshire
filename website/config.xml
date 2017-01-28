@@ -50,7 +50,11 @@
     <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-vibration" />
     <plugin name="cordova-plugin-statusbar" />
+    <preference name="xwalkMultipleApk" value="true" /> 
+    <plugin name="cordova-build-architecture" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.1" source="git" />
+    <plugin name="cordova-plugin-crosswalk-webview" />
 
+    <preference name="android-build-tool" value="gradle" />
     <preference name="FadeSplashScreenDuration" value="0"/>
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="SplashScreenDelay" value="3000" />

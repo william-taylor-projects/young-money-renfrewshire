@@ -1,9 +1,10 @@
 
 import ThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import HeaderBar from 'material-ui/AppBar';
+import Toggle from 'material-ui/Toggle';
 
 import { Router, Route, Link, browserHistory } from 'react-router'
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 import ReactTap from 'react-tap-event-plugin';
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -44,13 +45,34 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
     }
 }
 
+class Header extends React.Component {
+    constructor() {
+        super();
+        browserHistory.listen( location => this.forceUpdate());
+    }
+   
+    render() {
+        return <HeaderBar onLeftIconButtonTouchTap={this.props.onLeftIconButtonTouchTap} 
+             onTitleTouchTap={this.props.onTitleTouchTap}
+             iconElementRight={window.location.pathname == "/calculator" ? <Toggle style={{marginTop:'13px'}} label='Advanced' toggled={this.props.advanced} /> : <SideButton/>}
+             onTitleTouchTap={() => browserHistory.push('/')} 
+             title={<span style={{cursor: 'pointer'}}>{applicationTitle}</span>}
+             
+            />
+    }
+}
+
+const CustomHeader = connect(state =>{
+    return { advanced: state.calculator.advanced }
+})(Header);
+
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
             open: false,
             title: '',
-            message: ''
+            body: ''
         };
     }
     
@@ -65,10 +87,26 @@ class App extends React.Component {
             this.setState({
                 open: true,
                 title: 'Contact Us?',
-                message: <span>You can send us an email at <a href='mailto:youngmoneyren@gmail.com'>youngmoneyren@gmail.com</a></span>
+                body: <p>You can send us an email at <a href='mailto:youngmoneyren@gmail.com'>youngmoneyren@gmail.com</a></p>
             });
         } else if(name == "download") {
-            window.open('zip/app.zip');
+            this.setState({
+                open: true,
+                title: 'Download',
+                body: 
+                    <div className='col-md-offset-4 col-md-6'>
+                        <div className='col-xs-6'>
+                            <a target='_blank' href='zip/app-macos.zip'>
+                                <img className='img img-responsive center-block' src='images/windows.png' />
+                            </a>
+                        </div>
+                        <div className='col-xs-6'>
+                            <a target='_blank' href='zip/app-win32.zip'>
+                                <img className='img img-responsive center-block' src='images/apple.png' />
+                            </a>
+                        </div>
+                    </div>
+            });
         } else {
             browserHistory.push('/' + name);
         }
@@ -85,24 +123,18 @@ class App extends React.Component {
     render() {
         const dialogProps = {
             onClose: () => this.setState({open: false}),
-            message: this.state.message,
             title : this.state.title,
-            open: this.state.open
+            open: this.state.open,
+            body: this.state.body
         };
-
-        const headerProps = {
-            title: <span style={{cursor: 'pointer'}}>{applicationTitle}</span>,
-            iconElementRight: <SideButton/>,
-            onLeftIconButtonTouchTap: () => this.openSidebar()
-        };
-
+        
         this.removeLoadingIcon();
 
         return (
             <ThemeProvider muiTheme={customTheme}>
                 <Provider store={store}>
                     <div>
-                        <HeaderBar onTitleTouchTap={() => browserHistory.push('/')} {...headerProps}/>
+                        <CustomHeader onLeftIconButtonTouchTap={() => this.openSidebar()} onTitleTouchTap={() => browserHistory.push('/')} />
                         <SimpleDialog {...dialogProps} />
                         <Sidebar ref='sidebar' onChange={name => this.change(name)} />
                         <Router history={browserHistory}>

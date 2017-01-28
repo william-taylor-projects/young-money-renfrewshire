@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TextField from 'material-ui/TextField';
 import Slider from 'material-ui/Slider';
+import Toggle from 'material-ui/Toggle';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import IncomeIcon from 'material-ui/svg-icons/action/credit-card';

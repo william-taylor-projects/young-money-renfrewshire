@@ -37,7 +37,9 @@ const income = props => {
     return (
         <div>
             <div className='page-header'>
-                <h1>Income</h1>
+                <h1>
+                    Income  
+                </h1>
             </div>
             <InputList values={props.values} title='Pay' fields={payFields} first={true} variable /><br/>
             <InputList values={props.values} title='Benefits' fields={benefitFields}

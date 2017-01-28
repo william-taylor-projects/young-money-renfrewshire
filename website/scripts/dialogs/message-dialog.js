@@ -16,7 +16,7 @@ export default props => {
       modal={false}
       open={props.open}
       onRequestClose={() => props.onClose()}>
-      <p>{props.message}</p>
+      {props.body}
     </Dialog>
   );
 }

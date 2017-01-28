@@ -18,6 +18,7 @@ const calculator = (state = {}, action) => {
         const newState = Object.assign({}, state);
         newState.expenses = {};
         newState.income = {};
+        newState.advanced = action.type == 'DEFAULTS' ? true : newState.advanced;
         return newState;
     }
 
