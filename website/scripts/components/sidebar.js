@@ -75,7 +75,10 @@ export default class Sidebar extends React.Component {
                         this.showDownload() ? 
                             <ListItem onClick={() => this.change('download')} primaryText="Download" leftIcon={<DownloadLogo />} /> : null
                     }   
-                    <ListItem onClick={() => this.change('admin')} primaryText="Admin" leftIcon={<AdminLogo />} />
+                    {
+                        this.showDownload() ? 
+                            <ListItem onClick={() => this.change('admin')} primaryText="Admin" leftIcon={<AdminLogo />} /> : null
+                    }   
                 </List>
                 <Divider />
                 <List>
