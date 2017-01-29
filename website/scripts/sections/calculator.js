@@ -18,7 +18,6 @@ import FlatButton from 'material-ui/FlatButton';
 import numeral from 'numeral';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import { connect } from 'react-redux';
-
 import { HouseBills, Leisure, LivingCosts, Finance, Family } from '../components/expenses.js';
 import { randomColour } from '../services/colour.js';
 import PieChart from '../components/pie-chart.js';

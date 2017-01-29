@@ -1,11 +1,14 @@
 
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import FlatButton from 'material-ui/FlatButton';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
 export default class Emergency extends React.Component {
     render() {
+        const nameStyle = { paddingLeft: '4px', paddingRight: '4px', width: '150%'};
+        const contactStyle = { paddingLeft: '4px', paddingRight: '4px', textAlign: 'right', width: '50%' };
         return (
             <div>
                 <div className='container'>
@@ -23,13 +26,12 @@ export default class Emergency extends React.Component {
                             <br/>
                         </div>
                         <div className='col-md-12'>
-                            <Table height={'500px'}>
+                            <Table selectable={false} height={'500px'}>
                                 <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
                                     <TableRow>
-                                        <TableHeaderColumn><strong>Name</strong></TableHeaderColumn>
-                                        <TableHeaderColumn><strong>Services</strong></TableHeaderColumn>
-                                        <TableHeaderColumn><strong>Phone No</strong></TableHeaderColumn>
-                                        <TableHeaderColumn><strong>Email</strong></TableHeaderColumn>
+                                        <TableHeaderColumn style={nameStyle}><strong>Organisation</strong></TableHeaderColumn>
+                                        <TableHeaderColumn style={contactStyle}><strong>Phone No</strong></TableHeaderColumn>
+                                        <TableHeaderColumn style={contactStyle}><strong>Email</strong></TableHeaderColumn>
                                     </TableRow>
                                 </TableHeader>
                                 <TableBody displayRowCheckbox={false} deselectOnClickaway={false}>
@@ -37,10 +39,9 @@ export default class Emergency extends React.Component {
                                    [{},{},{},{},{},{},{},{},{},{}].map((e, index) => {
                                         return (
                                             <TableRow key={index}>
-                                                <TableRowColumn>William Taylor</TableRowColumn>
-                                                <TableRowColumn>Personal Advice</TableRowColumn>
-                                                <TableRowColumn><a href="tel:07852766987">07852766987</a></TableRowColumn>
-                                                <TableRowColumn><a href='mailto:dummyemail@yahoo.co.uk'>dummyemail@yahoo.co.uk</a></TableRowColumn>
+                                                <TableRowColumn style={nameStyle}>Renfrewshire Council</TableRowColumn>
+                                                <TableRowColumn style={contactStyle}><a href="tel:07852766987">Phone</a></TableRowColumn>
+                                                <TableRowColumn style={contactStyle}><a href='mailto:dummyemail@yahoo.co.uk'>Email</a></TableRowColumn>
                                             </TableRow>
                                         )
                                     })

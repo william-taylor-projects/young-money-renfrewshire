@@ -81,35 +81,28 @@ export default props => {
                     </div>
                 </Tab>
                 <Tab label="Videos" className='container'>
-                    <div className='container'>
+                    <div id='video-section' className='container'>
                         <div className='row'>
                             <div className='col-md-12 col-lg-6'>
                                 <h3>What is National Insurance?</h3><hr/>
                                 <video controls width='100%' height='100%'>
-                                    <source src="http://www.youngmoneyren.org/video/placeholder.mp4" type="video/mp4" />
-                                    Your browser does not support video playback, sorry.
-                                </video>
-                            </div>
-                            <div className='col-md-12 col-lg-6'>
-                                <h3>What is a Budget?</h3><hr/>
-                                <video controls width='100%' height='100%'>
-                                    <source src="http://www.youngmoneyren.org/video/placeholder.mp4" type="video/mp4" />
-                                    Your browser does not support video playback, sorry.
-                                </video>
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className='col-md-12 col-lg-6'>
-                                <h3>What is a Pension?</h3><hr/>
-                                <video controls width='100%' height='100%'>
-                                    <source src="http://www.youngmoneyren.org/video/placeholder.mp4" type="video/mp4" />
+                                    <source src="http://www.youngmoneyren.org/video/national-insurance.mp4" type="video/mp4" />
                                     Your browser does not support video playback, sorry.
                                 </video>
                             </div>
                             <div className='col-md-12 col-lg-6'>
                                 <h3>What is Income Tax?</h3><hr/>
                                 <video controls width='100%' height='100%'>
-                                    <source src="http://www.youngmoneyren.org/video/placeholder.mp4" type="video/mp4" />
+                                    <source src="http://www.youngmoneyren.org/video/income-tax.mp4" type="video/mp4" />
+                                    Your browser does not support video playback, sorry.
+                                </video>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-12 col-lg-6'>
+                                <h3>What is Universal Credit?</h3><hr/>
+                                <video controls width='100%' height='100%'>
+                                    <source src="http://www.youngmoneyren.org/video/universal-credit.mp4" type="video/mp4" />
                                     Your browser does not support video playback, sorry.
                                 </video>
                             </div>

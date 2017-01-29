@@ -33,7 +33,7 @@ import Home from './sections/home.js';
 import Admin from './sections/admin.js';
 import Jobs from './sections/jobs.js';
 
-const applicationTitle = "YMR - Young Money Renfrewshire";
+const applicationTitle = "Young Money Ren";
 const customTheme = bootstrapTheme();
 
 Element.prototype.remove = function() {
