@@ -2,7 +2,7 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id= "com.littlebox.ymr" version="1.0.0">
     <name>Young Money Renfrewshire</name>
     <description>
-        An app for young adults in renfrewshire.
+        Friendly local advice brought and designed for you.
     </description>
     <author href="http://www.williamsamtaylor.co.uk">
         Littlebox
