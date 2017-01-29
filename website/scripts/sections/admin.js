@@ -112,11 +112,23 @@ class Dashboard extends React.Component {
         this.setState({ deal: deal });
     }
 
+    isValidDeal(deal) {
+        const priceIsNumber = !isNaN(deal.price);
+        const imageIsHttp = deal.image.indexOf("http") != -1;
+        const linkIsHttp = deal.link.indexOf("http") != -1
+
+        return priceIsNumber && imageIsHttp && linkIsHttp;
+    }
+
     postDeal() {
-        post('/deals/post', { deal: this.state.deal }, json => {
-            this.setState({ deal: { title: '', description: '', price: '', link: '', image: '' } });
-            this.props.dispatch(deals(json.deals))
-        });
+        if(this.isValidDeal(this.state.deal)) {
+            post('/deals/post', { deal: this.state.deal }, json => {
+                this.setState({ deal: { title: '', description: '', price: '', link: '', image: '' } });
+                this.props.dispatch(deals(json.deals))
+            });
+        } else {
+            alert('The entered price is not a number or the links are not valid links, try again.');
+        }
     }
 
     deleteDeal() {
@@ -250,7 +262,7 @@ class Dashboard extends React.Component {
                             <div className='row'>
                                 <div className='col-md-12 down'>
                                     <h2>Remove Comments</h2><hr/>
-                                    <Table height={'250px'} onRowSelection={e => this.commentSelected(e)}>
+                                    <Table height={'450px'} onRowSelection={e => this.commentSelected(e)}>
                                         <TableBody deselectOnClickaway={false}>
                                         {
                                             comments.map((comment, index) => {
