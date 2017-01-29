@@ -24,7 +24,7 @@ class FloatingButton extends React.Component {
         if(location.pathname == '/calculator') {
             this.props.dispatch(clearCal());
         } else {
-            scrollToTop(750);
+            scrollToTop(2000);
         }
     }
 

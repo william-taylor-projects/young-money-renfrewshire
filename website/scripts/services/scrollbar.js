@@ -13,7 +13,7 @@ function scrollToY(scrollTargetY, speed, easing) {
     var scrollY = window.scrollY || document.documentElement.scrollTop,
         scrollTargetY = scrollTargetY || 0,
         speed = speed || 2000,
-        easing = easing || 'easeOutSine',
+        easing = easing || 'easeInOutQuint',
         currentTime = 0;
 
     var time = Math.max(.1, Math.min(Math.abs(scrollY - scrollTargetY) / speed, .8));
