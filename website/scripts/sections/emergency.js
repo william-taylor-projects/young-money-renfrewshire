@@ -16,12 +16,10 @@ const contacts = [
     {name: 'Environmental protection', phone: '0300 300 0380', email: 'customerservices.contact@renfrewshire.gov.uk'},
     {name: 'Education and Leisure Services', phone: '0300 300 0170', email: 'customerservices.contact@renfrewshire.gov.uk'},
     {name: 'Renfrewshire Care', phone: '0141 314 7148', email: 'customerservices.contact@renfrewshire.gov.uk'},
-
-    // FIX EMAIL
-    {name: 'Royal Alexander Hospital', phone: '0141 887 9111', email: 'customerservices.contact@renfrewshire.gov.uk'},
-    {name: 'NHS 24', phone: '111', email: 'customerservices.contact@renfrewshire.gov.uk'},
-    {name: 'Police Emergency', phone: '999', email: 'customerservices.contact@renfrewshire.gov.uk'},
-    {name: 'Police Non Emergency', phone: '101', email: 'customerservices.contact@renfrewshire.gov.uk'}
+    {name: 'Royal Alexander Hospital', phone: '0141 887 9111', email: 'nhs.HealthScotland-GeneralEnquiries@nhs.net'},
+    {name: 'NHS 24', phone: '111', email: 'nhs.HealthScotland-GeneralEnquiries@nhs.net'},
+    {name: 'Police Emergency', phone: '999', email: ''},
+    {name: 'Police Non Emergency', phone: '101', email: ''}
 ];
 
 export default class Emergency extends React.Component {
@@ -59,8 +57,12 @@ export default class Emergency extends React.Component {
                                         return (
                                             <TableRow key={index}>
                                                 <TableRowColumn style={nameStyle}>{c.name}</TableRowColumn>
-                                                <TableRowColumn style={contactStyle}><a href={"tel:"+c.name}>Phone</a></TableRowColumn>
-                                                <TableRowColumn style={contactStyle}><a href={'mailto:'+c.email}>Email</a></TableRowColumn>
+                                                <TableRowColumn style={contactStyle}>
+                                                    <a className={c.name.length == 0 ? 'disabled':''} href={"tel:"+c.name}>Phone</a>
+                                                </TableRowColumn>
+                                                <TableRowColumn style={contactStyle}>
+                                                    <a className={c.email.length == 0 ? 'disabled':''} href={'mailto:'+c.email}>Email</a>
+                                                </TableRowColumn>
                                             </TableRow>
                                         )
                                     })
