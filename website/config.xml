@@ -31,29 +31,15 @@
     <preference name="StatusBarStyle" value="lightcontent" />
 
     <!-- Core plugins -->
-    <plugin name="cordova-plugin-battery-status" />
-    <plugin name="cordova-plugin-camera" />
-    <plugin name="cordova-plugin-media-capture" />
-    <plugin name="cordova-plugin-console" />
-    <plugin name="cordova-plugin-contacts" />
     <plugin name="cordova-plugin-device" />
-    <plugin name="cordova-plugin-device-motion" />
-    <plugin name="cordova-plugin-device-orientation" />
     <plugin name="cordova-plugin-dialogs" />
-    <plugin name="cordova-plugin-file" />
-    <plugin name="cordova-plugin-file-transfer" />
-    <plugin name="cordova-plugin-geolocation" />
-    <plugin name="cordova-plugin-globalization" />
     <plugin name="cordova-plugin-inappbrowser" />
-    <plugin name="cordova-plugin-media" />
-    <plugin name="cordova-plugin-network-information" />
     <plugin name="cordova-plugin-splashscreen" />
-    <plugin name="cordova-plugin-vibration" />
     <plugin name="cordova-plugin-statusbar" />
-    <preference name="xwalkMultipleApk" value="true" /> 
     <plugin name="cordova-build-architecture" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.1" source="git" />
     <plugin name="cordova-plugin-crosswalk-webview" />
 
+    <preference name="xwalkMultipleApk" value="true" /> 
     <preference name="android-build-tool" value="gradle" />
     <preference name="FadeSplashScreenDuration" value="0"/>
     <preference name="AutoHideSplashScreen" value="true" />
@@ -62,11 +48,6 @@
 
     <icon src="icons/iconoriginal.png" />
     <splash src="icons/splash.png" />
-
-    <preference name="PHOTOLIBRARY_USAGE_DESCRIPTION" default=" " />
-    <config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
-        <string>PhoneGap dependency, however not used by the app itself</string>
-    </config-file>
 
     <platform name="android">
         <icon src="icons/res/icons/android/ldpi.png" platform="android" qualifier="ldpi" />
