@@ -60,7 +60,7 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="SplashScreen" value="screen" />
 
-    <icon src="icons/icon.png" />
+    <icon src="icons/iconoriginal.png" />
     <splash src="icons/splash.png" />
 
     <platform name="android">
