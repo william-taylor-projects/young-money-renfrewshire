@@ -5,6 +5,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
+const contacts = [
+    {name: 'Emergency Home Repairs', phone: '0300 300 0300', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'Homeless persons', phone: '0800 811 505', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'Antisocial Behaviour ', phone: '0300 300 0380', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'Roads emergencies', phone: '0300 300 0300', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'Fallen trees', phone: '0300 300 0300', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'Flooding', phone: '0300 300 0300', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'Dangerous buildings', phone: '0300 300 0144', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'Environmental protection', phone: '0300 300 0380', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'Education and Leisure Services', phone: '0300 300 0170', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'Renfrewshire Care', phone: '0141 314 7148', email: 'customerservices.contact@renfrewshire.gov.uk'},
+
+    // FIX EMAIL
+    {name: 'Royal Alexander Hospital', phone: '0141 887 9111', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'NHS 24', phone: '111', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'Police Emergency', phone: '999', email: 'customerservices.contact@renfrewshire.gov.uk'},
+    {name: 'Police Non Emergency', phone: '101', email: 'customerservices.contact@renfrewshire.gov.uk'}
+];
+
 export default class Emergency extends React.Component {
     render() {
         const nameStyle = { paddingLeft: '4px', paddingRight: '4px', width: '150%'};
@@ -21,12 +40,12 @@ export default class Emergency extends React.Component {
                         <div className='col-md-12'>
                             <h3>Don't Panic</h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec felis nec dolor vestibulum dictum id ut sem. Vestibulum a sollicitudin erat. Curabitur commodo leo orci, eu volutpat lacus ornare in. Ut tristique non ipsum consectetur placerat. Suspendisse non ex pulvinar, finibus lorem non, dictum libero. Ut erat lorem, malesuada cursus nibh nec, finibus malesuada purus. Vestibulum convallis nulla rutrum luctus viverra. Maecenas pellentesque elementum quam non sodales. Ut sollicitudin nunc id nulla condimentum fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed magna ut ante aliquam blandit sed id justo. Donec vel dolor vitae tortor auctor feugiat. Maecenas mollis neque non diam efficitur mattis. Pellentesque mattis sollicitudin lorem ut dapibus.
+                                If you are in a difficult situation don’t panic, there are loads of services provided by your local council and charities to ensure you have help when you need it. You just need to make the right call and there will be people to help you. Find below a list of numbers and email addresses you can use.
                             </p>
                             <br/>
                         </div>
                         <div className='col-md-12'>
-                            <Table selectable={false} height={'500px'}>
+                            <Table selectable={false} height={'800px'}>
                                 <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
                                     <TableRow>
                                         <TableHeaderColumn style={nameStyle}><strong>Organisation</strong></TableHeaderColumn>
@@ -36,12 +55,12 @@ export default class Emergency extends React.Component {
                                 </TableHeader>
                                 <TableBody displayRowCheckbox={false} deselectOnClickaway={false}>
                                 {
-                                   [{},{},{},{},{},{},{},{},{},{}].map((e, index) => {
+                                    contacts.map((c, index) => {
                                         return (
                                             <TableRow key={index}>
-                                                <TableRowColumn style={nameStyle}>Renfrewshire Council</TableRowColumn>
-                                                <TableRowColumn style={contactStyle}><a href="tel:07852766987">Phone</a></TableRowColumn>
-                                                <TableRowColumn style={contactStyle}><a href='mailto:dummyemail@yahoo.co.uk'>Email</a></TableRowColumn>
+                                                <TableRowColumn style={nameStyle}>{c.name}</TableRowColumn>
+                                                <TableRowColumn style={contactStyle}><a href={"tel:"+c.name}>Phone</a></TableRowColumn>
+                                                <TableRowColumn style={contactStyle}><a href={'mailto:'+c.email}>Email</a></TableRowColumn>
                                             </TableRow>
                                         )
                                     })

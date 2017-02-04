@@ -40,17 +40,13 @@ export default props => {
                             <div className='col-md-12'>
                                 <h3>Who are we?</h3><hr/>
                                 <p>
-                                    We are a group of under 25 Barnardos service users with access to funding to help the young people of the Renfrewshire area. We are tailoring a website to assist other young people in similar situations.
-                                    We are collaborating with YMCA staff and Renfrewshire council to publish this website which shall be young person friendly and offer specialized local advice trying to meet the need of everyone.
-                                    The group members have engaged with local services and met regularly to discuss and gather information which we find will then put onto our website.
-                                    We are here to help young people access any opportunity to help with money and housing.
+                                   We are a group of Barnardo’s service users with access to funding to help the young people of Renfrewshire. We are tailoring a website to assist other young people in similar situations. We are collaborating with the YMCA and Renfrewshire Council to publish this website which shall be young person friendly and offer specialised local advice trying to meet the needs of everyone. The group members have engaged with local services and met regularly to discuss and gather information which we will then be put onto our website. We are here to help young people access any opportunity to help with money and life management.
                                 </p>
                             </div>
                             <div className='col-md-12'>
                                 <h3>Who’s Funding Us?</h3><hr/>
                                 <p>
-                                    We are being sponsored by the Poverty Commission in Renfrewshire Council and Barnardos to create an application
-                                    that can assist young people in Renfrewshire.
+                                    We are being sponsored by the Poverty Commission in Renfrewshire Council and Barnardo’s to create an application that can assist young people in Renfrewshire.
                                 </p>
                             </div>
                             <div className='col-md-12'>
@@ -62,7 +58,7 @@ export default props => {
                                     <span className="label label-success">Organisation</span>
                                 </h4>
                                 <ul className="list-group list-down">
-                                    <li className="list-group-item list-group-item-success"><b>Barnardos</b></li>
+                                    <li className="list-group-item list-group-item-success"><b>Barnardo's</b></li>
                                     <li className="list-group-item list-group-item-success"><b>Poverty Commission</b></li>
                                     <li className="list-group-item list-group-item-success"><b>Renfrewshire Council</b></li>
                                     <li className="list-group-item list-group-item-success"><b>YMCA</b></li>
