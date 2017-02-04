@@ -63,6 +63,11 @@
     <icon src="icons/iconoriginal.png" />
     <splash src="icons/splash.png" />
 
+    <preference name="PHOTOLIBRARY_USAGE_DESCRIPTION" default=" " />
+    <config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+        <string>PhoneGap dependency, however not used by the app itself</string>
+    </config-file>
+
     <platform name="android">
         <icon src="icons/res/icons/android/ldpi.png" platform="android" qualifier="ldpi" />
         <icon src="icons/res/icons/android/mdpi.png" platform="android" qualifier="mdpi" />
