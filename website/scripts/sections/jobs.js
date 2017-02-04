@@ -17,7 +17,7 @@ export default class Jobs extends React.Component {
                         </div>
                         <br />
                         <div className='col-md-4'>
-                            <img className='img img-responsive center-block' src='images/job-center.jpg' />
+                            <img className='img img-responsive center-block' src='http://www.youngmoneyren.org/images/job-center.jpg' />
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@ export default class Jobs extends React.Component {
                         </div>
                         <br />
                         <div className='col-md-4'>
-                            <img className='img img-responsive center-block' src='images/sds.png' />
+                            <img className='img img-responsive center-block' src='http://www.youngmoneyren.org/images/sds.png' />
                         </div>
                     </div>
                 </div>
