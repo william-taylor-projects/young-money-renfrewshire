@@ -13,7 +13,7 @@
     <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
-    <preference name="webviewbounce"              value="false" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
+    <preference name="webviewbounce"              value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
     <preference name="prerendered-icon"           value="false" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
     <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
     <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
@@ -49,19 +49,18 @@
     <icon src="icons/iconoriginal.png" />
     <splash src="icons/splash.png" />
 
-    <platform name="android">
-        <icon src="icons/res/icons/android/ldpi.png" platform="android" qualifier="ldpi" />
-        <icon src="icons/res/icons/android/mdpi.png" platform="android" qualifier="mdpi" />
-        <icon src="icons/res/icons/android/hdpi.png" platform="android" qualifier="hdpi" />
-        <icon src="icons/res/icons/android/xhdpi.png" platform="android" qualifier="xhdpi" />
-        <icon src="icons/res/icons/android/xxhdpi.png" platform="android" qualifier="xxhdpi" />
+    <icon src="icons/res/icons/android/ldpi.png" platform="android" qualifier="ldpi" />
+    <icon src="icons/res/icons/android/mdpi.png" platform="android" qualifier="mdpi" />
+    <icon src="icons/res/icons/android/hdpi.png" platform="android" qualifier="hdpi" />
+    <icon src="icons/res/icons/android/xhdpi.png" platform="android" qualifier="xhdpi" />
+    <icon src="icons/res/icons/android/xxhdpi.png" platform="android" qualifier="xxhdpi" />
 
-        <splash src="icons/res/screens/android/screen-ldpi-portrait.png" platform="android" qualifier="ldpi" />
-        <splash src="icons/res/screens/android/screen-mdpi-portrait.png" platform="android" qualifier="mdpi" />
-        <splash src="icons/res/screens/android/screen-hdpi-portrait.png" platform="android" qualifier="hdpi" />
-        <splash src="icons/res/screens/android/screen-xhdpi-portrait.png" platform="android" qualifier="xhdpi" />
-        <splash src="icons/res/screens/android/screen-portrait-xxhdpi-portrait.png" platform="android" qualifier="port-xxhdpi" />
-    </platform>
+    <splash src="icons/res/screens/android/screen-ldpi-portrait.png" platform="android" qualifier="ldpi" />
+    <splash src="icons/res/screens/android/screen-mdpi-portrait.png" platform="android" qualifier="mdpi" />
+    <splash src="icons/res/screens/android/screen-hdpi-portrait.png" platform="android" qualifier="hdpi" />
+    <splash src="icons/res/screens/android/screen-xhdpi-portrait.png" platform="android" qualifier="xhdpi" />
+    <splash src="icons/res/screens/android/screen-portrait-xxhdpi-portrait.png" platform="android" qualifier="port-xxhdpi" />
+
 
     <platform name="ios">
         <!-- iPhone 6 / 6+ -->
