@@ -264,7 +264,6 @@ class BankMap extends React.Component {
           <div className="row">
             <div className='col-md-8'>
             <AutoComplete
-            hintText="Enter a name or search using the map below"
             dataSource={this.sources}
             filter={AutoComplete.caseInsensitiveFilter}
             onUpdateInput={input => this.onFilterName(input)}
