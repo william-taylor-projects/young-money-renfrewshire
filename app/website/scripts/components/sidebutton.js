@@ -13,9 +13,15 @@ export default class SideButton extends React.Component {
             <IconMenu iconButtonElement={<IconButton><MoreVertIcon /></IconButton> }
                 targetOrigin={{horizontal: 'right', vertical: 'top'}}
                 anchorOrigin={{horizontal: 'right', vertical: 'top'}}>
-                <MenuItem onTouchTap={() => open('http://www.renfrewshire.gov.uk/')} primaryText="Renfewshire Council" />
-                <MenuItem onTouchTap={() => open('https://www.barnardos.org.uk/')} primaryText="Barnardos" />
-                <MenuItem onTouchTap={() => open('https://www.ymcascotland.org/locations/paisley/')} primaryText="YMCA" />
+                <a className='nounderline' target='_blank' href='http://www.renfrewshire.gov.uk/'>
+                    <MenuItem primaryText="Renfewshire Council" />
+                </a>
+                <a className='nounderline' target='_blank' href='https://www.barnardos.org.uk/'>
+                    <MenuItem primaryText="Barnardos" />
+                </a>
+                <a className='nounderline' target='_blank' href='https://www.ymcascotland.org/locations/paisley/'>
+                    <MenuItem primaryText="YMCA" />
+                </a>
             </IconMenu>
         );
     }

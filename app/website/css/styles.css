@@ -11,6 +11,12 @@ body {
   margin: 0;
 }
 
+.nounderline:hover {
+    text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-style: none;
+}
+
 .justify {
     text-align: justify;
 }
