@@ -1,12 +1,10 @@
 
 html {
-  height: 100%;
   width: 100%;
   overflow: auto;
 }
 
 body {
-  height: 100%;
   width: 100%;
   padding: 0;
   padding-bottom: 20px;
