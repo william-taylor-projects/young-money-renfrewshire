@@ -11,6 +11,10 @@ body {
   margin: 0;
 }
 
+.justify {
+    text-align: justify;
+}
+
 .noscrollbar::-webkit-scrollbar { 
     display: none; 
 }
