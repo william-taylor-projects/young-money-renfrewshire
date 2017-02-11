@@ -58,7 +58,7 @@ export default class Emergency extends React.Component {
                                             <TableRow key={index}>
                                                 <TableRowColumn style={nameStyle}>{c.name}</TableRowColumn>
                                                 <TableRowColumn style={contactStyle}>
-                                                    <a className={c.name.length == 0 ? 'disabled':''} href={"tel:"+c.phone}>Phone</a>
+                                                    <a className={c.phone.length == 0 ? 'disabled':''} href={"tel:"+c.phone}>Phone</a>
                                                 </TableRowColumn>
                                                 <TableRowColumn style={contactStyle}>
                                                     <a className={c.email.length == 0 ? 'disabled':''} href={'mailto:'+c.email}>Email</a>

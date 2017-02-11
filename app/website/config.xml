@@ -14,7 +14,7 @@
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
     <preference name="webviewbounce"              value="false" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
-    <preference name="prerendered-icon"           value="false" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
+    <preference name="prerendered-icon"           value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
     <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
     <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
     <preference name="detect-data-types"          value="true" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
@@ -61,20 +61,14 @@
     <splash src="icons/res/screens/android/screen-xhdpi-portrait.png" platform="android" qualifier="xhdpi" />
     <splash src="icons/res/screens/android/screen-portrait-xxhdpi-portrait.png" platform="android" qualifier="port-xxhdpi" />
 
-
     <platform name="ios">
-        <!-- iPhone 6 / 6+ -->
         <icon src="icons/res/icons/ios/icon-60-3x.png" platform="ios" width="180" height="180" />
-        <!-- iPhone / iPod Touch  -->
         <icon src="icons/res/icons/ios/icon-60.png" platform="ios" width="60" height="60" />
         <icon src="icons/res/icons/ios/icon-60-2x.png" platform="ios" width="120" height="120" />
-        <!-- iPad -->
         <icon src="icons/res/icons/ios/icon-76.png" platform="ios" width="76" height="76" />
         <icon src="icons/res/icons/ios/icon-76-2x.png" platform="ios" width="152" height="152" />
-        <!-- Settings Icon -->
         <icon src="icons/res/icons/ios/icon-small.png" platform="ios" width="29" height="29" />
         <icon src="icons/res/icons/ios/icon-small-2x.png" platform="ios" width="58" height="58" />
-        <!-- Spotlight Icon -->
         <icon src="icons/res/icons/ios/icon-40.png" platform="ios" width="40" height="40" />
         <icon src="icons/res/icons/ios/icon-40-2x.png" platform="ios" width="80" height="80" />
 

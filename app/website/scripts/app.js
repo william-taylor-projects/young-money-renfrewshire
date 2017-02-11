@@ -129,6 +129,7 @@ class App extends React.Component {
             });
         } else {
             browserHistory.push('/' + name);
+            window.scrollTo(0, 0);
         }
     }
 
