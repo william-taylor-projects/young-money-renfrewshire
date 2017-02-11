@@ -7,7 +7,7 @@ html {
 body {
   width: 100%;
   padding: 0;
-  padding-bottom: 20px;
+  padding-bottom: 75px;
   margin: 0;
 }
 
@@ -16,7 +16,6 @@ body {
 }
 
 #app {
-    margin-bottom: 50px;
     overflow-x: hidden;
 }
 

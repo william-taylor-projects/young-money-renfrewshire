@@ -43,7 +43,7 @@ export default class Emergency extends React.Component {
                             <br/>
                         </div>
                         <div className='col-md-12'>
-                            <Table selectable={false} height={'800px'}>
+                            <Table selectable={false} height={'675px'}>
                                 <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
                                     <TableRow>
                                         <TableHeaderColumn style={nameStyle}><strong>Organisation</strong></TableHeaderColumn>
