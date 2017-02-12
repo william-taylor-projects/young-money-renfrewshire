@@ -16,10 +16,10 @@ export default class SideButton extends React.Component {
                 <a className='nounderline' target='_blank' href='http://www.renfrewshire.gov.uk/'>
                     <MenuItem primaryText="Renfewshire Council" />
                 </a>
-                <a className='nounderline' target='_blank' href='https://www.barnardos.org.uk/'>
+                <a className='nounderline' target='_blank' href='http://www.barnardos.org.uk/'>
                     <MenuItem primaryText="Barnardos" />
                 </a>
-                <a className='nounderline' target='_blank' href='https://www.ymcascotland.org/locations/paisley/'>
+                <a className='nounderline' target='_blank' href='http://www.ymcascotland.org/locations/paisley/'>
                     <MenuItem primaryText="YMCA" />
                 </a>
             </IconMenu>
