@@ -11,6 +11,10 @@ body {
   margin: 0;
 }
 
+.no-overflow {
+    overflow: hidden;
+}
+
 .nounderline:hover {
     text-decoration: none;
     text-decoration-line: none;

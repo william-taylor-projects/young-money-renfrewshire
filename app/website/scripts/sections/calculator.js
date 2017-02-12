@@ -155,7 +155,7 @@ class Calculator extends React.Component {
                        </div>
                      </Tab>
                      <Tab icon={<InsertChart />}>
-                       <div className='container'>
+                       <div className='container no-overflow'>
                          <div className='page-header'>
                           <h1>Analysis</h1>
                          </div>
