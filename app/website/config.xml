@@ -81,7 +81,7 @@
     </platform>
 
     <config-file platform="ios" parent="CFBundleShortVersionString">
-        <string>1.0</string>
+        <string>1.01</string>
     </config-file>
 
     <access origin="*"/>
