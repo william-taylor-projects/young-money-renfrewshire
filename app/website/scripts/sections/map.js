@@ -235,6 +235,12 @@ class BankMap extends React.Component {
       case 3:
         this.attachMarkers(this.props, this.map, 'FA', name);
         break;
+      case 4:
+        this.attachMarkers(this.props, this.map, 'ANY', name);
+        break;
+      case 5:
+        this.attachMarkers(this.props, this.map, 'ANY', name);
+        break;
     }
   }
 
@@ -278,6 +284,8 @@ class BankMap extends React.Component {
               <MenuItem value={1} primaryText="Normal Bank" />
               <MenuItem value={2} primaryText="Credit Union" />
               <MenuItem value={3} primaryText="Financial Advisors" />
+              <MenuItem value={4} primaryText="Housing Associations" />
+              <MenuItem value={5} primaryText="Family Services" />
             </SelectField>
             </div>
             <div className='col-md-12'>
