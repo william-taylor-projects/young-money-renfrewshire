@@ -25,9 +25,6 @@ export default class Home extends React.Component {
                             <br/>
                         </div>
                     </div>
-                    <div style={{marginTop: '-20px'}} className='col-xs-12 text-center'>
-                        <img className='img-responsive img-center' src='http://www.youngmoneyren.org/images/ymr.jpg' />
-                    </div>
                     <div className='row'>
                         <div className='col-xs-4 text-center'>
                             <img className='img-responsive img-center' src='http://www.youngmoneyren.org/images/ymca.jpg' />
