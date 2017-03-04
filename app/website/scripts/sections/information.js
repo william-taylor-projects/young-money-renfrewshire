@@ -60,10 +60,7 @@ const shortTermLoans = [
     {
         name: 'WONGA',
         points: ['£50 - £400', 'Missed Payment Fee £15', 'Late Interest 0.8% per day'],
-        summary: `Borrow	£100 for 13 days
-Interest rate	292% pa (fixed)
-One repayment of	£110.40
-Representative	1,509% APR`
+        summary: 'Borrow £100 for 13 days, Interest rate 292% pa (fixed), One repayment of £110.40, Representative 1,509% APR'
     }
 ]
 

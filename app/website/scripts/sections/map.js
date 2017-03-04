@@ -22,6 +22,7 @@ const style = {
   maxHeight: '150px'
 }
 
+
 class CommentDialog extends React.Component {
   constructor() {
     super();
@@ -155,7 +156,7 @@ class BankMapDialog extends React.Component {
 class BankMap extends React.Component {
   constructor() {
     super();
-    this.state = { type: 0, input: '', dialog: false, marker: {} };
+    this.state = { type: 'ANY', input: '', dialog: false, marker: {} };
     this.sources = [];
     this.markers = [];
   }
@@ -180,8 +181,15 @@ class BankMap extends React.Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    this.sources = nextProps.markers.map(marker => marker.name);
-    this.sources = this.sources.filter((item, index, inputArray) => inputArray.indexOf(item) == index);
+    let sources = nextProps.markers.filter((item, index, inputArray) => {
+      if(item.type == nextState.type || nextState.type == 'ANY') {
+        return item;
+      }
+    });
+
+    this.sources = sources.map(src => src.name).filter((item, index, inputArray) => {
+      return inputArray.indexOf(item) == index;
+    });
   }
 
   shouldAddMarker(marker, filter, name) {
@@ -214,40 +222,21 @@ class BankMap extends React.Component {
     this.markers = [];
   }
 
-  onFilterType(event, number, payload) {
+  onFilterType(event, payload) {
     this.clearMarkers();
-    this.setState({ type: number }, () => {
-      this.filterMarkers(number, this.state.input);
+    this.setState({ type: payload, input: '' }, () => {
+      this.attachMarkers(this.props, this.map, payload, '');
     });
   }
 
   filterMarkers(index, name) {
-    switch(index) {
-      case 0:
-        this.attachMarkers(this.props, this.map, 'ANY', name);
-        break;
-      case 1:
-        this.attachMarkers(this.props, this.map, 'NB', name);
-        break;
-      case 2:
-        this.attachMarkers(this.props, this.map, 'CU', name);
-        break;
-      case 3:
-        this.attachMarkers(this.props, this.map, 'FA', name);
-        break;
-      case 4:
-        this.attachMarkers(this.props, this.map, 'HA', name);
-        break;
-      case 5:
-        this.attachMarkers(this.props, this.map, 'FS', name);
-        break;
-    }
+    this.attachMarkers(this.props, this.map, index, name);
   }
 
   onFilterName(name) {
     this.clearMarkers();
     this.setState({ input: name }, () => {
-        this.filterMarkers(this.state.type, name);
+      this.attachMarkers(this.props, this.map, this.state.type, name);
     });
   }
 
@@ -276,16 +265,17 @@ class BankMap extends React.Component {
             onNewRequest={input => this.onFilterName(input)}
             floatingLabelText="Search by name"
             fullWidth={true}
+            searchText={this.state.input}
             />
             </div>
             <div className='col-md-4'>
-            <SelectField fullWidth={true} floatingLabelText="Type" value={value} onChange={(e, i, p) => this.onFilterType(e, i, p)}>
-              <MenuItem value={0} primaryText="Any" />
-              <MenuItem value={1} primaryText="Normal Bank" />
-              <MenuItem value={2} primaryText="Credit Union" />
-              <MenuItem value={3} primaryText="Financial Advisors" />
-              <MenuItem value={4} primaryText="Housing Associations" />
-              <MenuItem value={5} primaryText="Family Services" />
+            <SelectField fullWidth={true} floatingLabelText="Type" value={value} onChange={(e, i, p) => this.onFilterType(e, p)}>
+              <MenuItem value={'ANY'} primaryText="Any" />
+              <MenuItem value={'NB'} primaryText="Normal Bank" />
+              <MenuItem value={'CU'} primaryText="Credit Union" />
+              <MenuItem value={'FA'} primaryText="Financial Advisors" />
+              <MenuItem value={'HA'} primaryText="Housing Associations" />
+              <MenuItem value={'FS'} primaryText="Family Services" />
             </SelectField>
             </div>
             <div className='col-md-12'>
