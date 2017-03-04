@@ -236,10 +236,10 @@ class BankMap extends React.Component {
         this.attachMarkers(this.props, this.map, 'FA', name);
         break;
       case 4:
-        this.attachMarkers(this.props, this.map, 'ANY', name);
+        this.attachMarkers(this.props, this.map, 'HA', name);
         break;
       case 5:
-        this.attachMarkers(this.props, this.map, 'ANY', name);
+        this.attachMarkers(this.props, this.map, 'FS', name);
         break;
     }
   }
