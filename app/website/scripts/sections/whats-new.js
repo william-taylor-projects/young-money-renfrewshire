@@ -23,7 +23,7 @@ const Update = props => {
             subtitleColor={'#7624ad'}
             />
             <CardText expandable={true}>
-                {props.update.body.S}
+                <p className='justify'>{props.update.body.S}</p>
             </CardText>
         </Card>
     )

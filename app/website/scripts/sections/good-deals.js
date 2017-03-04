@@ -24,7 +24,7 @@ const GoodDeals = props => {
                                         <h4 className="pull-right">£{numeral(deal.price.N).format('0,0.00')}</h4>
                                         <h4><a href={deal.link.S} target='_blank'>{deal.title.S}</a>
                                         </h4>
-                                        <p className='description'>{deal.description.S}</p>
+                                        <p className='description justify'>{deal.description.S}</p>
                                     </div>
                                 </div>
                                 </Paper>

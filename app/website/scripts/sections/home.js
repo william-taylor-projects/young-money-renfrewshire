@@ -19,8 +19,8 @@ export default class Home extends React.Component {
                     <div className='row'>
                         <div className='col-md-12'>
                             <h1>What is YMR?</h1><hr/>
-                            <p>
-                                YMR or Young Money Renfrewshire is an application for young adults under 25 who need help with financial problems or questions. We can help with budgeting, where to find deals and where to find the best advice. This application was built in collaboration with the Poverty Alliance, Barnardo’s staff and Renfrewshire Council.
+                            <p className='justify'>
+                                YMR or Young Money Renfrewshire Is a website for young adults under 25 who need help with financial problems or questions. We can help with budgeting, where to find deals and where to find the best advice. This application was built in collaboration with the Poverty Alliance, Barnardo’s staff and Renfrewshire Council.
                             </p>
                             <br/>
                         </div>

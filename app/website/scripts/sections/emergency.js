@@ -37,10 +37,9 @@ export default class Emergency extends React.Component {
                     <div className='row'>
                         <div className='col-md-12'>
                             <h3>Don't Panic</h3>
-                            <p>
+                            <p className='justify'> 
                                 If you are in a difficult situation don’t panic, there are loads of services provided by your local council and charities to ensure you have help when you need it. You just need to make the right call and there will be people to help you. Find below a list of numbers and email addresses you can use.
                             </p>
-                            <br/>
                         </div>
                         <div className='col-md-12'>
                             <Table selectable={false} height={'675px'}>

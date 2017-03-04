@@ -56,7 +56,6 @@ export default class Jobs extends React.Component {
                             </p>
                             <div className='text-center'>
                                 <RaisedButton onClick={() => open('https://goo.gl/maps/DKmrJK41nbn')} style={style} backgroundColor="#0089A4" label="Paisley" />
-                                <RaisedButton onClick={() => open('https://goo.gl/maps/XHk82QvWBY22')} style={style} backgroundColor="#0089A4" label="Govan" />
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,6 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import React from 'react';
 
 const names = [
-    'Abbie Mcemeny',
     'Ava Blair',
     'Courtney Paul',
     'Erin Taylor',
@@ -15,7 +14,7 @@ const names = [
     'Robbie Mullen',
     'Reegan Watt',
     'Poppy Carlin',
-    'Abbie McMenemy',
+    'Abbie Mcmenemy',
     'Siobhan Innes',
     'Zoe Rogers'
 ];
@@ -39,13 +38,13 @@ export default props => {
                         <div className='row'>
                             <div className='col-md-12'>
                                 <h3>Who are we?</h3><hr/>
-                                <p>
+                                <p className='justify'>
                                    We are a group of Barnardo’s service users with access to funding to help the young people of Renfrewshire. We are tailoring a website to assist other young people in similar situations. We are collaborating with the YMCA and Renfrewshire Council to publish this website which shall be young person friendly and offer specialised local advice trying to meet the needs of everyone. The group members have engaged with local services and met regularly to discuss and gather information which we will then be put onto our website. We are here to help young people access any opportunity to help with money and life management.
                                 </p>
                             </div>
                             <div className='col-md-12'>
                                 <h3>Who’s Funding Us?</h3><hr/>
-                                <p>
+                                <p className='justify'>
                                     We are being sponsored by the Poverty Commission in Renfrewshire Council and Barnardo’s to create an application that can assist young people in Renfrewshire.
                                 </p>
                             </div>

@@ -18,6 +18,7 @@ import Divider from 'material-ui/Divider';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 
 import DownloadLogo from 'material-ui/svg-icons/file/file-download'; 
+import FoodIcon from 'material-ui/svg-icons/maps/restaurant';
 import AdminLogo from 'material-ui/svg-icons/action/account-box';
 import ShopIcon from 'material-ui/svg-icons/action/shopping-cart';
 import MathIcon from 'material-ui/svg-icons/action/assessment';
@@ -65,6 +66,7 @@ export default class Sidebar extends React.Component {
                     <ListItem onClick={() => this.change('deals')} primaryText="Good Deals" leftIcon={<ShopIcon />} />
                     <ListItem onClick={() => this.change('tips')} primaryText="Top Tips" leftIcon={<TopIcon />} />
                     <ListItem onClick={() => this.change('jobs')} primaryText="Jobs & Skills" leftIcon={<WorkIcon />} />
+                    <ListItem onClick={() => this.change('food')} primaryText="Food & Meals" leftIcon={<FoodIcon />} />
                 </List>
                 <Divider />
                 <List>
