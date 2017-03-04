@@ -271,11 +271,12 @@ class BankMap extends React.Component {
             <div className='col-md-4'>
             <SelectField fullWidth={true} floatingLabelText="Type" value={value} onChange={(e, i, p) => this.onFilterType(e, p)}>
               <MenuItem value={'ANY'} primaryText="Any" />
-              <MenuItem value={'NB'} primaryText="Normal Bank" />
-              <MenuItem value={'CU'} primaryText="Credit Union" />
-              <MenuItem value={'FA'} primaryText="Financial Advisors" />
+              <MenuItem value={'NB'} primaryText="Normal Banks" />
+              <MenuItem value={'CU'} primaryText="Credit Unions" />
+              <MenuItem value={'FA'} primaryText="Local Advisors" />
               <MenuItem value={'HA'} primaryText="Housing Associations" />
               <MenuItem value={'FS'} primaryText="Family Services" />
+              <MenuItem value={'CH'} primaryText="Charities" />
             </SelectField>
             </div>
             <div className='col-md-12'>

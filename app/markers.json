@@ -65,14 +65,6 @@
             "link": "http://www.advancedfinancialstrategies.co.uk/"
         },
         {
-            "name": "Active Works",
-            "body": "TODO",
-            "type": "FA",
-            "position": { "lat": 55.835711, "lng": -4.513791 },
-            "address": "25 Church St, Johnston PA5 8DU",
-            "link": ""
-        },
-        {
             "name": "Renfrewshire Council",
             "body": "Always check the local council who can always pass you advice on what to do.",
             "type": "FA",
@@ -91,7 +83,7 @@
         {
             "name": "Home Start",
             "body": "Home-Start Renfrewshire and Inverclyde is a local independent charity which has been set up to give friendship, advice and practical support to families who live in the Renfrewshire and Inverclyde areas and who have at least one child under the age of 5.",
-            "type": "FA",
+            "type": "CH",
             "position": { "lat": 55.851011, "lng": -4.424503 },
             "address": "70 Back Sneedon Street Paisley PA32BY",
             "link": "http://www.home-start-renfrewshire.org.uk/"
@@ -209,32 +201,21 @@
             "link": "http://www.renfrewshirecarers.co.uk/"
         },
         {
-            "name": "First Choice Finance Scotland",
-            "body": "",
-            "type": "",
-            "position": { "lat": 55.842705, "lng": -4.410816 },
-            "address": "The gatehouse, Paisley, PA1 1JS",
-            "link": "https://www.scotlandsfinancialhealthservice.gov.uk/money-advisers/first-choice-finance-scotland-ltd"
-        },
-        {
             "name": "Citizens Advice Bureau",
-            "body": "",
-            "type": "",
+            "body": "Citizens Advice Scotland, our 61 member bureaux and our consumer helpline together form Scotland’s largest independent advice network. We help more than 300,000 people solve their problems each year in communities everywhere from city centres to the Highlands and Islands. And we look at the problems people bring to our advice services and campaign for change where it’s needed most. We work for a fairer Scotland where people are empowered and their rights respected.",
+            "type": "FA",
             "position": { "lat": 55.846910, "lng": -4.415714 },
             "address": "7 Glasgow road, Paisley, PA1 3QS",
             "link": "http://www.cas.org.uk/bureaux/renfrewshire-citizens-advice-bureau"
         },
         {
             "name": "Christians against poverty",
-            "body": "",
-            "type": "",
+            "body": "We exist because nobody should be held hostage by debt and poverty. But the truth is that they are rife in the UK. In a society where people live behind closed doors, thousands are desperately poor. Unable to feed their children, incapable of paying to heat their homes in winter, the grip of poverty is relentless. It breaks families apart and drives many to think that suicide is the only solution. We are passionate about releasing people in our nation from a life sentence of debt, poverty and their causes. Through our services, which are all run through local churches, we are tackling poverty head on. Our vision is to bring freedom and good news to people in every community through 1,000 CAP projects by 2021.",
+            "type": "CH",
             "position": { "lat": 55.842107, "lng": -4.422480 },
             "address": "20 Gordon street, Paisley, PA1 1XD",
             "link": "https://capuk.org/i-want-help/our-services/cap-debt-help/help-in-scotland"
         },
-
-
-        // housing associations
         {
             "name": "Linstone Housing Association",
             "body": "Linstone Housing Association was set up in 1998 following a stock transfer from Scottish Homes. With around 1570 properties, we are one of the largest housing associations in Renfrewshire and most of our houses are in Linwood and Johnstone – hence the name.",
