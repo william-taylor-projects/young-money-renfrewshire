@@ -72,7 +72,7 @@ export default class Sidebar extends React.Component {
                 <List>
                     <Subheader>Tools</Subheader>
                     <ListItem onClick={() => this.change('calculator')} primaryText="Calculator" leftIcon={<MathIcon />} />
-                    <ListItem onClick={() => this.change('map')} primaryText="Bank Map" leftIcon={<MapIcon />} />
+                    <ListItem onClick={() => this.change('map')} primaryText="Local Map" leftIcon={<MapIcon />} />
                     {
                         this.showDownload() ? 
                             <ListItem onClick={() => this.change('download')} primaryText="Download" leftIcon={<DownloadLogo />} /> : null

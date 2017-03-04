@@ -32,6 +32,7 @@ import BankMap from './sections/map.js';
 import Home from './sections/home.js';
 import Admin from './sections/admin.js';
 import Jobs from './sections/jobs.js';
+import Food from './sections/food.js';
 
 const applicationTitle = "Young Money Ren";
 const customTheme = bootstrapTheme();
@@ -165,6 +166,7 @@ class App extends React.Component {
                             <Route path="/tips" component={TopTips}  />
                             <Route path="/new" component={WhatsNew}  />
                             <Route path="/calculator" component={Calculator} />
+                            <Route path="/food" component={Food} />
                             <Route path="/admin" component={Admin}  />
                             <Route path="/map" component={BankMap} />
                             <Route path="/jobs" component={Jobs} />
