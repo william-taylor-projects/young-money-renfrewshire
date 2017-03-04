@@ -81,14 +81,6 @@
             "link": "http://www.renfrewshire.gov.uk/"
         },
         {
-            "name": "Families First",
-            "body": "We bring a range of existing council, health and voluntary services together under the Families First banner to make them easier to find and easier to use.",
-            "type": "FA",
-            "position": { "lat": 55.848856, "lng": -4.452681 },
-            "address": "Paisley PA3 1NS",
-            "link": "http://www.renfrewshire.gov.uk/article/2888/Families-First-Renfrewshire"
-        },
-        {
             "name": "Barnardos Threads",
             "body": "Barnardo’s Threads supports parents, carers and families in the community and in diverse cultural circumstances. Guidance and advice aimed at supporting vulnerable children and their families.",
             "type": "FA",
@@ -167,6 +159,121 @@
             "position": { "lat": 55.844667, "lng": -4.422559 },
             "address": "1 Causeyside St, Paisley PA1 1UW",
             "link": "http://www.cbonline.co.uk/"
+        },
+        {
+            "name": "Families First Ferguslie",
+            "body": "We bring a range of existing council, health and voluntary services together under the Families First banner to make them easier to find and easier to use.",
+            "type": "FS",
+            "position": { "lat": 55.848856, "lng": -4.452681 },
+            "address": "Glencoats Primary School, Paisley PA3 1NS",
+            "link": "http://www.renfrewshire.gov.uk/article/2888/Families-First-Renfrewshire"
+        },
+        {
+            "name": "Families First Gallowhill",
+            "body": "We bring a range of existing council, health and voluntary services together under the Families First banner to make them easier to find and easier to use.",
+            "type": "FS",
+            "position": { "lat": 55.856059 , "lng": -4.405666 },
+            "address": "Gallowhill primary school, Paisley PA3 4SF",
+            "link": "http://www.renfrewshire.gov.uk/article/2888/Families-First-Renfrewshire"
+        },
+        {
+            "name": "Families First Linwood",
+            "body": "We bring a range of existing council, health and voluntary services together under the Families First banner to make them easier to find and easier to use.",
+            "type": "FS",
+            "position": { "lat": 55.847342, "lng": -4.502421 },
+            "address": "Woodlands primary school, Linwood, PA3 3EX",
+            "link": "http://www.renfrewshire.gov.uk/article/2888/Families-First-Renfrewshire"
+        },
+        {
+            "name": "Families First Johnstone",
+            "body": "We bring a range of existing council, health and voluntary services together under the Families First banner to make them easier to find and easier to use.",
+            "type": "FS",
+            "position": { "lat": 55.826770, "lng": -4.501466 },
+            "address": "Auchenlodment primary school, Johnstone, PA5 9QQ",
+            "link": "http://www.renfrewshire.gov.uk/article/2888/Families-First-Renfrewshire"
+        },
+        {
+            "name": "Families First Foxbar",
+            "body": "We bring a range of existing council, health and voluntary services together under the Families First banner to make them easier to find and easier to use.",
+            "type": "FS",
+            "position": { "lat": 55.826770, "lng": -4.501466 },
+            "address": "Heriot primary school, Foxbar, PA2 0DS",
+            "link": "http://www.renfrewshire.gov.uk/article/2888/Families-First-Renfrewshire"
+        },
+        {
+            "name": "Renfrewshire Carers Centre",
+            "body": "Renfrewshire Carers Centre offers a variety of different services to support you in your caring role. If you are interested in contacting us about any of our services it's easy - you can use the contact us section of this website or email enquiries@renfrewshirecarers.org.uk or telephone 0141 887 3643.  We also offer a drop in service for carers, please see here for our opening hours.",
+            "type": "FS",
+            "position": { "lat": 55.842335, "lng": -4.416006 },
+            "address": "Unit 55/Embroidery mill/ Abbey mill business centre, Paisley, PA1 1JT",
+            "link": "http://www.renfrewshirecarers.co.uk/"
+        },
+        {
+            "name": "First Choice Finance Scotland",
+            "body": "",
+            "type": "",
+            "position": { "lat": 55.842705, "lng": -4.410816 },
+            "address": "The gatehouse, Paisley, PA1 1JS",
+            "link": "https://www.scotlandsfinancialhealthservice.gov.uk/money-advisers/first-choice-finance-scotland-ltd"
+        },
+        {
+            "name": "Citizens Advice Bureau",
+            "body": "",
+            "type": "",
+            "position": { "lat": 55.846910, "lng": -4.415714 },
+            "address": "7 Glasgow road, Paisley, PA1 3QS",
+            "link": "http://www.cas.org.uk/bureaux/renfrewshire-citizens-advice-bureau"
+        },
+        {
+            "name": "Christians against poverty",
+            "body": "",
+            "type": "",
+            "position": { "lat": 55.842107, "lng": -4.422480 },
+            "address": "20 Gordon street, Paisley, PA1 1XD",
+            "link": "https://capuk.org/i-want-help/our-services/cap-debt-help/help-in-scotland"
+        },
+
+
+        // housing associations
+        {
+            "name": "Linstone Housing Association",
+            "body": "Linstone Housing Association was set up in 1998 following a stock transfer from Scottish Homes. With around 1570 properties, we are one of the largest housing associations in Renfrewshire and most of our houses are in Linwood and Johnstone – hence the name.",
+            "type": "HA",
+            "position": { "lat": 55.847833, "lng": -4.489270 },
+            "address": "17 bridge street, Linwood, PA3 3DB",
+            "link": "http://www.linstone.co.uk/"
+        },
+        {
+            "name": "Bridgewater Housing Association",
+            "body": "The Core Housing Services that Bridgewater delivers are summarised as follows: Housing Management Services, including Estate Management, Lettings and Resident Involvement, Tenant Participation and Rent Arrears Management. Property Management including Planned and Responsive Repairs and Factoring. Development of Social Housing including purpose built complexes for people with particular needs.",
+            "type": "HA",
+            "position": { "lat": 55.903874, "lng": 4.448512 },
+            "address": "1st floor, Bridgewater shopping centre, Erskine, PA8 7AA",
+            "link": "http://www.bridgewaterha.org.uk"
+        },
+        {
+            "name": "Key Housing Association",
+            "body": "KEY provides purpose-built housing in 15 local authority areas as follows: Argyll & Bute, Clackmannanshire, Dumfries&Galloway, East Ayrshire, East Dunbartonshire, Falkirk, Glasgow, Highland, Inverclyde, North Ayrshire, North Lanarkshire, Renfrewshire, South Lanarkshire, Stirling, West Dunbartonshire. If you would like further details of where our housing is located then please get in touch with our housing department at our main Glasgow office.",
+            "type": "HA",
+            "position": { "lat": 55.873448, "lng": -4.396111 },
+            "address": "6 Albert Road, Renfrew, PA4 8ET",
+            "link": "www.KeyHousing.org"
+        },
+        {
+            "name": "Loretto Care Housing Association",
+            "body": "Welcome to the website of Loretto Housing Association. Loretto Housing Association works closely with our public sector funding partners - the Scottish Government and Local Authorities - to provide housing, care and support to those in greatest need. We have more than 1200 affordable homes in the central belt. Through our subsidiary company Loretto Care we also provide care and support services to around 1800 people.",
+            "type": "HA",
+            "position": { "lat": 55.848729, "lng": -4.421908 },
+            "address": "17 Abercorn Street, Paisley, PA3 4AA",
+            "link": "http://www.lorettoha.co.uk"
+        },
+        {
+            "name": "Paisley South Housing Association",
+            "body": "We are a not-for-profit organisation, formed by local people concerned at the lack of affordable housing in our communities. We have been a Registered Social Landlord since 1984 and a Scottish Charity from 2004. We are an independent body, accountable to our membership. A copy of the Rules of the Association can be downloaded from related documents at the bottom of the page.",
+            "type": "HA",
+            "position": { "lat": 55.834635, "lng": -4.421543 },
+            "address": "64 Espedair Street, Paisley, PA2 6RW",
+            "link": "http://www.scottishhousingconnections.org/HA/Paisley-South/"
         }
     ]
 }
