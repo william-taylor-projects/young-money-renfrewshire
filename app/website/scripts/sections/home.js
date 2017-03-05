@@ -11,7 +11,7 @@ export default class Home extends React.Component {
                     <div className="container">
                         <div className="jumbotron">
                             <h1 className='text-center'>Young Money Renfrewshire</h1>
-                            <p className='text-center'>Friendly local advice brought and designed for you</p>
+                            <p className='text-center'>Friendly local advice made and designed for you</p>
                         </div>    
                     </div>
                 </div>
@@ -20,7 +20,7 @@ export default class Home extends React.Component {
                         <div className='col-md-12'>
                             <h1>What is YMR?</h1><hr/>
                             <p className='justify'>
-                                YMR or Young Money Renfrewshire Is a website for young adults under 25 who need help with financial problems or questions. We can help with budgeting, where to find deals and where to find the best advice. This application was built in collaboration with the Poverty Alliance, Barnardo’s staff and Renfrewshire Council.
+                                YMR or Young Money Renfrewshire is a website for young adults under 25 who need help with financial problems or questions. We can help with budgeting, where to find deals and where to find the best advice. This application was built in collaboration with the Poverty Alliance, Barnardo’s staff and Renfrewshire Council.
                             </p>
                             <br/>
                         </div>

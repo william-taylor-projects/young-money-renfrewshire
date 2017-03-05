@@ -41,7 +41,7 @@ const shortTermLoans = [
     {
         name: 'PROVIDENT',
         points: ['£100 - £1000', 'The maximum APR for a loan is 1557.7%.'],
-        summary: '£200 loan over 26 weeks - 26 payments of £12 a week. Interest 112%. PA Fixed. Representative 535.3% APR. Total payable £312.'
+        summary: '£200 loan over 26 weeks. 26 payments of £12 a week. Interest 112%. PA Fixed. Representative 535.3% APR. Total payable £312.'
     },
     {
         name: 'QUICKQUID',
@@ -50,12 +50,12 @@ const shortTermLoans = [
             '1295% APR Representative.',
             'Late fee up to £15.'
         ],
-        summary: '£200 for 84 days. Total repayment of £334.40. Interest: £134.40. Interest rate: 292% pa (fixed). 1295% APR Representative.'
+        summary: '£200 for 84 days. Total repayment of £334.40. Interest: £134.40. Interest rate: 292% pa (fixed). 1295% APR.'
     },
     {
         name: 'AMIGO',
         points: ['£500 - £7500', '49.9% APR'],
-        summary: 'Representative Example: Borrowing £4000 over 36 months, repaying £195.16 per month, total repayable £7,025.76. Interest rate 49.9% (variable).'
+        summary: 'Borrowing £4000 over 36 months, repaying £195.16 per month, total repayable £7,025.76. Interest rate 49.9% (variable).'
     },
     {
         name: 'WONGA',
@@ -72,7 +72,7 @@ export default props => {
                     <div className="jumbotron">
                         <h1>Information</h1>
                         <p className='information-summary'>
-                            Who we are, useful Videos and Loan info.
+                            Who we are, useful videos and loan info.
                         </p>
                     </div>
                 </div>
@@ -156,7 +156,6 @@ export default props => {
                             <p className='justify'>
                                 Short term loans are dangerous and you should avoid them at all costs. If you need to borrow cash look to friends, family your local bank or speak to a financial advisor. Short term loans have large costs for the loans you take. Below you will find examples of these loans. Pay attention to the total amount paid compared to the amount borrowed.
                             </p>
-                            <h4>Examples</h4><hr/>
                             {
                                 shortTermLoans.map((company, index) => {
                                     return <ShortLoan key={index} company={company} />
@@ -166,7 +165,8 @@ export default props => {
                         <div className='col-md-12'>
                             <h3>APR</h3><hr/>
                             <p className='justify'>
-                                APR stands for the Annual Percentage Rate of charge. You can use it to compare different credit and loan offers. The APR takes into account not just the interest on the loan but also other charges you have to pay, for example, any arrangement fee. All lenders have to tell you what their APR is before you sign an agreement. It will vary from lender to lender. Remember no loan is free. If you take out a loan you will always pay more than you are given. So do your research before taking out any loan!
+                                APR stands for the Annual Percentage Rate of charge. You can use it to compare different credit and loan offers. The APR considers not just the interest on the loan but also other charges you must pay, for example, any arrangement fee. All lenders must tell you what their APR is before you sign an agreement. It will vary from lender to lender. Remember no loan is free. If you take out a loan you will always pay more than you are given. So, do your research before taking out any loan!
+
                             </p>
                         </div>
                     </div>
