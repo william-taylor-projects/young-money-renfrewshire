@@ -4,11 +4,11 @@
 
 # Young Money Renfrewshire
 
-Young Money Renfrewshire is a custom tailored website for the charity Barnardos. It is an application for under 25s who can help with your financial problems. We can help with budgeting, where to find deals and where to find the best advice. The application was built in collaboration with the Poverty Alliance, Barnardos staff and Renfewshire Council.
+Young Money Renfrewshire is a custom-tailored website and mobile application for the charity Barnardo’s. It is an application for under 25s which can help with various financial problems. The app helps with budgeting, where to find deals and where to find the best advice. The application was built in collaboration with the Poverty Alliance, Barnardo’s staff and Renfrewshire Council.
 
-## Introduction
+## Overview
 
-Youngmoneyren.org was a custom made website for Barnardos. It provides information on local financial services in the Renfrewshire council area and a selection of tools as well. It was designed to be a write once run anywhere app and uses Electron and PhoneGap to bring it to the desktop and mobile. The tools it provides include a monthly calculator providing a forecast for monthly finances and breaks the information down for the user. There is also a Bank Map tool which highlights local banks, credit unions and financial services in Paisley. Finally, there is an admin dashboard so data on the website can be changed dynamically to users.
+The application was designed to be a write once run anywhere app and uses Electron and PhoneGap to bring it to the desktop and mobile. The tools it provides include a monthly calculator providing a forecast for monthly finances and breaks the information down for the user. There is also a Local Map tool which highlights local banks, credit unions and financial services in Paisley. Finally, there is an admin dashboard so data on the website can be changed dynamically to users.
 
 ## Requirements
 
