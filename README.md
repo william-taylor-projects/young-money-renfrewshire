@@ -2,7 +2,7 @@
 
 <img align='right' width='150' height='150' src="app/website/icons/iconoriginal.png" />
 
-# Young Money Renfrewshire
+# Young Money Renfrewshire &nbsp; [![Build status](https://travis-ci.org/william-taylor//young-money-renfrewshire.svg?branch=master)](https://travis-ci.org/william-taylor/young-money-renfrewshire) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Young Money Renfrewshire is a custom-tailored website and mobile application for the charity Barnardo’s. It is an application for under 25s which can help with various financial problems. The app helps with budgeting, where to find deals and where to find the best advice. The application was built in collaboration with the Poverty Alliance, Barnardo’s staff and Renfrewshire Council.
 
