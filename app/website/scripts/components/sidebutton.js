@@ -16,7 +16,7 @@ export default class SideButton extends React.Component {
                 <MenuItem onTouchTap={() => open('http://www.investinrenfrewshire.com/')} primaryText="Invest in Renfrewshire" />
                 <MenuItem onTouchTap={() => open('http://www.renfrewshire.gov.uk/')} primaryText="Renfewshire Council" />
                 <MenuItem onTouchTap={() => open('http://www.barnardos.org.uk/')} primaryText="Barnardos" />
-                <MenuItem onTouchTap={() => open('http://www.ymcascotland.org/locations/paisley/')} primaryText="YMCA" />
+                <MenuItem onTouchTap={() => open('http://www.ymcascotland.org/locations/paisley/')} primaryText="YMCA Paisley" />
             </IconMenu>
         );
     }
