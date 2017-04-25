@@ -84,7 +84,7 @@ export default props => {
                             <div className='col-md-12'>
                                 <h3>Who are we?</h3><hr/>
                                 <p className='justify'>
-                                   We are a group of Barnardo’s service users with access to funding to help the young people of Renfrewshire. We are tailoring a website to assist other young people in similar situations. We are collaborating with the YMCA and Renfrewshire Council to publish this website which shall be young person friendly and offer specialised local advice trying to meet the needs of everyone. The group members have engaged with local services and met regularly to discuss and gather information which we will then be put onto our website. We are here to help young people access any opportunity to help with money and life management.
+                                   We are a group of Barnardo’s service users with access to funding to help the young people of Renfrewshire. We are tailoring a website to assist other young people in similar situations. We are collaborating with YMCA Paisley and Renfrewshire Council to publish this website which shall be young person friendly and offer specialised local advice trying to meet the needs of everyone. The group members have engaged with local services and met regularly to discuss and gather information which we will then be put onto our website. We are here to help young people access any opportunity to help with money and life management.
                                 </p>
                             </div>
                             <div className='col-md-12'>
@@ -105,7 +105,7 @@ export default props => {
                                     <li className="list-group-item list-group-item-success"><b>Barnardo's</b></li>
                                     <li className="list-group-item list-group-item-success"><b>Poverty Commission</b></li>
                                     <li className="list-group-item list-group-item-success"><b>Renfrewshire Council</b></li>
-                                    <li className="list-group-item list-group-item-success"><b>YMCA</b></li>
+                                    <li className="list-group-item list-group-item-success"><b>YMCA Paisley</b></li>
                                     {
                                         names.map((name, index) => {
                                             return (
