@@ -14,7 +14,8 @@ Young Money Renfrewshire is a custom-tailored website and mobile application for
 * Webpack
 * DynamoDB
 * Amazon Web Services
-* EC2 
+    * DynamoDB
+    * EC2
 
 ## License
 
