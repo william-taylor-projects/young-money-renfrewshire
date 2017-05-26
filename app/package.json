@@ -5,7 +5,7 @@
   "description": "Quick mockup of my idea for a charity",
   "main": "electron-entry.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "start": "node server.js",
     "build-win": "electron-packager ./ --version=1.4.6 --icon=./icon.ico --platform=win32 --arch=ia32 --overwrite",
     "build-mac": "electron-packager ./ --version=1.4.6 --icon=./icon.icns --overwrite"
