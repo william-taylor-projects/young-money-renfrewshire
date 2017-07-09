@@ -12,7 +12,7 @@ const decrypt = (text, key) => {
 
 exports.getConfig = () => {
     const key = process.argv[process.argv.length-1];
-    const file = fs.readFileSync("./json/config.json", 'utf8');
+    const file = fs.readFileSync(`${__dirname}/../json/config.json`, 'utf8');
     const obj = JSON.parse(file.replace(/^\uFEFF/, ''));
 
     return {

@@ -1,5 +1,5 @@
 
-const config = require('./json/aws-config.js');
+const config = require(`${__dirname}/aws-config.js`);
 const amazon = require('aws-sdk');
 const express = require('express');
 const router = express.Router();

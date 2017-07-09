@@ -3,7 +3,7 @@ const express = require('express');
 const crypto = require('crypto');
 const fs = require('fs');
 
-const loginData = JSON.parse(fs.readFileSync('./json/passwords.json'));
+const loginData = JSON.parse(fs.readFileSync(`${__dirname}/../json/passwords.json`));
 const decrypt = (text, key) => {
     const decipher = crypto.createDecipher('aes-256-ctr', key)
     let dec = decipher.update(text, 'hex', 'utf8')

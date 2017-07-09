@@ -1,9 +1,9 @@
 
-const markerService = require('./services/marker-service.js');
-const dealsService = require('./services/deals-service.js');
-const adminService = require('./services/admin-service.js');
-const newsService = require('./services/news-service.js');
-const tipsService = require('./services/tips-service.js');
+const markerService = require(`${__dirname}/services/marker-service.js`);
+const dealsService = require(`${__dirname}/services/deals-service.js`);
+const adminService = require(`${__dirname}/services/admin-service.js`);
+const newsService = require(`${__dirname}/services/news-service.js`);
+const tipsService = require(`${__dirname}/services/tips-service.js`);
 
 module.exports = app => {
   app.use('/markers', markerService);
