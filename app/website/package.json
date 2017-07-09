@@ -5,6 +5,7 @@
   "main": "build/app.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack .",
     "dev": "webpack --watch",
     "build": "webpack --p && minify css/bootstrap.css && minify css/styles.css && minify css/spinner.css"
   },
@@ -19,7 +20,7 @@
     "babel-preset-react": "^6.16.0",
     "ismobilejs": "^0.4.0",
     "numeral": "^2.0.0",
-    "webpack": "^1.14.0"
+    "webpack": "2.4.0"
   },
   "dependencies": {
     "es6-promise": "^4.0.5",

@@ -5,7 +5,7 @@ const fs = require('fs');
 const router = express.Router();
 
 router.get('/get', (req, res) => {
-    const tips = JSON.parse(fs.readFileSync('./tips.json')).tips;
+    const tips = JSON.parse(fs.readFileSync('./json/tips.json')).tips;
     res.json({ 'tips': tips });
 })
 
