@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "productName": "Young Money Renfrewshire",
+  "version": "1.0.0",
+  "description": "Quick mockup of my idea for a charity",
+  "main": "electron-entry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/william-taylor/barnardos-prototype.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/william-taylor/barnardos-prototype/issues"
+  },
+  "homepage": "https://github.com/william-taylor/barnardos-prototype#readme",
+  "dependencies": {
+    "aws-sdk": "^2.7.7",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0"
+  }
+}

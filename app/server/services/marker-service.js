@@ -1,5 +1,5 @@
 
-const config = require('./aws-config.js');
+const config = require('./json/aws-config.js');
 const amazon = require('aws-sdk');
 const express = require('express');
 const router = express.Router();
@@ -22,7 +22,7 @@ const fetchMarkers = action => {
             console.log(err);
             action([]);
         } else {
-            const markers =  JSON.parse(fs.readFileSync('./markers.json')).markers;
+            const markers =  JSON.parse(fs.readFileSync('./json/markers.json')).markers;
             markers.forEach(marker => {
                 marker.comments = marker.comments || [];
                 comments.Items.forEach(comment => {
