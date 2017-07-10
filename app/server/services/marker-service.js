@@ -22,7 +22,7 @@ const fetchMarkers = action => {
             console.log(err);
             action([]);
         } else {
-            const markers =  JSON.parse(fs.readFileSync(`${__dirname}../json/markers.json`)).markers;
+            const markers =  JSON.parse(fs.readFileSync(`${__dirname}/../json/markers.json`)).markers;
             markers.forEach(marker => {
                 marker.comments = marker.comments || [];
                 comments.Items.forEach(comment => {
