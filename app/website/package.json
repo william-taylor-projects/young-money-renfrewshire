@@ -4,10 +4,9 @@
   "description": "",
   "main": "build/app.min.js",
   "scripts": {
-    "test": "echo \"Error: no test written\" && exit 0",
-    "webpack": "webpack .",
-    "dev": "webpack --watch",
-    "build": "webpack --p && minify css/bootstrap.css && minify css/styles.css && minify css/spinner.css"
+    "test": "echo \"No test written\" && exit 0",
+    "watch": "webpack --watch",
+    "build": "webpack --p"
   },
   "author": "",
   "license": "ISC",
@@ -26,7 +25,7 @@
     "es6-promise": "^4.0.5",
     "material-ui": "0.16.5",
     "moment": "^2.17.1",
-    "numeral": "1.5.3",
+    "numeral": "^2.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.1",

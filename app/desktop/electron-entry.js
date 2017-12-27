@@ -38,7 +38,7 @@ function writeCacheFile() {
     const cache =  JSON.stringify({ time: Date.now() });
     fs.writeFileSync(`${__dirname}/cache.json`, cache, 'utf8');
   } catch (e) {
-    // ignore
+    console.error(e);
   }
 }
 
@@ -56,7 +56,7 @@ function readCacheFile(headers) {
       writeCacheFile();
     }
   } catch(e) {
-    // ignore
+    console.error(e);
   }
 }
 
